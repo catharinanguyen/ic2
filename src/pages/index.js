@@ -30,8 +30,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className='h-full w-full max-w-[1180px] max-h-[820px] m-auto relative'>
-        <div className='bg-black flex flex-1'>
+      <div className='bg-black h-full w-full max-w-[1180px] max-h-[820px] m-auto relative'>
+        <div className='flex flex-1'>
           <div className='w-fit h-fit max-h-[820px]'>
             <img src="/images/left-pane.svg" alt="left-pane" className=" object-contain w-fit h-fit max-h-[820px]" />
           </div>
