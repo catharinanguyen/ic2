@@ -1,3 +1,5 @@
+import Image from "next/image";
+
 import ControlBar from "../components/ControlBar";
 import image from "../../public/icons";
 
