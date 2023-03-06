@@ -1,5 +1,8 @@
-import Image from "next/image";
 import React, { useState } from "react";
+
+import Image from "next/image";
+import Link from "next/link";
+
 import image from "../../public/icons";
 
 const ControlBar = () => {
@@ -16,7 +19,7 @@ const ControlBar = () => {
       <div className="mb-[20px]">
         <h3>Themes</h3>
         <div>
-          <button className="button w-full" value={value} onClick={() => {}}>
+          <button className="button w-full" value={value} onClick={() => { }}>
             Sophisticated
           </button>
         </div>
@@ -102,12 +105,14 @@ const ControlBar = () => {
           </button>
         </div>
       </div>
-      <button
-        type="button"
-        className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
-      >
-        Done
-      </button>
+      <Link href="/">
+        <button
+          type="button"
+          className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
+        >
+          Done
+        </button>
+      </Link>
     </div>
   );
 };

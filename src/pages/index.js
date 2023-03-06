@@ -8,7 +8,7 @@ import Button4 from '@/components/Button4';
 import Button5 from '@/components/Button5';
 import Button7 from '@/components/Button7';
 import Button8 from '@/components/Button8';
-import Button9 from '@/components/Button9';
+import SettingsButton from '@/components/SettingsButton';
 
 
 export default function Home() {
@@ -86,7 +86,7 @@ export default function Home() {
             <Button4 />
             <Button7 />
             <Button8 />
-            <Button9 />
+            <SettingsButton />
           </div>
         )}
       </div>
