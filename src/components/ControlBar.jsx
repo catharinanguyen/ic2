@@ -10,7 +10,7 @@ const ControlBar = () => {
   return (
     <div className="relative pb-[84px]">
       <div className="mb-[20px]">
-        <h3>Themes</h3>
+        <h3 className="font-semibold">Themes</h3>
         <div>
           <button
             className="button w-full"
@@ -23,18 +23,18 @@ const ControlBar = () => {
         </div>
       </div>
       <div className="mb-[20px]">
-        <h3>Text size</h3>
+        <h3 className="font-semibold">Text size</h3>
         <div className="flex">
-          <button className="button mr-[10px]" type="button">
+          <button className="button text-[16px] px-6 mr-[10px]" type="button">
             Compact
           </button>
-          <button className="button" type="button">
+          <button className="button text-[16px] px-6" type="button">
             Comfortable
           </button>
         </div>
       </div>
       <div className="mb-[20px]">
-        <h3>Colors</h3>
+        <h3 className="font-semibold">Colors</h3>
         <div>
           <button
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
@@ -48,7 +48,7 @@ const ControlBar = () => {
         </div>
       </div>
       <div className="mb-[20px]">
-        <h3>Layouts</h3>
+        <h3 className="font-semibold">Layouts</h3>
 
         <div className="flex flex-wrap">
           <button>
