@@ -4,7 +4,8 @@
 
 @layer components {
   .card {
-    padding: theme("spacing.6");
+    color: theme("colors.white");
+    padding: 25px;
     box-shadow: theme("boxShadow.xl");
     @apply bg-gradient-to-r from-[theme("colors.card")] to-[theme("colors.card1")] flex items-center justify-center;
   }
@@ -59,6 +60,8 @@
   --callout-border-rgb: 172, 175, 176;
   --card-rgb: 180, 185, 188;
   --card-border-rgb: 131, 134, 135;
+
+  --background: theme("colors.black");
 }
 
 @media (prefers-color-scheme: dark) {

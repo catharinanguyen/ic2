@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -14,9 +16,10 @@ module.exports = {
       white: "#ffffff",
       blue: "#0056FE",
       green: "#04D5B7",
+      border_green: "#00816E",
       card: "rgba(26, 36, 51, 0.8)",
       card1: "rgba(32, 71, 94, 0.8)",
-      black: "#0000",
+      black: "#000",
     },
     fontFamily: {
       sans: ["Montserrat", "sans-serif"],
