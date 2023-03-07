@@ -1,9 +1,15 @@
+import { useDispatch } from "react-redux";
+
 import Image from "next/image";
+
+import { setPage } from '../store/slices/appStatusSlice';
 
 import ControlBar from "../components/ControlBar";
 import image from "../../public/icons";
 
 const Management = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
       <div className="bg-black flex flex-1">
@@ -30,7 +36,11 @@ const Management = () => {
                   <button className="w-[64px]" type="button">
                     <Image src={image.Layout08} alt="Layout two" />
                   </button>
-                  <button className="w-[64px]" type="button">
+                  <button
+                    className="w-[64px]"
+                    type="button"
+                    onClick={() => dispatch(setPage(2))}
+                  >
                     <Image src={image.Layout09} alt="Layout three" />
                   </button>
                   <button className="w-[64px]" type="button">
