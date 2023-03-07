@@ -1,8 +1,10 @@
-import { useTheme } from "next-themes";
+import React, { useState } from "react";
+
 import Image from "next/image";
+import Link from "next/link";
+
 import image from "../../public/icons";
 import Themes from "./themes";
-import { useState } from "react";
 
 const ControlBar = () => {
   const [showThemes, setShowThemes] = useState(false);
@@ -102,12 +104,14 @@ const ControlBar = () => {
           </button>
         </div>
       </div>
-      <button
-        type="button"
-        className="absolute top-full left-0 rounded-[8px] bg-green w-full p-4 flex items-center justify-center"
-      >
-        Done
-      </button>
+      <Link className="absolute top-full left-0 w-full" href="/">
+        <button
+          type="button"
+          className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
+        >
+          Done
+        </button>
+      </Link>
     </div>
   );
 };

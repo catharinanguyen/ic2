@@ -8,7 +8,7 @@ import Button4 from "@/components/Button4";
 import Button5 from "@/components/Button5";
 import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
-import Button9 from "@/components/Button9";
+import SettingsButton from "@/components/SettingsButton";
 
 export default function Home() {
   const [localState, updateLocalState] = useReducer(
@@ -28,8 +28,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
-        <div className="bg-black flex flex-1">
+      <div className="bg-black h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
+        <div className="flex flex-1">
           <div className="w-fit h-fit max-h-[820px]">
             <img
               src="/images/left-pane.svg"
@@ -98,7 +98,7 @@ export default function Home() {
             <Button4 />
             <Button7 />
             <Button8 />
-            <Button9 />
+            <SettingsButton />
           </div>
         )}
       </div>
