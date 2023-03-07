@@ -1,14 +1,30 @@
-import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import Image from "next/image";
-
-import { setPage } from '../store/slices/appStatusSlice';
+import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
 import ControlBar from "../components/ControlBar";
-import image from "../../public/icons";
+import PageEditActionBar from "@/components/PageEditActionBar";
+import OneCol2CellsLayout from "@/components/layouts/OneCol2CellsLayout";
+import { selectPageInfo } from "@/store/slices/pagesSlice";
+import { LAYOUT_TYPES } from "@/constants/constants";
 
 const Management = () => {
-  const dispatch = useDispatch();
+  const gCurrentPage = useSelector(selectCurrentPage);
+  const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+
+  const renderLayout = () => {
+    if (!gPageInfo) {
+      return <div />;
+    }
+    const { layout } = gPageInfo;
+    switch (layout) {
+      case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
+        return <OneCol2CellsLayout />;
+      default:
+        // TODO: implement other layouts here
+        return <div />
+    }
+  }
 
   return (
     <div className="h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
@@ -18,38 +34,12 @@ const Management = () => {
         </div>
         <div className="w-full max-h-[820px] items-center justify-center">
           <div className="h-[800px]">
-            <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
-              <div className="row-span-4 card">
-                <Image src={image.Map} alt="Map" />
+            <div className="grid grid-cols-2 grid-rows-2 mx-auto p-2 box-border h-full">
+              <div className="row-span-2 col-span-2">
+                {renderLayout()}
               </div>
-              <div className="row-span-2 card">
-                <Image src={image.Agenda} alt="Agenda" />
-              </div>
-              <div className="row-span-2 card">
-                <Image src={image.Audio} alt="Audio" />
-              </div>
-              <div className="col-span-2 flex justify-between items-center">
-                <button className="w-[64px]" type="button">
-                  <Image src={image.Delete} alt="Delete" />
-                </button>
-                <div>
-                  <button className="w-[64px]" type="button">
-                    <Image src={image.Layout08} alt="Layout two" />
-                  </button>
-                  <button
-                    className="w-[64px]"
-                    type="button"
-                    onClick={() => dispatch(setPage(2))}
-                  >
-                    <Image src={image.Layout09} alt="Layout three" />
-                  </button>
-                  <button className="w-[64px]" type="button">
-                    <Image src={image.Layout10} alt="Layout four" />
-                  </button>
-                </div>
-                <button className="w-[64px]" type="button">
-                  <Image src={image.Add} alt="Add" />
-                </button>
+              <div className="col-span-2 h-[73px]">
+                <PageEditActionBar />
               </div>
             </div>
           </div>

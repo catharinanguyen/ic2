@@ -29,5 +29,5 @@ export const appStatusSlice = createSlice({
 });
 
 export const { nextPage, setPage } = appStatusSlice.actions;
-// export const selectComments = (state) => state.comments.value;
+export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export default appStatusSlice.reducer;

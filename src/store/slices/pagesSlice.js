@@ -1,8 +1,14 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
+import { LAYOUT_TYPES } from '@/constants/constants';
+
 const initialState = {
-  allPages: [],
+  allPages: [
+    {
+      layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
+    }
+  ],
 };
 
 export const pagesSlice = createSlice({
@@ -11,6 +17,12 @@ export const pagesSlice = createSlice({
   reducers: {
     addPage: (state, action) => {
       state.allPages = [...state.allPages, action.payload];
+    },
+    updatePageLayout: (state, action) => {
+      const { pageNo, layout } = action.payload;
+      const page = state.allPages[pageNo - 1];
+      page.layout = layout;
+      state.allPages = [...state.allPages];
     },
 
     // Special reducer for hydrating the state
@@ -24,6 +36,6 @@ export const pagesSlice = createSlice({
   },
 });
 
-export const { nextPage, setPage } = pagesSlice.actions;
-// export const selectComments = (state) => state.comments.value;
+export const { addPage, updatePageLayout } = pagesSlice.actions;
+export const selectPageInfo = (pageNo) => (state) => state.pages.allPages[pageNo - 1];
 export default pagesSlice.reducer;
