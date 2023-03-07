@@ -24,21 +24,21 @@ const Management = () => {
               </div>
               <div className="col-span-2 flex justify-between items-center">
                 <button className="w-[64px]" type="button">
-                  <Image src={image.Delete} />
+                  <Image src={image.Delete} alt="Delete" />
                 </button>
                 <div>
                   <button className="w-[64px]" type="button">
-                    <Image src={image.Layout08} />
+                    <Image src={image.Layout08} alt="Layout two" />
                   </button>
                   <button className="w-[64px]" type="button">
-                    <Image src={image.Layout09} />
+                    <Image src={image.Layout09} alt="Layout three" />
                   </button>
                   <button className="w-[64px]" type="button">
-                    <Image src={image.Layout10} />
+                    <Image src={image.Layout10} alt="Layout four" />
                   </button>
                 </div>
                 <button className="w-[64px]" type="button">
-                  <Image src={image.Add} />
+                  <Image src={image.Add} alt="Add" />
                 </button>
               </div>
             </div>

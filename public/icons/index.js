@@ -8,7 +8,7 @@ import Layout07 from "./layout_07.svg";
 import Map from "./map.svg";
 import Agenda from "./agenda.svg";
 import Audio from "./audio.svg";
-import Add from "./Add.svg";
+import Add from "./add.svg";
 import Delete from "./delete.svg";
 import Layout08 from "./layout1_select.svg";
 import Layout09 from "./layout2.svg";
