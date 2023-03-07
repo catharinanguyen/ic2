@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 
 import image from "../../public/icons";
-import Themes from "./themes";
+import Themes from "./Themes";
 
 const ControlBar = () => {
   const [showThemes, setShowThemes] = useState(false);
