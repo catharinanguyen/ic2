@@ -12,7 +12,7 @@ const Themes = ({ isVisible, onClose }) => {
 
   return (
     <div
-      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm"
+      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
       id="wrapper"
       onClick={() => onClose(handleClose)}
     >
