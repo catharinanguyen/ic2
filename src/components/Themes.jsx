@@ -24,41 +24,43 @@ const Themes = ({ isVisible, onClose }) => {
           X
         </button>
         <div className="overflow-hidden">
-          <div className="flex overflow-scroll w-[2500px] overflow-y-hidden">
-            <div
-              className="max-w-[770px] mr-[64px]"
-              value="Sophisticated"
-              onClick={() => {}}
-            >
-              <h2 className="text-[24px] font-semibold mb-[30px] text-center">
-                Sophisticated
-              </h2>
-              <div className="border-4 border-border_green">
-                <Image src={Sophisticated} alt="Sophisticated" />
+          <div className="overflow-scroll overflow-y-hidden">
+            <div className="flex w-[2500px]">
+              <div
+                className="max-w-[770px] mr-[64px]"
+                value="Sophisticated"
+                onClick={() => {}}
+              >
+                <h2 className="text-[24px] font-semibold mb-[30px] text-center">
+                  Sophisticated
+                </h2>
+                <div className="border-4 border-border_green">
+                  <Image src={Sophisticated} alt="Sophisticated" />
+                </div>
               </div>
-            </div>
-            <div
-              className="max-w-[770px] mr-[64px]"
-              value="Sophisticated"
-              onClick={() => {}}
-            >
-              <h2 className="text-[24px] font-semibold mb-[30px] text-center">
-                Modern
-              </h2>
-              <div className="border-4 border-border_green">
-                <Image src={Modern} alt="Modern" />
+              <div
+                className="max-w-[770px] mr-[64px]"
+                value="Sophisticated"
+                onClick={() => {}}
+              >
+                <h2 className="text-[24px] font-semibold mb-[30px] text-center">
+                  Modern
+                </h2>
+                <div className="border-4 border-border_green">
+                  <Image src={Modern} alt="Modern" />
+                </div>
               </div>
-            </div>
-            <div
-              className="max-w-[770px]"
-              value="Sophisticated"
-              onClick={() => {}}
-            >
-              <h2 className="text-[24px] font-semibold mb-[30px] text-center">
-                Retro
-              </h2>
-              <div className="border border-border_green">
-                <Image src={Retro} alt="Retro" />
+              <div
+                className="max-w-[770px]"
+                value="Sophisticated"
+                onClick={() => {}}
+              >
+                <h2 className="text-[24px] font-semibold mb-[30px] text-center">
+                  Retro
+                </h2>
+                <div className="border border-border_green">
+                  <Image src={Retro} alt="Retro" />
+                </div>
               </div>
             </div>
           </div>
