@@ -50,12 +50,12 @@ const ControlBar = () => {
         <div>
           <button
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
-            onClick={() => { }}
+            onClick={() => {}}
           ></button>
           <button
             type="button"
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-blue rounded-[8px]"
-            onClick={() => { }}
+            onClick={() => {}}
           ></button>
         </div>
       </div>
@@ -64,10 +64,14 @@ const ControlBar = () => {
 
         <div className="flex flex-wrap">
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.FOUR_CELLS,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.FOUR_CELLS,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -76,10 +80,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.TWO_ROWS,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.TWO_ROWS,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -88,10 +96,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.TWO_CELLS_ONE_COL,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.TWO_CELLS_ONE_COL,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -100,10 +112,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.TWO_COLS,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.TWO_COLS,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -112,10 +128,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -124,10 +144,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.TWO_CELLS_ONE_ROW,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.TWO_CELLS_ONE_ROW,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"
@@ -136,10 +160,14 @@ const ControlBar = () => {
             />
           </button>
           <button
-            onClick={() => dispatch(updatePageLayout({
-              pageNo: gCurrentPage,
-              layout: LAYOUT_TYPES.ONE_ROW_TWO_CELLS,
-            }))}
+            onClick={() =>
+              dispatch(
+                updatePageLayout({
+                  pageNo: gCurrentPage,
+                  layout: LAYOUT_TYPES.ONE_ROW_TWO_CELLS,
+                })
+              )
+            }
           >
             <Image
               className="w-[70px] mr-[15px] mb-[15px]"

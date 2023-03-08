@@ -4,7 +4,15 @@ import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
 import ControlBar from "../components/ControlBar";
 import PageEditActionBar from "@/components/PageEditActionBar";
-import OneCol2CellsLayout from "@/components/layouts/OneCol2CellsLayout";
+import {
+  OneCol2CellsLayout,
+  TwoCellsOneColLayout,
+  TwoRowsLayout,
+  OneRowTwoCellsLayout,
+  TwoColsLayout,
+  TwoCellsOneRowLayout,
+  FourCellsLayout,
+} from "@/components/layouts";
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import { LAYOUT_TYPES } from "@/constants/constants";
 
@@ -20,11 +28,22 @@ const Management = () => {
     switch (layout) {
       case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
         return <OneCol2CellsLayout />;
+      case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
+        return <TwoCellsOneColLayout />;
+      case LAYOUT_TYPES.TWO_ROWS:
+        return <TwoRowsLayout />;
+      case LAYOUT_TYPES.TWO_COLS:
+        return <TwoColsLayout />;
+      case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
+        return <OneRowTwoCellsLayout />;
+      case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
+        return <TwoCellsOneRowLayout />;
+      case LAYOUT_TYPES.FOUR_CELLS:
+        return <FourCellsLayout />;
       default:
-        // TODO: implement other layouts here
-        return <div />
+        return <div />;
     }
-  }
+  };
 
   return (
     <div className="h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
@@ -35,9 +54,7 @@ const Management = () => {
         <div className="w-full max-h-[820px] items-center justify-center">
           <div className="h-[800px]">
             <div className="grid grid-cols-2 grid-rows-2 mx-auto p-2 box-border h-full">
-              <div className="row-span-2 col-span-2">
-                {renderLayout()}
-              </div>
+              <div className="row-span-2 col-span-2">{renderLayout()}</div>
               <div className="col-span-2 h-[73px]">
                 <PageEditActionBar />
               </div>
