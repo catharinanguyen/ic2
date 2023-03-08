@@ -5,15 +5,16 @@ import { updatePageLayout } from "@/store/slices/pagesSlice";
 import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
 import Image from "next/image";
-import Link from "next/link";
 
 import image from "../../public/icons";
 import Themes from "./Themes";
 
 import { LAYOUT_TYPES } from "@/constants/constants";
+import { useRouter } from "next/router";
 
 const ControlBar = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const gCurrentPage = useSelector(selectCurrentPage);
 
@@ -50,12 +51,12 @@ const ControlBar = () => {
         <div>
           <button
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
-            onClick={() => {}}
+            onClick={() => { }}
           ></button>
           <button
             type="button"
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-blue rounded-[8px]"
-            onClick={() => {}}
+            onClick={() => { }}
           ></button>
         </div>
       </div>
@@ -177,14 +178,15 @@ const ControlBar = () => {
           </button>
         </div>
       </div>
-      <Link className="absolute top-full left-0 w-full" href="/">
+      <div className="absolute top-full left-0 w-full">
         <button
           type="button"
           className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
+          onClick={() => router.push('/')}
         >
           Done
         </button>
-      </Link>
+      </div>
     </div>
   );
 };
