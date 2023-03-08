@@ -16,7 +16,15 @@ export const pagesSlice = createSlice({
   initialState,
   reducers: {
     addPage: (state, action) => {
-      state.allPages = [...state.allPages, action.payload];
+      state.allPages = [...state.allPages, {
+        layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
+      }];
+    },
+    removePage: (state, action) => {
+      const { pageNo } = action.payload;
+      const subPagesFront = state.allPages.slice(0, pageNo - 1);
+      const subPagesBehind = state.allPages.slice(pageNo);
+      state.allPages = [...subPagesFront, ...subPagesBehind];
     },
     updatePageLayout: (state, action) => {
       const { pageNo, layout } = action.payload;
@@ -36,6 +44,7 @@ export const pagesSlice = createSlice({
   },
 });
 
-export const { addPage, updatePageLayout } = pagesSlice.actions;
+export const { addPage, removePage, updatePageLayout } = pagesSlice.actions;
 export const selectPageInfo = (pageNo) => (state) => state.pages.allPages[pageNo - 1];
+export const selectAllPages = (state) => state.pages.allPages;
 export default pagesSlice.reducer;
