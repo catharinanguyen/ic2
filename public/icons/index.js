@@ -13,6 +13,13 @@ import Delete from "./delete.svg";
 import Layout08 from "./layout1_select.svg";
 import Layout09 from "./layout2.svg";
 import Layout10 from "./layout3.svg";
+import LayoutOneColumn2CellsOn from "./layout_onecolumn2cells_on.svg";
+import LayoutTwoRowsOn from "./layout_tworows_on.svg";
+import LayoutFourCellsOn from "./layout_fourcells_on.svg";
+import LayoutOneRow2CellsOn from "./layout_onerow2cells_on.svg";
+import LayoutTwoCells1ColsOn from "./layout_twocells1col_on.svg";
+import LayoutTwoCellsOneRowOn from "./layout_twocellsonerow_on.svg";
+import LayoutTwoColumnsOn from "./layout_twocolumns_on.svg";
 
 export default {
   Layout01,
@@ -30,4 +37,11 @@ export default {
   Layout08,
   Layout09,
   Layout10,
+  LayoutOneColumn2CellsOn,
+  LayoutFourCellsOn,
+  LayoutTwoCells1ColsOn,
+  LayoutTwoRowsOn,
+  LayoutOneRow2CellsOn,
+  LayoutTwoCellsOneRowOn,
+  LayoutTwoColumnsOn,
 };

@@ -16,14 +16,12 @@ export const appStatusSlice = createSlice({
     setPage: (state, action) => {
       state.currentPage = action.payload;
     },
-
-    // Special reducer for hydrating the state
-    extraReducers: {
-      [HYDRATE]: (state, action) => {
-        return {
-          ...state,
-        };
-      },
+  },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      return {
+        ...state,
+      };
     },
   },
 });

@@ -32,14 +32,12 @@ export const pagesSlice = createSlice({
       page.layout = layout;
       state.allPages = [...state.allPages];
     },
-
-    // Special reducer for hydrating the state
-    extraReducers: {
-      [HYDRATE]: (state, action) => {
-        return {
-          ...state,
-        };
-      },
+  },
+  extraReducers: {
+    [HYDRATE]: (state, action) => {
+      return {
+        ...state,
+      };
     },
   },
 });
