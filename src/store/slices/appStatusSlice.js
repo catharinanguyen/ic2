@@ -3,7 +3,6 @@ import { HYDRATE } from 'next-redux-wrapper';
 
 const initialState = {
   currentPage: 1,
-  totalPages: 2,
 };
 
 export const appStatusSlice = createSlice({

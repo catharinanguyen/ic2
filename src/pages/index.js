@@ -15,6 +15,8 @@ import SettingsButton from "@/components/SettingsButton";
 
 import images from '../../public/images';
 
+import PageNavigationBottomBar from "@/components/PageNavigationBottomBar";
+
 export default function Home() {
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -45,27 +47,34 @@ export default function Home() {
             />
           </div>
           <div className="mx-auto box-border flex-col h-full max-h-[820px] items-center justify-center">
-            <div className="grid grid-cols-2 grid-rows-2 gap-3 p-2 mx-auto box-border h-full max-h-[820px]">
-              <div className="row-span-2 max-h-[820px]">
-                <Image
-                  className="object-contain h-full"
-                  src={images.MapWidget}
-                  alt="map-widget"
-                />
-              </div>
-              <div className="w-full h-full">
-                <Image
-                  className="object-contain h-full"
-                  src={images.CalendarWidget}
-                  alt="calendar-widget"
-                />
-              </div>
-              <div className="w-full h-full">
-                <Image
-                  className="object-contain h-full"
-                  src={images.MusicWidget}
-                  alt="music-widget"
-                />
+            <div className="grid grid-cols-2 grid-rows-2 mx-auto box-border h-full max-h-[820px] relative">
+              <div className="col-span-2 row-span-2 grid grid-cols-2 grid-rows-2 gap-3 p-2 mx-auto box-border h-full max-h-[820px]">
+                <div className="row-span-2 max-h-[820px]">
+                  <Image
+                    className="object-contain h-full"
+                    src={images.MapWidget}
+                    alt="map-widget"
+                  />
+                </div>
+                <div className="w-full h-full">
+                  <Image
+                    className="object-contain h-full"
+                    src={images.CalendarWidget}
+                    alt="calendar-widget"
+                  />
+                </div>
+                <div className="w-full h-full">
+                  <Image
+                    className="object-contain h-full"
+                    src={images.MusicWidget}
+                    alt="music-widget"
+                  />
+                </div>
+                <div
+                  className="col-span-2 flex justify-center absolute bottom-[18px] m-auto left-0 right-0 box-border"
+                >
+                  <PageNavigationBottomBar />
+                </div>
               </div>
               <div className="col-span-2 flex items-center">
                 <button

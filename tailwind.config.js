@@ -11,6 +11,7 @@ module.exports = {
   ],
   theme: {
     colors: {
+      ...colors,
       transparent: "transparent",
       current: "currentColor",
       white: "#ffffff",
