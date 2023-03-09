@@ -1,12 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { HYDRATE } from 'next-redux-wrapper';
 
-import { LAYOUT_TYPES } from '@/constants/constants';
+import { LAYOUT_TYPES, WIDGET_TYPES } from '@/constants/constants';
+
+const DEFAULT_PAGE = {
+  layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
+  widgets: [WIDGET_TYPES.MAP, WIDGET_TYPES.AGENDA, WIDGET_TYPES.MUSIC]
+}
 
 const initialState = {
   allPages: [
     {
-      layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
+      ...DEFAULT_PAGE,
     }
   ],
   totalPages: 1,
@@ -17,9 +22,7 @@ export const pagesSlice = createSlice({
   initialState,
   reducers: {
     addPage: (state, action) => {
-      state.allPages = [...state.allPages, {
-        layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
-      }];
+      state.allPages = [...state.allPages, { ...DEFAULT_PAGE }];
       state.totalPages += 1;
     },
     removePage: (state, action) => {

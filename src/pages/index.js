@@ -3,7 +3,6 @@ import { useReducer } from "react";
 import Head from "next/head";
 import Image from "next/image";
 
-
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
 import Button3 from "@/components/Button3";
@@ -52,7 +51,7 @@ export default function Home() {
                 <div className="row-span-2 max-h-[820px]">
                   <Image
                     className="object-contain h-full"
-                    src={images.MapWidget}
+                    src={images.MapWidgetVertical}
                     alt="map-widget"
                   />
                 </div>
