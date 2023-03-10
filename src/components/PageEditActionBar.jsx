@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { addPage, removePage, selectAllPages } from "@/store/slices/pagesSlice";
+import { addPage, removePage, selectAllPages, selectTotalPages } from "@/store/slices/pagesSlice";
 import { selectCurrentPage, setPage } from "@/store/slices/appStatusSlice";
 
 import Image from "next/image";
@@ -13,6 +13,7 @@ function PageEditActionBar() {
   const dispatch = useDispatch();
 
   const gCurrentPage = useSelector(selectCurrentPage);
+  const gTotalPages = useSelector(selectTotalPages);
   const gAllPages = useSelector(selectAllPages)
 
   const renderPageButtonList = () => {
@@ -59,7 +60,7 @@ function PageEditActionBar() {
             type="button"
             onClick={() => {
               dispatch(addPage());
-              dispatch(setPage(gCurrentPage + 1));
+              dispatch(setPage(gTotalPages + 1));
             }}
           >
             <Image src={image.Add} alt="Add" />

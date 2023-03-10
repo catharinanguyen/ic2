@@ -22,3 +22,14 @@ export const WIDGET_TYPES = {
   PHONE: 'PHONE',
   WEATHER: 'WEATHER',
 }
+
+export const GRID_POSITIONS = {
+  FULL_COLUMN_1: 'FULL_COLUMN_1',
+  FULL_COLUMN_2: 'FULL_COLUMN_2',
+  FULL_ROW_1: 'FULL_ROW_1',
+  FULL_ROW_2: 'FULL_ROW_2',
+  CELL_1_1: 'CELL_1_1', // row 1 column 1
+  CELL_1_2: 'CELL_1_2', // row 1 column 2
+  CELL_2_1: 'CELL_2_1', // row 2 column 1
+  CELL_2_2: 'CELL_2_2', // row 2 column 2
+}

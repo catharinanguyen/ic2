@@ -1,19 +1,20 @@
 import { useSelector } from "react-redux";
 
 import { selectCurrentPage } from "@/store/slices/appStatusSlice";
+import { selectPageInfo } from "@/store/slices/pagesSlice";
 
 import ControlBar from "../components/ControlBar";
 import PageEditActionBar from "@/components/PageEditActionBar";
 import {
-  OneCol2CellsLayout,
-  TwoCellsOneColLayout,
-  TwoRowsLayout,
-  OneRowTwoCellsLayout,
-  TwoColsLayout,
-  TwoCellsOneRowLayout,
-  FourCellsLayout,
+  OneCol2CellsLayoutEdit,
+  TwoCellsOneColLayoutEdit,
+  TwoRowsLayoutEdit,
+  OneRowTwoCellsLayoutEdit,
+  TwoColsLayoutEdit,
+  TwoCellsOneRowLayoutEdit,
+  FourCellsLayoutEdit,
 } from "@/components/layouts";
-import { selectPageInfo } from "@/store/slices/pagesSlice";
+
 import { LAYOUT_TYPES } from "@/constants/constants";
 
 const Management = () => {
@@ -27,19 +28,19 @@ const Management = () => {
     const { layout } = gPageInfo;
     switch (layout) {
       case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
-        return <OneCol2CellsLayout />;
+        return <OneCol2CellsLayoutEdit />;
       case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
-        return <TwoCellsOneColLayout />;
+        return <TwoCellsOneColLayoutEdit />;
       case LAYOUT_TYPES.TWO_ROWS:
-        return <TwoRowsLayout />;
+        return <TwoRowsLayoutEdit />;
       case LAYOUT_TYPES.TWO_COLS:
-        return <TwoColsLayout />;
+        return <TwoColsLayoutEdit />;
       case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
-        return <OneRowTwoCellsLayout />;
+        return <OneRowTwoCellsLayoutEdit />;
       case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
-        return <TwoCellsOneRowLayout />;
+        return <TwoCellsOneRowLayoutEdit />;
       case LAYOUT_TYPES.FOUR_CELLS:
-        return <FourCellsLayout />;
+        return <FourCellsLayoutEdit />;
       default:
         return <div />;
     }
