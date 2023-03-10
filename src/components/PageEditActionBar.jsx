@@ -21,34 +21,84 @@ function PageEditActionBar() {
   const gAllPages = useSelector(selectAllPages);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
 
-  const renderLayout = () => {
-    if (!gPageInfo) {
-      return <Image src={image.Layout09} alt="Layout unselect" />;
+  // const renderLayout = () => {
+  //   if (!gCurrentPage) {
+  //     return (
+  //       <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+  //     );
+  //   }
+  //   const { layout } = gPageInfo;
+  //   switch (layout) {
+  //     case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
+  //       return (
+  //         <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+  //       );
+  //     case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
+  //       return (
+  //         <Image src={image.TwoCells1ColumnBottomIcon} alt="Layout unselect" />
+  //       );
+  //     case LAYOUT_TYPES.TWO_ROWS:
+  //       return <Image src={image.TwoRowsBottomIcon} alt="Layout unselect" />;
+  //     case LAYOUT_TYPES.TWO_COLS:
+  //       return <Image src={image.TwoColumnBottomIcon} alt="Layout unselect" />;
+  //     case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
+  //       return (
+  //         <Image src={image.OneRowTwoCellsBottomIcon} alt="Layout unselect" />
+  //       );
+  //     case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
+  //       return (
+  //         <Image src={image.TwoCellsOneRowBottomIcon} alt="Layout unselect" />
+  //       );
+  //     case LAYOUT_TYPES.FOUR_CELLS:
+  //       return <Image src={image.FourCellsBottomIcon} alt="Layout unselect" />;
+  //     default:
+  //       return (
+  //         <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+  //       );
+  //   }
+  // };
+
+  const renderAcitveLayout = () => {
+    if (!gCurrentPage) {
+      return (
+        <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+      );
     }
+
     const { layout } = gPageInfo;
     switch (layout) {
       case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
         return (
-          <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+          <Image
+            src={image.OneColumn2CellsBottomIconOn}
+            alt="Layout unselect"
+          />
         );
       case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
         return (
-          <Image src={image.TwoCells1ColumnBottomIcon} alt="Layout unselect" />
+          <Image
+            src={image.TwoCells1ColumnBottomIconOn}
+            alt="Layout unselect"
+          />
         );
       case LAYOUT_TYPES.TWO_ROWS:
-        return <Image src={image.TwoRowsBottomIcon} alt="Layout unselect" />;
+        return <Image src={image.TwoRowsBottomIconOn} alt="Layout unselect" />;
       case LAYOUT_TYPES.TWO_COLS:
-        return <Image src={image.TwoColumnBottomIcon} alt="Layout unselect" />;
+        return (
+          <Image src={image.TwoColumnBottomIconOn} alt="Layout unselect" />
+        );
       case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
         return (
-          <Image src={image.OneRowTwoCellsBottomIcon} alt="Layout unselect" />
+          <Image src={image.OneRowTwoCellsBottomIconOn} alt="Layout unselect" />
         );
       case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
         return (
-          <Image src={image.TwoCellsOneRowBottomIcon} alt="Layout unselect" />
+          <Image src={image.TwoCellsOneRowBottomIconOn} alt="Layout unselect" />
         );
       case LAYOUT_TYPES.FOUR_CELLS:
-        return <Image src={image.FourCellsBottomIcon} alt="Layout unselect" />;
+        return (
+          <Image src={image.FourCellsBottomIconOn} alt="Layout unselect" />
+        );
       default:
         return <Image src={image.Layout09} alt="Layout unselect" />;
     }
@@ -62,7 +112,11 @@ function PageEditActionBar() {
         type="button"
         onClick={() => dispatch(setPage(index + 1))}
       >
-        {renderLayout()}
+        {!(gCurrentPage === index--) ? (
+          <Image src={image.OneColumn2CellsBottomIcon} alt="Layout unselect" />
+        ) : (
+          renderAcitveLayout()
+        )}
       </button>
     ));
   };

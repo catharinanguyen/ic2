@@ -27,6 +27,13 @@ import TwoCells1ColumnBottomIcon from "./twocells1columnbottom_icon.svg";
 import TwoCellsOneRowBottomIcon from "./twocellsonerowbottom_icon.svg";
 import TwoColumnBottomIcon from "./twocolumnsbottom_icon.svg";
 import TwoRowsBottomIcon from "./tworowsbottom_icon.svg";
+import FourCellsBottomIconOn from "./fourcellsbottom_icon_on.svg";
+import OneColumn2CellsBottomIconOn from "./onecolumn2cellsbottom_icon_on.svg";
+import OneRowTwoCellsBottomIconOn from "./onerowtwocellsbottom_icon_on.svg";
+import TwoCells1ColumnBottomIconOn from "./twocells1columnbottom_icon_on.svg";
+import TwoCellsOneRowBottomIconOn from "./twocellsonerowbottom_icon_on.svg";
+import TwoColumnBottomIconOn from "./twocolumnsbottom_icon_on.svg";
+import TwoRowsBottomIconOn from "./tworowsbottom_icon_on.svg";
 
 export default {
   Layout01,
@@ -58,4 +65,11 @@ export default {
   TwoCellsOneRowBottomIcon,
   TwoColumnBottomIcon,
   TwoRowsBottomIcon,
+  FourCellsBottomIconOn,
+  OneColumn2CellsBottomIconOn,
+  OneRowTwoCellsBottomIconOn,
+  TwoCells1ColumnBottomIconOn,
+  TwoCellsOneRowBottomIconOn,
+  TwoColumnBottomIconOn,
+  TwoRowsBottomIconOn,
 };

@@ -1,0 +1,18 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0 8C0 3.58172 3.58172 0 8 0L56 0C60.4183 0 64 3.58172 64 8L64 56C64 60.4183 60.4183 64 56 64L8 64C3.58172 64 0 60.4183 0 56L0 8Z" fill="#D9D9D9"/>
+<mask id="mask0_558_29275" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="0" y="0" width="64" height="64">
+<path d="M0 8C0 3.58172 3.58172 0 8 0L56 0C60.4183 0 64 3.58172 64 8L64 56C64 60.4183 60.4183 64 56 64L8 64C3.58172 64 0 60.4183 0 56L0 8Z" fill="#C6C6C6"/>
+</mask>
+<g mask="url(#mask0_558_29275)">
+<path d="M3 32L32 32L32 61H3L3 32Z" fill="#6F6F6F"/>
+<path d="M32 32L61 32V61H32L32 32Z" fill="#4E4E4E"/>
+<path d="M3 3L61 3L61 32L3 32L3 3Z" fill="#EEEEEE"/>
+</g>
+<path fill-rule="evenodd" clip-rule="evenodd" d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z" fill="url(#paint0_linear_558_29275)"/>
+<defs>
+<linearGradient id="paint0_linear_558_29275" x1="32" y1="6.30986" x2="32" y2="54.0845" gradientUnits="userSpaceOnUse">
+<stop stop-color="#00A486"/>
+<stop offset="1" stop-color="#03DA99"/>
+</linearGradient>
+</defs>
+</svg>
