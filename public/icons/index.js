@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import Layout01 from "./layout_01.svg";
 import Layout02 from "./layout_03.svg";
 import Layout03 from "./layout_02.svg";
