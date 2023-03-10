@@ -1,12 +1,16 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
-import { LAYOUT_TYPES, WIDGET_TYPES } from "@/constants/constants";
+import { GRID_POSITIONS, LAYOUT_TYPES, WIDGET_TYPES } from '@/constants/constants';
 
 const DEFAULT_PAGE = {
   layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
-  widgets: [WIDGET_TYPES.MAP, WIDGET_TYPES.AGENDA, WIDGET_TYPES.MUSIC],
-};
+  widgets: {
+    [GRID_POSITIONS.FULL_COLUMN_1]: WIDGET_TYPES.MAP,
+    [GRID_POSITIONS.CELL_1_2]: WIDGET_TYPES.AGENDA,
+    [GRID_POSITIONS.CELL_2_2]: WIDGET_TYPES.MUSIC,
+  }
+}
 
 const initialState = {
   allPages: [

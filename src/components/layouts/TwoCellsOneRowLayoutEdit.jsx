@@ -2,20 +2,20 @@ import Image from "next/image";
 
 import image from "../../../public/icons";
 
-function OneCol2CellsLayout() {
+function TwoCellsOneRowLayoutEdit() {
   return (
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
-      <div className="row-span-4 card">
-        <Image src={image.Map} alt="Map" />
-      </div>
       <div className="row-span-2 card">
         <Image src={image.Agenda} alt="Agenda" />
       </div>
       <div className="row-span-2 card">
         <Image src={image.Audio} alt="Audio" />
       </div>
+      <div className="row-span-2 col-span-2 card">
+        <Image src={image.Map} alt="Map" />
+      </div>
     </div>
   );
 }
 
-export default OneCol2CellsLayout;
+export default TwoCellsOneRowLayoutEdit;

@@ -1,7 +1,11 @@
 import { useReducer } from "react";
+import { useSelector } from "react-redux";
 
 import Head from "next/head";
 import Image from "next/image";
+
+import { selectPageInfo } from "@/store/slices/pagesSlice";
+import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
@@ -12,11 +16,12 @@ import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
 import SettingsButton from "@/components/SettingsButton";
 
-import images from '../../public/images';
-
-import PageNavigationBottomBar from "@/components/PageNavigationBottomBar";
+import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
 
 export default function Home() {
+  const gCurrentPage = useSelector(selectCurrentPage);
+  const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
       return { ...prev, ...next };
@@ -42,57 +47,29 @@ export default function Home() {
               alt="left-pane"
               width={320}
               height={820}
-              className=" object-contain w-[320px] h-fit max-h-[820px]"
+              className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[820px]"
             />
           </div>
-          <div className="mx-auto box-border flex-col h-full max-h-[820px] items-center justify-center">
-            <div className="grid grid-cols-2 grid-rows-2 mx-auto box-border h-full max-h-[820px] relative">
-              <div className="col-span-2 row-span-2 grid grid-cols-2 grid-rows-2 gap-3 p-2 mx-auto box-border h-full max-h-[820px]">
-                <div className="row-span-2 max-h-[820px]">
-                  <Image
-                    className="object-contain h-full"
-                    src={images.MapWidgetVertical}
-                    alt="map-widget"
-                  />
-                </div>
-                <div className="w-full h-full">
-                  <Image
-                    className="object-contain h-full"
-                    src={images.CalendarWidget}
-                    alt="calendar-widget"
-                  />
-                </div>
-                <div className="w-full h-full">
-                  <Image
-                    className="object-contain h-full"
-                    src={images.MusicWidget}
-                    alt="music-widget"
-                  />
-                </div>
-                <div
-                  className="col-span-2 flex justify-center absolute bottom-[18px] m-auto left-0 right-0 box-border"
+          <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 w-full h-full max-h-[820px] relative">
+            <div className="col-span-2 row-span-2 h-fit">
+              <PageWidgetsDisplay page={gPageInfo} />
+            </div>
+            <div className="flex col-span-2 items-center h-4">
+              <button
+                type="button"
+                className="h-4 mx-auto"
+                onClick={() => updateLocalState({ openBottomBar: true })}
+              >
+                <svg
+                  width="174"
+                  height="4"
+                  viewBox="0 0 180 4"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  <PageNavigationBottomBar />
-                </div>
-              </div>
-              <div className="col-span-2 flex items-center">
-                <button
-                  type="button"
-                  className="h-4 mx-auto"
-                  onClick={() => updateLocalState({ openBottomBar: true })}
-                >
-                  <svg
-                    width="174"
-                    height="4"
-                    viewBox="0 0 180 4"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <rect x="0" width="180" height="4" rx="2" fill="#04D5B7" />
-                  </svg>
-                  <span className="sr-only">Icon description</span>
-                </button>
-              </div>
+                  <rect x="0" width="180" height="4" rx="2" fill="#04D5B7" />
+                </svg>
+              </button>
             </div>
           </div>
         </div>

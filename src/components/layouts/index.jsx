@@ -1,7 +1,7 @@
-export { default as OneCol2CellsLayout } from "./OneCol2CellsLayout";
-export { default as TwoCellsOneColLayout } from "./TwoCellsOneColLayout";
-export { default as TwoRowsLayout } from "./TwoRowsLayout";
-export { default as TwoColsLayout } from "./TwoColsLayout";
-export { default as OneRowTwoCellsLayout } from "./OneRowTwoCellsLayout";
-export { default as TwoCellsOneRowLayout } from "./TwoCellsOneRowLayout";
-export { default as FourCellsLayout } from "./FourCellsLayout";
+export { default as OneCol2CellsLayoutEdit } from "./OneCol2CellsLayoutEdit";
+export { default as TwoCellsOneColLayoutEdit } from "./TwoCellsOneColLayoutEdit";
+export { default as TwoRowsLayoutEdit } from "./TwoRowsLayoutEdit";
+export { default as TwoColsLayoutEdit } from "./TwoColsLayoutEdit";
+export { default as OneRowTwoCellsLayoutEdit } from "./OneRowTwoCellsLayoutEdit";
+export { default as TwoCellsOneRowLayoutEdit } from "./TwoCellsOneRowLayoutEdit";
+export { default as FourCellsLayoutEdit } from "./FourCellsLayout";

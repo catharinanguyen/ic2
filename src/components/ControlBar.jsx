@@ -162,7 +162,9 @@ const ControlBar = () => {
         <button
           type="button"
           className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
-          onClick={() => router.push("/")}
+          onClick={() => {
+            router.push('/');
+          }}
         >
           Done
         </button>

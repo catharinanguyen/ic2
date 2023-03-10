@@ -5,6 +5,7 @@ import {
   removePage,
   selectAllPages,
   selectPageInfo,
+  selectTotalPages,
 } from "@/store/slices/pagesSlice";
 import { selectCurrentPage, setPage } from "@/store/slices/appStatusSlice";
 
@@ -20,6 +21,7 @@ function PageEditActionBar() {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gAllPages = useSelector(selectAllPages);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+  const gTotalPages = useSelector(selectTotalPages);
 
   // const renderLayout = () => {
   //   if (!gCurrentPage) {
@@ -131,33 +133,36 @@ function PageEditActionBar() {
             dispatch(
               removePage({
                 pageNo: gCurrentPage,
-              })
-            );
-            if (gCurrentPage === gAllPages.length) {
-              dispatch(setPage(gCurrentPage - 1));
-            }
-          }}
-        >
-          <Image src={image.Delete} alt="Delete" />
-        </button>
-      ) : (
-        <div className="w-[100px]]"></div>
-      )}
-      <div>{renderPageButtonList()}</div>
-      {gAllPages.length < MAX_PAGES ? (
-        <button
-          className="w-[64px]"
-          type="button"
-          onClick={() => {
-            dispatch(addPage());
-            dispatch(setPage(gCurrentPage + 1));
-          }}
-        >
-          <Image src={image.Add} alt="Add" />
-        </button>
-      ) : (
-        <div className="w-[100px]]"></div>
-      )}
+              }));
+              if (gCurrentPage === gAllPages.length) {
+                dispatch(setPage(gCurrentPage - 1));
+              }
+            }}
+          >
+            <Image src={image.Delete} alt="Delete" />
+          </button>
+        ) : (
+          <div className="w-[100px]]"></div>
+        )}
+      <div>
+        {renderPageButtonList()}
+      </div>
+      {gAllPages.length < MAX_PAGES
+        ? (
+          <button
+            className="w-[64px]"
+            type="button"
+            onClick={() => {
+              dispatch(addPage());
+              dispatch(setPage(gTotalPages + 1));
+            }}
+          >
+            <Image src={image.Add} alt="Add" />
+          </button>
+        )
+        : (
+          <div className="w-[100px]]"></div>
+        )}
     </div>
   );
 }

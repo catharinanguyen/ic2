@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import image from "../../../public/icons";
 
-function OneRow2CellsLayout() {
+function FourCellsLayout() {
   return (
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
       <div className="row-span-2 card">
@@ -21,4 +21,4 @@ function OneRow2CellsLayout() {
   );
 }
 
-export default OneRow2CellsLayout;
+export default FourCellsLayout;

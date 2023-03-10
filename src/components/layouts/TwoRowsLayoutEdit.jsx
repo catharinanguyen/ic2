@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import image from "../../../public/icons";
 
-function TwoRowsLayout() {
+function TwoRowsLayoutEdit() {
   return (
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
       <div className="col-span-2 row-span-2 card">
@@ -15,4 +15,4 @@ function TwoRowsLayout() {
   );
 }
 
-export default TwoRowsLayout;
+export default TwoRowsLayoutEdit;
