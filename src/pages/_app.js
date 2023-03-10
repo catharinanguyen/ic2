@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
-import { ThemeProvider } from "next-themes";
-import { Provider } from 'react-redux';
-import { wrapper } from '../store/store';
+import { Provider } from "react-redux";
+import { wrapper } from "../store/store";
 
 export default function App({ Component, ...rest }) {
   const { store, props } = wrapper.useWrappedStore(rest);
