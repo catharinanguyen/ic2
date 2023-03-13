@@ -2,7 +2,10 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
-import { selectCurrentPage } from "@/store/slices/appStatusSlice";
+import {
+  selectCurrentPage,
+  selectCurrentTheme,
+} from "@/store/slices/appStatusSlice";
 
 import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 
@@ -16,7 +19,10 @@ const ControlBar = () => {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
 
-  const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);
+  const gTheme = useSelector(selectCurrentTheme);
+
+  const [showThemesSelectionPopup, setShowThemesSelectionPopup] =
+    useState(false);
 
   return (
     <div className="relative pb-[84px]">
@@ -28,9 +34,12 @@ const ControlBar = () => {
             type="button"
             onClick={() => setShowThemesSelectionPopup(true)}
           >
-            Sophisticated
+            {gTheme.charAt(0).toUpperCase() + gTheme.slice(1).toLowerCase()}
           </button>
-          <ThemeSelectionPopup isVisible={showThemesSelectionPopup} onClose={() => setShowThemesSelectionPopup(false)} />
+          <ThemeSelectionPopup
+            isVisible={showThemesSelectionPopup}
+            onClose={() => setShowThemesSelectionPopup(false)}
+          />
         </div>
       </div>
       <div className="mb-[20px]">
@@ -49,12 +58,12 @@ const ControlBar = () => {
         <div>
           <button
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
-            onClick={() => { }}
+            onClick={() => {}}
           ></button>
           <button
             type="button"
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-blue rounded-[8px]"
-            onClick={() => { }}
+            onClick={() => {}}
           ></button>
         </div>
       </div>
@@ -77,7 +86,7 @@ const ControlBar = () => {
           type="button"
           className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
           onClick={() => {
-            router.push('/');
+            router.push("/");
           }}
         >
           Done

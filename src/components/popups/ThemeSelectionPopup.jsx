@@ -6,7 +6,7 @@ import { useDispatch } from "react-redux";
 import images from "../../../public/images";
 
 function ThemeSelectionPopup({ isVisible, onClose }) {
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   if (!isVisible) return null;
 
@@ -18,7 +18,6 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
     <div
       className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
       id="wrapper"
-      onClick={() => onClose(handleClose)}
     >
       <div className="bg-gradient-to-r from-bg-card to-bg-card1 relative w-[980px] h-[702px] p-[50px] border border-border_green">
         <button
@@ -33,7 +32,10 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
               <div
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.SOPHISTICATED}
-                onClick={() => { dispatch(setTheme(THEME_KEYS.SOPHISTICATED)) }}
+                onClick={() => {
+                  dispatch(setTheme(THEME_KEYS.SOPHISTICATED));
+                  onClose();
+                }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">
                   Sophisticated
@@ -45,7 +47,10 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
               <div
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.MODERN}
-                onClick={() => { dispatch(setTheme(THEME_KEYS.MODERN)) }}
+                onClick={() => {
+                  dispatch(setTheme(THEME_KEYS.MODERN));
+                  onClose();
+                }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">
                   Modern
@@ -73,6 +78,6 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
       </div>
     </div>
   );
-};
+}
 
 export default ThemeSelectionPopup;

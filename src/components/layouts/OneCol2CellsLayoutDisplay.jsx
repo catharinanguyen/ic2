@@ -12,17 +12,33 @@ function OneCol2CellsLayoutDisplay() {
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
       <div className="row-span-4">
         <Image
-          src={gTheme === THEME_KEYS.SOPHISTICATED
-            ? images.MapWidgetVertical
-            : images.MapWidgetVerticalLight}
+          src={
+            gTheme === THEME_KEYS.SOPHISTICATED
+              ? images.MapWidgetVertical
+              : images.MapWidgetVerticalLight
+          }
           alt="Map"
         />
       </div>
       <div className="row-span-2">
-        <Image src={images.CalendarWidget} alt="Agenda" />
+        <Image
+          src={
+            gTheme === THEME_KEYS.SOPHISTICATED
+              ? images.CalendarWidget
+              : images.CalendarWidgetLight
+          }
+          alt="Agenda"
+        />
       </div>
       <div className="row-span-2">
-        <Image src={images.MusicWidget} alt="Audio" />
+        <Image
+          src={
+            gTheme === THEME_KEYS.SOPHISTICATED
+              ? images.MusicWidget
+              : images.MusicWidgetLight
+          }
+          alt="Audio"
+        />
       </div>
     </div>
   );
