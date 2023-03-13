@@ -1,6 +1,24 @@
 export const MAX_PAGES = 10;
 export const MIN_PAGES = 1;
 
+export const THEME_KEYS = {
+  SOPHISTICATED: 'SOPHISTICATED',
+  MODERN: 'MODERN',
+  RETRO: 'RETRO',
+}
+
+export const THEMES = {
+  [THEME_KEYS.SOPHISTICATED]: {
+    name: 'Sophisticated',
+  },
+  [THEME_KEYS.MODERN]: {
+    name: 'Modern',
+  },
+  [THEME_KEYS.RETRO]: {
+    name: 'Retro',
+  },
+}
+
 export const LAYOUT_TYPES = {
   ONE_COL_TWO_CELLS: 'ONE_COL_TWO_CELLS',
   TWO_CELLS_ONE_COL: 'TWO_CELLS_ONE_COL',
