@@ -9,6 +9,17 @@
     box-shadow: theme("boxShadow.xl");
     @apply bg-gradient-to-r from-[theme("colors.card")] to-[theme("colors.card1")] flex items-center justify-center;
   }
+
+  .card-simplicity {
+    color: theme("colors.white");
+    padding: 25px;
+    box-shadow: theme("boxShadow.xl");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: theme("colors.white");
+  }
+
   .button {
     background-color: theme("colors.transparent");
     border-radius: 100px;
