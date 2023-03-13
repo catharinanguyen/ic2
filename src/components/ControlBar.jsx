@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
-import Themes from "./Themes";
+import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 
 import { LAYOUT_TYPES } from "@/constants/constants";
 import { useRouter } from "next/router";
@@ -30,7 +30,7 @@ const ControlBar = () => {
           >
             Sophisticated
           </button>
-          <Themes isVisible={showThemesSelectionPopup} onClose={() => setShowThemesSelectionPopup(false)} />
+          <ThemeSelectionPopup isVisible={showThemesSelectionPopup} onClose={() => setShowThemesSelectionPopup(false)} />
         </div>
       </div>
       <div className="mb-[20px]">

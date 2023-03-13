@@ -1,11 +1,15 @@
+import { THEME_KEYS } from "@/constants/constants";
+import { setTheme } from "@/store/slices/appStatusSlice";
 import Image from "next/image";
-import React from "react";
-import Sophisticated from "../../public/images/sophi.png";
-import Modern from "../../public/images/modern.png";
-import Retro from "../../public/images/retro.png";
+import { useDispatch } from "react-redux";
 
-const Themes = ({ isVisible, onClose }) => {
+import images from "../../../public/images";
+
+function ThemeSelectionPopup({ isVisible, onClose }) {
+  const dispatch = useDispatch()
+
   if (!isVisible) return null;
+
   const handleClose = (e) => {
     if (e.target.id === "wrapper") onClose();
   };
@@ -25,32 +29,33 @@ const Themes = ({ isVisible, onClose }) => {
         </button>
         <div className="overflow-hidden">
           <div className="overflow-scroll overflow-y-hidden">
-            <div className="flex w-[2500px]">
+            <div className="flex w-[1500px]">
               <div
                 className="max-w-[770px] mr-[64px]"
-                value="Sophisticated"
-                onClick={() => {}}
+                value={THEME_KEYS.SOPHISTICATED}
+                onClick={() => { dispatch(setTheme(THEME_KEYS.SOPHISTICATED)) }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">
                   Sophisticated
                 </h2>
                 <div className="border-4 border-border_green">
-                  <Image src={Sophisticated} alt="Sophisticated" />
+                  <Image src={images.SophisticatedTheme} alt="Sophisticated" />
                 </div>
               </div>
               <div
                 className="max-w-[770px] mr-[64px]"
-                value="Sophisticated"
-                onClick={() => {}}
+                value={THEME_KEYS.MODERN}
+                onClick={() => { dispatch(setTheme(THEME_KEYS.MODERN)) }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">
                   Modern
                 </h2>
                 <div className="border-4 border-border_green">
-                  <Image src={Modern} alt="Modern" />
+                  <Image src={images.ModernTheme} alt="Modern" />
                 </div>
               </div>
-              <div
+              {/* TODO: temporarily hide this */}
+              {/* <div
                 className="max-w-[770px]"
                 value="Sophisticated"
                 onClick={() => {}}
@@ -59,9 +64,9 @@ const Themes = ({ isVisible, onClose }) => {
                   Retro
                 </h2>
                 <div className="border border-border_green">
-                  <Image src={Retro} alt="Retro" />
+                  <Image src={images.RetroTheme} alt="Retro" />
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
@@ -70,4 +75,4 @@ const Themes = ({ isVisible, onClose }) => {
   );
 };
 
-export default Themes;
+export default ThemeSelectionPopup;
