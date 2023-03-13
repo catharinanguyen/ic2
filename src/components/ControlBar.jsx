@@ -1,25 +1,22 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { selectPageInfo, updatePageLayout } from "@/store/slices/pagesSlice";
+import { selectPageInfo } from "@/store/slices/pagesSlice";
 import { selectCurrentPage } from "@/store/slices/appStatusSlice";
 
-import Image from "next/image";
-
-import image from "../../public/icons";
 import Themes from "./Themes";
 
 import { LAYOUT_TYPES } from "@/constants/constants";
 import { useRouter } from "next/router";
+import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
 
 const ControlBar = () => {
-  const dispatch = useDispatch();
   const router = useRouter();
 
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
 
-  const [showThemes, setShowThemes] = useState(false);
+  const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);
 
   return (
     <div className="relative pb-[84px]">
@@ -29,11 +26,11 @@ const ControlBar = () => {
           <button
             className="button w-full"
             type="button"
-            onClick={() => setShowThemes(true)}
+            onClick={() => setShowThemesSelectionPopup(true)}
           >
             Sophisticated
           </button>
-          <Themes isVisible={showThemes} onClose={() => setShowThemes(false)} />
+          <Themes isVisible={showThemesSelectionPopup} onClose={() => setShowThemesSelectionPopup(false)} />
         </div>
       </div>
       <div className="mb-[20px]">
@@ -52,110 +49,27 @@ const ControlBar = () => {
         <div>
           <button
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
-            onClick={() => {}}
+            onClick={() => { }}
           ></button>
           <button
             type="button"
             className="colors-green radius-[8px] w-[64px] h-[64px] bg-blue rounded-[8px]"
-            onClick={() => {}}
+            onClick={() => { }}
           ></button>
         </div>
       </div>
       <div className="mb-[20px]">
         <h3 className="font-semibold">Layouts</h3>
-
         <div className="flex flex-wrap">
-          <button
-            onClick={() => {
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.FOUR_CELLS,
-                })
-              );
-            }}
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout01} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.TWO_ROWS,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image className="" src={image.Layout02} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.TWO_CELLS_ONE_COL,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout03} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.TWO_COLS,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout04} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.ONE_COL_TWO_CELLS,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout05} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.TWO_CELLS_ONE_ROW,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout06} alt="layout" />
-          </button>
-          <button
-            onClick={() =>
-              dispatch(
-                updatePageLayout({
-                  pageNo: gCurrentPage,
-                  layout: LAYOUT_TYPES.ONE_ROW_TWO_CELLS,
-                })
-              )
-            }
-            className="w-[60px] mr-[15px] mb-[15px]"
-          >
-            <Image src={image.Layout07} alt="layout" />
-          </button>
+          {Object.values(LAYOUT_TYPES).map((layout) => {
+            return (
+              <LayoutSelectButton
+                key={layout}
+                layout={layout}
+                isActive={layout === gPageInfo.layout}
+              />
+            );
+          })}
         </div>
       </div>
       <div className="absolute top-full left-0 w-full">
