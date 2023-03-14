@@ -6,7 +6,7 @@ import Image from "next/image";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import {
-  selectCurrentPage,
+  selectCurrentPage, selectFullWidget,
   selectCurrentTheme,
 } from "@/store/slices/appStatusSlice";
 
@@ -18,16 +18,18 @@ import Button5 from "@/components/Button5";
 import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
 import SettingsButton from "@/components/SettingsButton";
-
 import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
 import { THEME_KEYS } from "@/constants/constants";
 
 import images from "../../public/images";
+import BottomBarButton from "@/components/BottomBarButton";
+import FullWidgetDisplay from "@/components/FullWidgetDisplay";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
+  const gFullWidget = useSelector(selectFullWidget);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -37,6 +39,13 @@ export default function Home() {
       openBottomBar: false,
     }
   );
+
+  const renderContent = () => {
+    if (gFullWidget) {
+      return <FullWidgetDisplay />;
+    }
+    return <PageWidgetsDisplay page={gPageInfo} />
+  }
 
   return (
     <>
@@ -66,9 +75,9 @@ export default function Home() {
               className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[820px]"
             />
           </div>
-          <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 w-full h-full max-h-[820px] relative">
+          <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 p-2 pb-0 w-full h-[820px] max-h-[820px] relative">
             <div className="col-span-2 row-span-2 h-fit">
-              <PageWidgetsDisplay page={gPageInfo} />
+              {renderContent()}
             </div>
             <div className="flex col-span-2 items-center h-4">
               <button

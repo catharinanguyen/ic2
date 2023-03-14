@@ -45,6 +45,7 @@ export const WIDGET_SHAPES = {
   VERTICAL: 'VERTICAL',
   HORIZONTAL: 'HORIZONTAL',
   CELL: 'CELL',
+  FULL: 'FULL',
 }
 
 export const GRID_POSITIONS = {
