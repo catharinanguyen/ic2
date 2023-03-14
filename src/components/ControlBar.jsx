@@ -9,7 +9,7 @@ import {
 
 import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 
-import { LAYOUT_TYPES } from "@/constants/constants";
+import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
 
@@ -30,7 +30,12 @@ const ControlBar = () => {
         <h3 className="font-semibold">Themes</h3>
         <div>
           <button
-            className="button w-full"
+            className={
+              "w-full " +
+              (gTheme == THEME_KEYS.SOPHISTICATED
+                ? "button border-green"
+                : "button-simplicity border-blue_simplicity text-blue_simplicity")
+            }
             type="button"
             onClick={() => setShowThemesSelectionPopup(true)}
           >
@@ -45,10 +50,26 @@ const ControlBar = () => {
       <div className="mb-[20px]">
         <h3 className="font-semibold">Text size</h3>
         <div className="flex">
-          <button className="button text-[16px] px-6 mr-[10px]" type="button">
+          <button
+            className={
+              "text-[16px] px-6 mr-[10px] " +
+              (gTheme == THEME_KEYS.SOPHISTICATED
+                ? "button"
+                : "button-simplicity")
+            }
+            type="button"
+          >
             Compact
           </button>
-          <button className="button text-[16px] px-6" type="button">
+          <button
+            className={
+              "text-[16px] px-6 mr-[10px] " +
+              (gTheme == THEME_KEYS.SOPHISTICATED
+                ? "button"
+                : "button-simplicity")
+            }
+            type="button"
+          >
             Comfortable
           </button>
         </div>
@@ -84,7 +105,12 @@ const ControlBar = () => {
       <div className="absolute top-full left-0 w-full">
         <button
           type="button"
-          className="rounded-[8px] bg-green w-full p-2 flex items-center justify-center"
+          className={
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center " +
+            (gTheme == THEME_KEYS.SOPHISTICATED
+              ? "bg-green"
+              : "bg-blue_simplicity")
+          }
           onClick={() => {
             router.push("/");
           }}

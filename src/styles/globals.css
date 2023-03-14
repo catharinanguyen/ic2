@@ -6,14 +6,13 @@
   .card {
     color: theme("colors.white");
     padding: 25px;
-    box-shadow: theme("boxShadow.xl");
     @apply bg-gradient-to-r from-[theme("colors.card")] to-[theme("colors.card1")] flex items-center justify-center;
+    box-shadow: theme("boxShadow.xl");
   }
 
   .card-simplicity {
-    color: theme("colors.white");
+    color: theme("colors.gray_text_simplicity");
     padding: 25px;
-    box-shadow: theme("boxShadow.xl");
     display: flex;
     justify-content: center;
     align-items: center;
@@ -24,6 +23,17 @@
     background-color: theme("colors.transparent");
     border-radius: 100px;
     border: 2px solid #ffffff;
+    padding: theme("spacing.2");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-simplicity {
+    background-color: theme("colors.transparent");
+    border-radius: 100px;
+    border-width: 2px;
+    border-style: solid;
     padding: theme("spacing.2");
     display: flex;
     align-items: center;

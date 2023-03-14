@@ -10,13 +10,9 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
 
   if (!isVisible) return null;
 
-  const handleClose = (e) => {
-    if (e.target.id === "wrapper") onClose();
-  };
-
   return (
     <div
-      className="fixed inset-0 flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
+      className="fixed top-0 left-0 right-0 bottom-0 w-full flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
       id="wrapper"
     >
       <div className="bg-gradient-to-r from-bg-card to-bg-card1 relative w-[980px] h-[702px] p-[50px] border border-border_green">
