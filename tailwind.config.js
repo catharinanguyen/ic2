@@ -16,7 +16,10 @@ module.exports = {
       current: "currentColor",
       white: "#ffffff",
       blue: "#0056FE",
+      blue_simplicity: "#0072DE",
       green: "#04D5B7",
+      gray: "#EEEEEE",
+      gray_text_simplicity: "#8C8C8C",
       border_green: "#00816E",
       card: "rgba(26, 36, 51, 0.8)",
       card1: "rgba(32, 71, 94, 0.8)",
@@ -29,6 +32,9 @@ module.exports = {
     extend: {
       backgroundImage: {
         "bottom-bar-bg": "url('/images/bottom-bar-bg.svg')",
+      },
+      dropShadow: {
+        widget: "0 4px 4px rgba(0, 0, 0, 0.25)",
       },
     },
   },

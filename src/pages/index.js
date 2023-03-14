@@ -5,7 +5,10 @@ import Head from "next/head";
 import Image from "next/image";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
-import { selectCurrentPage } from "@/store/slices/appStatusSlice";
+import {
+  selectCurrentPage,
+  selectCurrentTheme,
+} from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
@@ -17,10 +20,14 @@ import Button8 from "@/components/Button8";
 import SettingsButton from "@/components/SettingsButton";
 
 import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
+import { THEME_KEYS } from "@/constants/constants";
+
+import images from "../../public/images";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+  const gTheme = useSelector(selectCurrentTheme);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -39,11 +46,20 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="bg-black h-full w-full max-w-[1180px] max-h-[820px] m-auto relative">
+      <div
+        className={
+          "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative " +
+          (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
+        }
+      >
         <div className="flex flex-1">
           <div className="w-fit h-fit max-h-[820px]">
             <Image
-              src="/images/left-pane.svg"
+              src={
+                gTheme == THEME_KEYS.SOPHISTICATED
+                  ? images.LeftPanel
+                  : images.LeftPanelLight
+              }
               alt="left-pane"
               width={320}
               height={820}
@@ -67,7 +83,15 @@ export default function Home() {
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
                 >
-                  <rect x="0" width="180" height="4" rx="2" fill="#04D5B7" />
+                  <rect
+                    x="0"
+                    width="180"
+                    height="4"
+                    rx="2"
+                    fill={
+                      gTheme == THEME_KEYS.SOPHISTICATED ? "#04D5B7" : "#0072DE"
+                    }
+                  />
                 </svg>
               </button>
             </div>
@@ -75,7 +99,12 @@ export default function Home() {
         </div>
         {localState.openBottomBar === true && (
           <div
-            className='rounded-t-[2rem]  bg-[url("/images/bottom-bar-bg.svg")] w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center space-x-20'
+            className={
+              "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center space-x-20 " +
+              (gTheme == THEME_KEYS.SOPHISTICATED
+                ? 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
+                : 'bg-[url("/images/bottom-bar-bg-light.svg")]')
+            }
             onClick={() => updateLocalState({ openBottomBar: false })}
           >
             <Button1 />

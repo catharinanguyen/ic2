@@ -10,6 +10,8 @@ import Map from "./map.svg";
 import Agenda from "./agenda.svg";
 import Audio from "./audio.svg";
 import Add from "./add.svg";
+import AddSimplicity from "./add-simplicity.svg";
+import DeleteSimplicity from "./delete-simplicity.svg";
 import Delete from "./delete.svg";
 import Layout08 from "./layout1_select.svg";
 import Layout09 from "./layout2.svg";
@@ -48,7 +50,9 @@ export default {
   Agenda,
   Audio,
   Add,
+  AddSimplicity,
   Delete,
+  DeleteSimplicity,
   Layout08,
   Layout09,
   Layout10,
