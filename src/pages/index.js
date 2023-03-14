@@ -5,7 +5,7 @@ import Head from "next/head";
 import Image from "next/image";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
-import { selectCurrentPage } from "@/store/slices/appStatusSlice";
+import { selectCurrentPage, selectFullWidget } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
@@ -15,12 +15,14 @@ import Button5 from "@/components/Button5";
 import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
 import SettingsButton from "@/components/SettingsButton";
-
 import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
+import BottomBarButton from "@/components/BottomBarButton";
+import FullWidgetDisplay from "@/components/FullWidgetDisplay";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+  const gFullWidget = useSelector(selectFullWidget);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -30,6 +32,13 @@ export default function Home() {
       openBottomBar: false,
     }
   );
+
+  const renderContent = () => {
+    if (gFullWidget) {
+      return <FullWidgetDisplay />;
+    }
+    return <PageWidgetsDisplay page={gPageInfo} />
+  }
 
   return (
     <>
@@ -50,26 +59,12 @@ export default function Home() {
               className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[820px]"
             />
           </div>
-          <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 w-full h-full max-h-[820px] relative">
+          <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 p-2 pb-0 w-full h-[820px] max-h-[820px] relative">
             <div className="col-span-2 row-span-2 h-fit">
-              <PageWidgetsDisplay page={gPageInfo} />
+              {renderContent()}
             </div>
             <div className="flex col-span-2 items-center h-4">
-              <button
-                type="button"
-                className="h-4 mx-auto"
-                onClick={() => updateLocalState({ openBottomBar: true })}
-              >
-                <svg
-                  width="174"
-                  height="4"
-                  viewBox="0 0 180 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <rect x="0" width="180" height="4" rx="2" fill="#04D5B7" />
-                </svg>
-              </button>
+              <BottomBarButton onClick={() => updateLocalState({ openBottomBar: true })} />
             </div>
           </div>
         </div>

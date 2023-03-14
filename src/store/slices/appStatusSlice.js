@@ -47,4 +47,5 @@ export const {
 } = appStatusSlice.actions;
 export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export const selectCurrentTheme = (state) => state.appStatus.theme;
+export const selectFullWidget = (state) => state.appStatus.fullWidget;
 export default appStatusSlice.reducer;

@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 
 import image from "../../../public/icons";
 
-function FourCellsLayout() {
+function FourCellsLayoutEdit() {
   const gTheme = useSelector(selectCurrentTheme);
 
   return (
@@ -46,4 +46,4 @@ function FourCellsLayout() {
   );
 }
 
-export default FourCellsLayout;
+export default FourCellsLayoutEdit;
