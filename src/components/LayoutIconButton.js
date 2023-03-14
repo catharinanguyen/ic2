@@ -2,7 +2,6 @@ import { LAYOUT_TYPES } from "@/constants/constants";
 
 function LayoutIconButton(props) {
   const { layout, isActive, onClick } = props;
-  console.log('[hai] ~ file: LayoutIconButton.js:5 ~ LayoutIconButton ~ layout:', layout);
 
   let svgIcon;
   switch (layout) {
