@@ -1,33 +1,19 @@
-import { THEME_KEYS } from "@/constants/constants";
-import { selectCurrentTheme } from "@/store/slices/appStatusSlice";
-import Image from "next/image";
-import { useSelector } from "react-redux";
-
-import images from "../../../public/images";
+import WidgetDisplay from "@/components/WidgetDisplay";
+import { WIDGET_SHAPES, WIDGET_TYPES } from "@/constants/constants";
 
 function TwoColsLayoutDisplay() {
-  const gTheme = useSelector(selectCurrentTheme);
-
   return (
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
-      <div className="row-span-4">
-        <Image
-          src={
-            gTheme == THEME_KEYS.SOPHISTICATED
-              ? images.MapWidgetVertical
-              : images.MapWidgetVerticalLight
-          }
-          alt="Map"
+      <div className="row-span-4 relative">
+        <WidgetDisplay
+          widgetType={WIDGET_TYPES.MAP}
+          widgetShape={WIDGET_SHAPES.VERTICAL}
         />
       </div>
-      <div className="row-span-4">
-        <Image
-          src={
-            gTheme == THEME_KEYS.SOPHISTICATED
-              ? images.MapWidgetVertical
-              : images.MapWidgetVerticalLight
-          }
-          alt="Audio"
+      <div className="row-span-4 relative">
+        <WidgetDisplay
+          widgetType={WIDGET_TYPES.MUSIC}
+          widgetShape={WIDGET_SHAPES.VERTICAL}
         />
       </div>
     </div>
