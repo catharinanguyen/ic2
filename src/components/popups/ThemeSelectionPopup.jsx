@@ -9,7 +9,6 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
   const dispatch = useDispatch();
 
   if (!isVisible) return null;
-
   return (
     <div
       className="fixed top-0 left-0 right-0 bottom-0 w-full flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"

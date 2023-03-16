@@ -6,8 +6,10 @@ import Image from "next/image";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import {
-  selectCurrentPage, selectFullWidget,
+  selectCurrentPage,
+  selectFullWidget,
   selectCurrentTheme,
+  selectCurrentColor,
 } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
@@ -30,6 +32,7 @@ export default function Home() {
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
   const gFullWidget = useSelector(selectFullWidget);
+  const gColor = useSelector(selectCurrentColor);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -44,8 +47,8 @@ export default function Home() {
     if (gFullWidget) {
       return <FullWidgetDisplay />;
     }
-    return <PageWidgetsDisplay page={gPageInfo} />
-  }
+    return <PageWidgetsDisplay page={gPageInfo} />;
+  };
 
   return (
     <>
@@ -58,6 +61,7 @@ export default function Home() {
       <div
         className={
           "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative " +
+          gColor.toLowerCase() +
           (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
         }
       >
@@ -76,11 +80,11 @@ export default function Home() {
             />
           </div>
           <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 p-2 pb-0 w-full h-[820px] max-h-[820px] relative">
-            <div className="col-span-2 row-span-2 h-fit">
-              {renderContent()}
-            </div>
+            <div className="col-span-2 row-span-2 h-fit">{renderContent()}</div>
             <div className="flex col-span-2 items-center h-4">
-              <BottomBarButton onClick={() => updateLocalState({ openBottomBar: true })} />
+              <BottomBarButton
+                onClick={() => updateLocalState({ openBottomBar: true })}
+              />
             </div>
           </div>
         </div>
