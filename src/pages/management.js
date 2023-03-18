@@ -8,6 +8,8 @@ import { selectPageInfo } from "@/store/slices/pagesSlice";
 
 import ControlBar from "../components/ControlBar";
 import PageEditActionBar from "@/components/PageEditActionBar";
+import LayoutEdit from "@/components/layouts/LayoutEdit";
+
 import {
   OneCol2CellsLayoutEdit,
   TwoCellsOneColLayoutEdit,
@@ -29,22 +31,31 @@ const Management = () => {
     if (!gPageInfo) {
       return <div />;
     }
+
     const { layout } = gPageInfo;
+    // return <LayoutEdit layoutType={layout} />;
     switch (layout) {
       case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
-        return <OneCol2CellsLayoutEdit />;
+        // return <OneCol2CellsLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
-        return <TwoCellsOneColLayoutEdit />;
+        // return <TwoCellsOneColLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.TWO_ROWS:
-        return <TwoRowsLayoutEdit />;
+        // return <TwoRowsLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.TWO_COLS:
-        return <TwoColsLayoutEdit />;
+        // return <TwoColsLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
-        return <OneRowTwoCellsLayoutEdit />;
+        // return <OneRowTwoCellsLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
-        return <TwoCellsOneRowLayoutEdit />;
+        // return <TwoCellsOneRowLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       case LAYOUT_TYPES.FOUR_CELLS:
-        return <FourCellsLayoutEdit />;
+        // return <FourCellsLayoutEdit />;
+        return <LayoutEdit layoutType={layout} />;
       default:
         return <div />;
     }

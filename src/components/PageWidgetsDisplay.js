@@ -8,40 +8,48 @@ import OneRowTwoCellsLayoutDisplay from "@/components/layouts/OneRowTwoCellsLayo
 import TwoColsLayoutDisplay from "@/components/layouts/TwoColsLayoutDisplay";
 import TwoRowsLayoutDisplay from "@/components/layouts/TwoRowsLayoutDisplay";
 import FourCellsLayoutDisplay from "@/components/layouts/FourCellsLayoutDisplay";
+import LayoutDisplay from "@/components/layouts/LayoutDisplay";
 
 function PageWidgetsDisplay(props) {
-  const { page } = props;
+  // const { page } = props;
 
-  const { layout, widgets } = page;
+  // const gCurrentPage = useSelector(selectCurrentPage);
+  // const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
+
+  // const { layout, widgets } = page;
 
   const renderLayoutWidgetDisplayComp = () => {
-    let Comp;
-    switch (layout) {
-      case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
-        Comp = OneCol2CellsLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
-        Comp = OneRowTwoCellsLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
-        Comp = TwoCellsOneColLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
-        Comp = TwoCellsOneRowLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.TWO_COLS:
-        Comp = TwoColsLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.TWO_ROWS:
-        Comp = TwoRowsLayoutDisplay;
-        break;
-      case LAYOUT_TYPES.FOUR_CELLS:
-        Comp = FourCellsLayoutDisplay;
-        break;
-      default:
-        Comp = <div />
-    }
-    return <Comp widgets={widgets} />;
+    // return <LayoutDisplay layoutType={layout} />
+    return <LayoutDisplay />
+    // let Comp;
+    // switch (layout) {
+    //   case LAYOUT_TYPES.ONE_COL_TWO_CELLS:
+    //     // Comp = OneCol2CellsLayoutDisplay;
+    //     // Comp = LayoutDisplay;
+    //     return <LayoutDisplay layoutType={layout} />
+    //     break;
+    //   case LAYOUT_TYPES.ONE_ROW_TWO_CELLS:
+    //     Comp = OneRowTwoCellsLayoutDisplay;
+    //     break;
+    //   case LAYOUT_TYPES.TWO_CELLS_ONE_COL:
+    //     Comp = TwoCellsOneColLayoutDisplay;
+    //     break;
+    //   case LAYOUT_TYPES.TWO_CELLS_ONE_ROW:
+    //     Comp = TwoCellsOneRowLayoutDisplay;
+    //     break;
+    //   case LAYOUT_TYPES.TWO_COLS:
+    //     Comp = TwoColsLayoutDisplay;
+    //     break;
+    //   case LAYOUT_TYPES.TWO_ROWS:
+    //     Comp = TwoRowsLayoutDisplay;
+    //     break;
+    //   case LAYOUT_TYPES.FOUR_CELLS:
+    //     Comp = FourCellsLayoutDisplay;
+    //     break;
+    //   default:
+    //     Comp = <div />
+    // }
+    // return <Comp widgets={widgets} />;
   }
 
   return (

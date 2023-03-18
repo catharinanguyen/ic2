@@ -30,15 +30,15 @@ export const LAYOUT_TYPES = {
 }
 
 export const WIDGET_TYPES = {
-  AGENDA: 'AGENDA',
-  AUDIO: 'AUDIO',
-  COMPASS: 'COMPASS',
-  LIST: 'LIST',
-  MAP: 'MAP',
-  MESSAGES: 'MESSAGES',
-  MUSIC: 'MUSIC',
   PHONE: 'PHONE',
+  MAP: 'MAP',
+  MUSIC: 'MUSIC',
+  LIST: 'LIST',
   WEATHER: 'WEATHER',
+  AUDIO: 'AUDIO',
+  AGENDA: 'AGENDA',
+  MESSAGES: 'MESSAGES',
+  COMPASS: 'COMPASS',
 }
 
 export const WIDGET_SHAPES = {
@@ -57,4 +57,101 @@ export const GRID_POSITIONS = {
   CELL_1_2: 'CELL_1_2', // row 1 column 2
   CELL_2_1: 'CELL_2_1', // row 2 column 1
   CELL_2_2: 'CELL_2_2', // row 2 column 2
+}
+
+export const LAYOUT_EDIT_CONFIG = {
+  [LAYOUT_TYPES.ONE_COL_TWO_CELLS]: [
+    {
+      position: GRID_POSITIONS.FULL_COLUMN_1,
+      className: 'row-span-4',
+    },
+    {
+      position: GRID_POSITIONS.CELL_1_2,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_2,
+      className: 'row-span-2',
+    },
+  ],
+  [LAYOUT_TYPES.ONE_ROW_TWO_CELLS]: [
+    {
+      position: GRID_POSITIONS.FULL_ROW_1,
+      className: 'row-span-2 col-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_1,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_2,
+      className: 'row-span-2',
+    },
+  ],
+  [LAYOUT_TYPES.TWO_CELLS_ONE_COL]: [
+    {
+      position: GRID_POSITIONS.CELL_1_1,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.FULL_COLUMN_2,
+      className: 'row-span-4',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_1,
+      className: 'row-span-2',
+    },
+  ],
+  [LAYOUT_TYPES.TWO_CELLS_ONE_ROW]: [
+    {
+      position: GRID_POSITIONS.CELL_1_1,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_1_2,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.FULL_ROW_2,
+      className: 'row-span-2 col-span-2',
+    },
+  ],
+  [LAYOUT_TYPES.TWO_ROWS]: [
+    {
+      position: GRID_POSITIONS.FULL_ROW_1,
+      className: 'col-span-2 row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.FULL_ROW_2,
+      className: 'col-span-2 row-span-2',
+    },
+  ],
+  [LAYOUT_TYPES.TWO_COLS]: [
+    {
+      position: GRID_POSITIONS.FULL_COLUMN_1,
+      className: 'row-span-4',
+    },
+    {
+      position: GRID_POSITIONS.FULL_COLUMN_2,
+      className: 'row-span-4',
+    },
+  ],
+  [LAYOUT_TYPES.FOUR_CELLS]: [
+    {
+      position: GRID_POSITIONS.CELL_1_1,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_1_2,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_1,
+      className: 'row-span-2',
+    },
+    {
+      position: GRID_POSITIONS.CELL_2_2,
+      className: 'row-span-2',
+    },
+  ],
 }

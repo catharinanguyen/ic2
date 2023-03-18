@@ -2,9 +2,11 @@ import { useReducer } from 'react';
 
 import LayoutEditView from '@/components/layouts/LayoutEditView';
 
-import { LAYOUT_EDIT_CONFIG, LAYOUT_TYPES } from "@/constants/constants";
+import { LAYOUT_EDIT_CONFIG } from "@/constants/constants";
 
-function OneCol2CellsLayoutEdit() {
+function LayoutEdit(props) {
+  const { layoutType } = props;
+
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
       return { ...prev, ...next };
@@ -22,13 +24,17 @@ function OneCol2CellsLayoutEdit() {
     }
   }
 
-  const layoutType = LAYOUT_TYPES.ONE_COL_TWO_CELLS;
+  const layoutConfig = LAYOUT_EDIT_CONFIG[layoutType];
+
+  if (!layoutConfig) {
+    return <div />;
+  }
 
   return (
     <div className="grid grid-cols-2 grid-rows-4 gap-3 p-2 mx-auto box-border h-full">
-      {LAYOUT_EDIT_CONFIG[layoutType].map(item => {
+      {layoutConfig.map(item => {
         return (
-          <div className={item.className} key={item.key}>
+          <div className={item.className} key={item.position}>
             <LayoutEditView
               position={item.position}
               selectedWidgetPosition={localState.selectedWidgetPosition}
@@ -41,4 +47,4 @@ function OneCol2CellsLayoutEdit() {
   );
 }
 
-export default OneCol2CellsLayoutEdit;
+export default LayoutEdit;
