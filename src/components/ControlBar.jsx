@@ -3,15 +3,17 @@ import { useSelector } from "react-redux";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import {
+  selectCurrentColor,
   selectCurrentPage,
   selectCurrentTheme,
 } from "@/store/slices/appStatusSlice";
 
 import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 
-import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
+import { COLOR_KEYS, LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
+import ColorSelectButton from "./ColorSelectButton";
 
 const ControlBar = () => {
   const router = useRouter();
@@ -31,10 +33,8 @@ const ControlBar = () => {
         <div>
           <button
             className={
-              "w-full " +
-              (gTheme == THEME_KEYS.SOPHISTICATED
-                ? "button border-green"
-                : "button-simplicity border-blue_simplicity text-blue_simplicity")
+              "w-full border-th-primary button " +
+              (gTheme == THEME_KEYS.SOPHISTICATED ? "" : "text-th-primary")
             }
             type="button"
             onClick={() => setShowThemesSelectionPopup(true)}
@@ -77,15 +77,7 @@ const ControlBar = () => {
       <div className="mb-[20px]">
         <h3 className="font-semibold">Colors</h3>
         <div>
-          <button
-            className="colors-green radius-[8px] w-[64px] h-[64px] bg-green rounded-[8px] mr-[20px]"
-            onClick={() => {}}
-          ></button>
-          <button
-            type="button"
-            className="colors-green radius-[8px] w-[64px] h-[64px] bg-blue rounded-[8px]"
-            onClick={() => {}}
-          ></button>
+          <ColorSelectButton themes={gTheme} />
         </div>
       </div>
       <div className="mb-[20px]">
@@ -106,7 +98,7 @@ const ControlBar = () => {
         <button
           type="button"
           className={
-            "rounded-[8px] text-white w-full p-2 flex items-center justify-center " +
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-th-background-button " +
             (gTheme == THEME_KEYS.SOPHISTICATED
               ? "bg-green"
               : "bg-blue_simplicity")

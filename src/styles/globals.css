@@ -83,6 +83,47 @@
   --card-border-rgb: 131, 134, 135;
 
   --background: theme("colors.black");
+  --background-button: theme("colors.green");
+
+  --primary: theme("colors.green");
+  --primary-medium: theme("colors.green");
+  --primary-light: theme("colors.green");
+}
+
+[data-theme="SOPHISTICATED_BLUE"] {
+  --background: theme("colors.black");
+  --background-button: theme("colors.blue");
+
+  --accent-dark: theme("colors.blue");
+  --accent-medium: theme("colors.blue");
+  --accent-light: theme("colors.blue");
+
+  --primary: theme("colors.blue");
+  --primary-medium: theme("colors.blue");
+  --primary-light: theme("colors.blue");
+}
+
+[data-theme="MODERN_BLUE"] {
+  --background: theme("colors.white");
+  --background-button: theme("colors.blue_simplicity");
+
+  --accent-dark: theme("colors.blue_simplicity");
+  --accent-medium: theme("colors.blue_simplicity");
+  --accent-light: theme("colors.blue_simplicity");
+  --primary: theme("colors.blue_simplicity");
+}
+
+[data-theme="MODERN_PINK"] {
+  --background: theme("colors.pink_simplicity");
+  --background-button: theme("colors.pink_simplicity");
+
+  --accent-dark: theme("colors.pink.900");
+  --accent-medium: theme("colors.pink.700");
+  --accent-light: theme("colors.pink.500");
+
+  --primary: theme("colors.pink_simplicity");
+  --primary-medium: theme("colors.pink.200");
+  --primary-light: theme("colors.pink.100");
 }
 
 @media (prefers-color-scheme: dark) {

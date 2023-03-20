@@ -1,15 +1,20 @@
-import { THEME_KEYS } from "@/constants/constants";
-import { setTheme } from "@/store/slices/appStatusSlice";
+import { COLOR_KEYS, THEME_KEYS } from "@/constants/constants";
+import { setColor, setThemes } from "@/store/slices/appStatusSlice";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
 import images from "../../../public/images";
 
 function ThemeSelectionPopup({ isVisible, onClose }) {
   const dispatch = useDispatch();
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => setMounted(true), []);
+
+  if (!mounted) return null;
 
   if (!isVisible) return null;
-
   return (
     <div
       className="fixed top-0 left-0 right-0 bottom-0 w-full flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
@@ -29,7 +34,8 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.SOPHISTICATED}
                 onClick={() => {
-                  dispatch(setTheme(THEME_KEYS.SOPHISTICATED));
+                  dispatch(setThemes(THEME_KEYS.SOPHISTICATED));
+                  dispatch(setColor(COLOR_KEYS.SOPHISTICATED_GREEN));
                   onClose();
                 }}
               >
@@ -44,7 +50,8 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.MODERN}
                 onClick={() => {
-                  dispatch(setTheme(THEME_KEYS.MODERN));
+                  dispatch(setThemes(THEME_KEYS.MODERN));
+                  dispatch(setColor(COLOR_KEYS.MODERN_BLUE));
                   onClose();
                 }}
               >
