@@ -70,11 +70,11 @@ const Management = () => {
         (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black " : "bg-gray ")
       }
     >
-      <div className={gColor.toLowerCase()}>
+      <div className={gColor}>
         <div className="flex flex-1">
           <div
             className={
-              "min-w-[320px] max-w-[320px] max-h-[820px] items-start " +
+              "min-w-[320px] max-w-[320px] max-h-[820px] items-start p-[30px] " +
               (gTheme == THEME_KEYS.SOPHISTICATED ? "card" : "card-simplicity")
             }
           >

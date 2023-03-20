@@ -45,26 +45,13 @@ module.exports = {
         "th-background": "var(--background)",
         "th-background-button": "var(--background-button)",
         "th-foreground": "var(--foreground)",
-        "th-primary-dark": "var(--primary-dark)",
+        "th-primary": "var(--primary)",
         "th-primary-medium": "var(--primary-medium)",
         "th-primary-light": "var(--primary-light)",
         "th-accent-dark": "var(--accent-dark)",
         "th-accent-medium": "var(--accent-medium)",
         "th-accent-light": "var(--accent-light)",
       },
-      // textColor: {
-      //   skin: {
-      //     base: "var(--color-text-base)",
-      //     muted: "var(--color-text-muted)",
-      //     inverted: "var(--color-text-inverted)",
-      //   },
-      // },
-      // backgroundColor: {
-      //   skin: {
-      //     fill: "var(--color-fill)",
-      //     button: "var(--color-button-base)",
-      //   },
-      // },
     },
   },
   darkMode: false,

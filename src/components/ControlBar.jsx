@@ -22,7 +22,6 @@ const ControlBar = () => {
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
 
   const gTheme = useSelector(selectCurrentTheme);
-  const gColor = useSelector(selectCurrentColor);
 
   const [showThemesSelectionPopup, setShowThemesSelectionPopup] =
     useState(false);
@@ -34,10 +33,10 @@ const ControlBar = () => {
         <div>
           <button
             className={
-              "w-full " +
+              "w-full border-th-primary " +
               (gTheme == THEME_KEYS.SOPHISTICATED
-                ? "button border-green"
-                : "button-simplicity border-blue_simplicity text-blue_simplicity")
+                ? "button"
+                : "text-th-primary")
             }
             type="button"
             onClick={() => setShowThemesSelectionPopup(true)}

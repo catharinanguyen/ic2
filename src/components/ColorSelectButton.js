@@ -9,7 +9,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 function ColorSelectButton(props) {
-  const { themes } = props;
+  const { themes, currentTheme } = props;
 
   const dispatch = useDispatch();
   const gTheme = useSelector(selectCurrentTheme);
@@ -39,14 +39,14 @@ function ColorSelectButton(props) {
   let defaultTheme;
   switch (themes) {
     case THEME_KEYS.SOPHISTICATED:
-      setTheme(COLOR_KEYS.SOPHISTICATED_GREEN);
-      // colorDisplay = setColor(COLOR_KEYS.SOPHISTICATED_GREEN);
-      // colorSecondDisplay = setColor(COLOR_KEYS.SOPHISTICATED_BLUE);
+      setTheme(gColor);
+      colorDisplay = setColor(COLOR_KEYS.SOPHISTICATED_GREEN);
+      colorSecondDisplay = setColor(COLOR_KEYS.SOPHISTICATED_BLUE);
       break;
     case THEME_KEYS.MODERN:
-      setTheme(COLOR_KEYS.MODERN_BLUE);
-      // colorDisplay = setColor(COLOR_KEYS.MODERN_BLUE);
-      // colorSecondDisplay = setColor(COLOR_KEYS.MODERN_PINK);
+      setTheme(gColor);
+      colorDisplay = setColor(COLOR_KEYS.MODERN_BLUE);
+      colorSecondDisplay = setColor(COLOR_KEYS.MODERN_PINK);
       break;
     default:
       colorDisplay = setColor(COLOR_KEYS.SOPHISTICATED_GREEN);
@@ -62,7 +62,10 @@ function ColorSelectButton(props) {
         }
         value={theme}
         onClick={() => {
-          setTheme(gColor);
+          {
+            dispatch(colorDisplay);
+            setTheme(gColor);
+          }
         }}
       ></button>
       <button
@@ -72,10 +75,12 @@ function ColorSelectButton(props) {
           fillSeCondColor +
           active
         }
-        value={theme}
+        value={gColor}
         onClick={() => {
-          setTheme(gColor);
-          setActive(!active);
+          {
+            dispatch(colorSecondDisplay);
+            setTheme(gColor);
+          }
         }}
       ></button>
     </div>

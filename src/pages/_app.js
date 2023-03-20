@@ -6,6 +6,7 @@ import { wrapper } from "../store/store";
 
 export default function App({ Component, ...rest }) {
   const { store, props } = wrapper.useWrappedStore(rest);
+  // const { theme, darkMode } = useLoaderData<typeof loader>();
   const { pageProps } = props;
 
   return (

@@ -20,7 +20,7 @@ export const appStatusSlice = createSlice({
     setPage: (state, action) => {
       state.currentPage = action.payload;
     },
-    setTheme: (state, action) => {
+    setThemes: (state, action) => {
       state.theme = action.payload;
     },
     setFullWidget: (state, action) => {
@@ -45,7 +45,7 @@ export const appStatusSlice = createSlice({
 export const {
   nextPage,
   setPage,
-  setTheme,
+  setThemes,
   setColor,
   setFullWidget,
   resetFullWidget,
