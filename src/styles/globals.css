@@ -38,7 +38,7 @@
 @layer components {
   .card {
     color: theme("colors.white");
-    padding: 25px;
+    padding: 5px;
     @apply bg-gradient-to-r from-[theme("colors.card")] to-[theme("colors.card1")] flex items-center justify-center;
     box-shadow: theme("boxShadow.xl");
   }
