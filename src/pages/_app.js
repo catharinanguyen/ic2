@@ -10,9 +10,9 @@ export default function App({ Component, ...rest }) {
 
   return (
     <Provider store={store}>
-      {/* <ThemeProvider attribute="class"> */}
-      <Component {...pageProps} />
-      {/* </ThemeProvider> */}
+      <ThemeProvider>
+        <Component {...pageProps} />
+      </ThemeProvider>
     </Provider>
   );
 }

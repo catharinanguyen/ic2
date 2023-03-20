@@ -101,7 +101,7 @@ const ControlBar = () => {
         <button
           type="button"
           className={
-            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-skin-fill " +
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-th-background-button " +
             (gTheme == THEME_KEYS.SOPHISTICATED
               ? "bg-green"
               : "bg-blue_simplicity")
