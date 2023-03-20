@@ -61,7 +61,6 @@ export default function Home() {
       <div
         className={
           "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative " +
-          gColor.toLowerCase() +
           (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
         }
       >

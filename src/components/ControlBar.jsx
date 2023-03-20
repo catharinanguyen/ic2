@@ -33,10 +33,8 @@ const ControlBar = () => {
         <div>
           <button
             className={
-              "w-full border-th-primary " +
-              (gTheme == THEME_KEYS.SOPHISTICATED
-                ? "button"
-                : "text-th-primary")
+              "w-full border-th-primary button " +
+              (gTheme == THEME_KEYS.SOPHISTICATED ? "" : "text-th-primary")
             }
             type="button"
             onClick={() => setShowThemesSelectionPopup(true)}
