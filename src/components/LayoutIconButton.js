@@ -1,10 +1,14 @@
-import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
-import { selectCurrentTheme } from "@/store/slices/appStatusSlice";
 import { useSelector } from "react-redux";
+
+import { selectPrimaryColor } from "@/store/slices/appStatusSlice";
+
+import { LAYOUT_TYPES } from "@/constants/constants";
 
 function LayoutIconButton(props) {
   const { layout, isActive, onClick } = props;
-  const gTheme = useSelector(selectCurrentTheme);
+  const gPrimaryColor = useSelector(selectPrimaryColor);
+
+  const fillColor = isActive ? gPrimaryColor : "#D9D9D9";
 
   let svgIcon;
   switch (layout) {
@@ -35,13 +39,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -72,13 +70,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -109,13 +101,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -146,13 +132,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -183,13 +163,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -233,13 +207,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );
@@ -269,13 +237,7 @@ function LayoutIconButton(props) {
             fill-rule="evenodd"
             clip-rule="evenodd"
             d="M56 4L8 4C5.79086 4 4 5.79086 4 8L4 56C4 58.2091 5.79086 60 8 60L56 60C58.2091 60 60 58.2091 60 56L60 8C60 5.79086 58.2091 4 56 4ZM8 0C3.58172 0 0 3.58172 0 8L0 56C0 60.4183 3.58172 64 8 64L56 64C60.4183 64 64 60.4183 64 56L64 8C64 3.58172 60.4183 0 56 0L8 0Z"
-            fill={
-              isActive
-                ? gTheme == THEME_KEYS.SOPHISTICATED
-                  ? "#03DA99"
-                  : "#0072DE"
-                : "#D9D9D9"
-            }
+            fill={fillColor}
           />
         </svg>
       );

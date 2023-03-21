@@ -2,11 +2,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import {
   selectCurrentPage,
-  selectCurrentTheme,
+  selectPrimaryColor,
 } from "@/store/slices/appStatusSlice";
 import { updatePageLayout } from "@/store/slices/pagesSlice";
 
-import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
+import { LAYOUT_TYPES } from "@/constants/constants";
 
 function LayoutSelectButton(props) {
   const { layout, isActive } = props;
@@ -14,18 +14,10 @@ function LayoutSelectButton(props) {
   const dispatch = useDispatch();
 
   const gCurrentPage = useSelector(selectCurrentPage);
-  const gTheme = useSelector(selectCurrentTheme);
+  const gPrimaryColor = useSelector(selectPrimaryColor);
 
-  const fillColor = isActive
-    ? gTheme == THEME_KEYS.SOPHISTICATED
-      ? "#03DA99"
-      : "#0072DE"
-    : "#EEEEEE";
-  const borderColor = isActive
-    ? gTheme == THEME_KEYS.SOPHISTICATED
-      ? "#03DA99"
-      : "#0072DE"
-    : "#FFFFFF00";
+  const fillColor = isActive ? gPrimaryColor : "#EEEEEE";
+  const borderColor = isActive ? gPrimaryColor : "#FFFFFF00";
 
   let svgIcon;
   switch (layout) {

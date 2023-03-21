@@ -10,9 +10,15 @@ export const THEME_KEYS = {
 export const THEMES = {
   [THEME_KEYS.SOPHISTICATED]: {
     name: "Sophisticated",
+    colorPalette: {
+      primaryColors: ['#04D5B7', '#0056FE'],
+    },
   },
   [THEME_KEYS.MODERN]: {
     name: "Modern",
+    colorPalette: {
+      primaryColors: ['#0072DE', '#008561', '#FF3366'],
+    },
   },
   [THEME_KEYS.RETRO]: {
     name: "Retro",
@@ -155,6 +161,7 @@ export const LAYOUT_EDIT_CONFIG = {
     },
   ],
 };
+
 export const COLOR_KEYS = {
   SOPHISTICATED_BLUE: "SOPHISTICATED_BLUE",
   SOPHISTICATED_GREEN: "SOPHISTICATED_GREEN",

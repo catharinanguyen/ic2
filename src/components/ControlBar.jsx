@@ -6,6 +6,7 @@ import {
   selectCurrentColor,
   selectCurrentPage,
   selectCurrentTheme,
+  selectPrimaryColor,
 } from "@/store/slices/appStatusSlice";
 
 import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
@@ -14,14 +15,17 @@ import { COLOR_KEYS, LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
 import ColorSelectButton from "./ColorSelectButton";
+import RoundBorderButton from "@/components/RoundBorderButton";
+import { capitalize } from "lodash";
+import SelectColorPanel from "@/components/SelectColorPanel";
 
 const ControlBar = () => {
   const router = useRouter();
 
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
-
   const gTheme = useSelector(selectCurrentTheme);
+  const gPrimaryColor = useSelector(selectPrimaryColor);
 
   const [showThemesSelectionPopup, setShowThemesSelectionPopup] =
     useState(false);
@@ -31,16 +35,10 @@ const ControlBar = () => {
       <div className="mb-[20px]">
         <h3 className="font-semibold">Themes</h3>
         <div>
-          <button
-            className={
-              "w-full border-th-primary button " +
-              (gTheme == THEME_KEYS.SOPHISTICATED ? "" : "text-th-primary")
-            }
-            type="button"
+          <RoundBorderButton
+            text={capitalize(gTheme)}
             onClick={() => setShowThemesSelectionPopup(true)}
-          >
-            {gTheme.charAt(0).toUpperCase() + gTheme.slice(1).toLowerCase()}
-          </button>
+          />
           <ThemeSelectionPopup
             isVisible={showThemesSelectionPopup}
             onClose={() => setShowThemesSelectionPopup(false)}
@@ -77,7 +75,7 @@ const ControlBar = () => {
       <div className="mb-[20px]">
         <h3 className="font-semibold">Colors</h3>
         <div>
-          <ColorSelectButton themes={gTheme} />
+          <SelectColorPanel />
         </div>
       </div>
       <div className="mb-[20px]">
@@ -98,11 +96,9 @@ const ControlBar = () => {
         <button
           type="button"
           className={
-            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-th-background-button " +
-            (gTheme == THEME_KEYS.SOPHISTICATED
-              ? "bg-green"
-              : "bg-blue_simplicity")
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-th-background-button"
           }
+          style={{ backgroundColor: gPrimaryColor }}
           onClick={() => {
             router.push("/");
           }}

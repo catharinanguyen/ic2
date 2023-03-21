@@ -1,5 +1,5 @@
 import { COLOR_KEYS, THEME_KEYS } from "@/constants/constants";
-import { setColor, setThemes } from "@/store/slices/appStatusSlice";
+import { setColor, setTheme } from "@/store/slices/appStatusSlice";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
@@ -34,7 +34,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.SOPHISTICATED}
                 onClick={() => {
-                  dispatch(setThemes(THEME_KEYS.SOPHISTICATED));
+                  dispatch(setTheme(THEME_KEYS.SOPHISTICATED));
                   dispatch(setColor(COLOR_KEYS.SOPHISTICATED_GREEN));
                   onClose();
                 }}
@@ -50,7 +50,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 className="max-w-[770px] mr-[64px]"
                 value={THEME_KEYS.MODERN}
                 onClick={() => {
-                  dispatch(setThemes(THEME_KEYS.MODERN));
+                  dispatch(setTheme(THEME_KEYS.MODERN));
                   dispatch(setColor(COLOR_KEYS.MODERN_BLUE));
                   onClose();
                 }}
