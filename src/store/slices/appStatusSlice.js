@@ -7,7 +7,6 @@ const initialState = {
   theme: THEME_KEYS.SOPHISTICATED,
   currentPage: 1,
   fullWidget: null,
-  color: COLOR_KEYS.SOPHISTICATED_GREEN,
   primaryColor: THEMES[THEME_KEYS.SOPHISTICATED].colorPalette.primaryColors[0],
 };
 
@@ -32,9 +31,6 @@ export const appStatusSlice = createSlice({
     },
     resetFullWidget: (state, action) => {
       state.fullWidget = null;
-    },
-    setColor: (state, action) => {
-      state.color = action.payload;
     },
     setPrimaryColor: (state, action) => {
       state.primaryColor = action.payload;
@@ -61,6 +57,5 @@ export const {
 export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export const selectCurrentTheme = (state) => state.appStatus.theme;
 export const selectFullWidget = (state) => state.appStatus.fullWidget;
-export const selectCurrentColor = (state) => state.appStatus.color;
 export const selectPrimaryColor = (state) => state.appStatus.primaryColor;
 export default appStatusSlice.reducer;

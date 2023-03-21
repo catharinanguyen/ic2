@@ -35,7 +35,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 value={THEME_KEYS.SOPHISTICATED}
                 onClick={() => {
                   dispatch(setTheme(THEME_KEYS.SOPHISTICATED));
-                  dispatch(setColor(COLOR_KEYS.SOPHISTICATED_GREEN));
+                  // dispatch(setColor(COLOR_KEYS.SOPHISTICATED_GREEN));
                   onClose();
                 }}
               >
@@ -51,7 +51,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 value={THEME_KEYS.MODERN}
                 onClick={() => {
                   dispatch(setTheme(THEME_KEYS.MODERN));
-                  dispatch(setColor(COLOR_KEYS.MODERN_BLUE));
+                  // dispatch(setColor(COLOR_KEYS.MODERN_BLUE));
                   onClose();
                 }}
               >

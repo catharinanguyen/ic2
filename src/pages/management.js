@@ -27,7 +27,6 @@ const Management = () => {
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
-  const gColor = useSelector(selectCurrentColor);
 
   const renderLayout = () => {
     if (!gPageInfo) {
@@ -70,7 +69,7 @@ const Management = () => {
         (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black " : "bg-gray ")
       }
     >
-      <div className={gColor}>
+      <div>
         <div className="flex flex-1">
           <div
             className={
