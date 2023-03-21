@@ -1,22 +1,16 @@
 import { useSelector } from "react-redux";
 
-import { selectCurrentTheme, selectPrimaryColor } from "@/store/slices/appStatusSlice";
-
-import { THEME_KEYS } from "@/constants/constants";
+import { selectPrimaryColor } from "@/store/slices/appStatusSlice";
 
 function RoundBorderButton(props) {
   const { text, onClick } = props;
 
-  const gTheme = useSelector(selectCurrentTheme);
   const gPrimaryColor = useSelector(selectPrimaryColor);
 
   return (
     <button
-      className={
-        "w-full border-th-primary button " +
-        (gTheme == THEME_KEYS.SOPHISTICATED ? "" : "text-th-primary")
-      }
-      style={{ borderColor: gPrimaryColor }}
+      className={"w-full button "}
+      style={{ borderColor: gPrimaryColor, color: gPrimaryColor }}
       type="button"
       onClick={onClick}
     >

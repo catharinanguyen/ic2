@@ -14,7 +14,6 @@ import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 import { COLOR_KEYS, LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
-import ColorSelectButton from "./ColorSelectButton";
 import RoundBorderButton from "@/components/RoundBorderButton";
 import { capitalize } from "lodash";
 import SelectColorPanel from "@/components/SelectColorPanel";
@@ -96,7 +95,7 @@ const ControlBar = () => {
         <button
           type="button"
           className={
-            "rounded-[8px] text-white w-full p-2 flex items-center justify-center bg-th-background-button"
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center "
           }
           style={{ backgroundColor: gPrimaryColor }}
           onClick={() => {

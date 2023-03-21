@@ -9,7 +9,6 @@ import {
   selectCurrentPage,
   selectFullWidget,
   selectCurrentTheme,
-  selectCurrentColor,
 } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
@@ -32,7 +31,6 @@ export default function Home() {
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
   const gFullWidget = useSelector(selectFullWidget);
-  const gColor = useSelector(selectCurrentColor);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
