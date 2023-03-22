@@ -16,7 +16,7 @@ function WidgetSvgIconSelectButton(props) {
     ? `border-2 border-[#04D5B7] rounded-md`
     : `border-2 border-[#0072DE] rounded-md`;
 
-  const svgIcon = getWidgetSvgIconByType(type, fill);
+  const svgIcon = getWidgetSvgIconByType({ widgetType: type, fill });
 
   return (
     <button

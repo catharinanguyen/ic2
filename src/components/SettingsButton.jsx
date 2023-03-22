@@ -1,11 +1,20 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
+
+import { selectCurrentPage, setPage } from "@/store/slices/appStatusSlice";
 
 function SettingsButton() {
   const router = useRouter();
+  const dispatch = useDispatch();
+
+  const gCurrentPage = useSelector(selectCurrentPage);
 
   const handleButtonClick = (e) => {
     e.stopPropagation();
     router.push('/management');
+    if (gCurrentPage === 0) {
+      dispatch(setPage(1));
+    }
   }
 
   return (
