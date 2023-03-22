@@ -10,15 +10,12 @@ import WidgetDisplay from "@/components/WidgetDisplay";
 import { LAYOUT_EDIT_CONFIG } from "@/constants/constants";
 
 function LayoutDisplay(props) {
-  // const { layoutType } = props;
-
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
 
   const { layout: layoutType } = gPageInfo;
 
   const layoutConfig = LAYOUT_EDIT_CONFIG[layoutType];
-  console.log('[hai] ~ file: LayoutDisplay.jsx:21 ~ LayoutDisplay ~ layoutConfig:', layoutConfig);
 
   if (!layoutConfig) {
     return <div />;
