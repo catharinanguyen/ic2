@@ -2,18 +2,36 @@ import Image from "next/image";
 import { useDispatch, useSelector } from "react-redux";
 import { capitalize } from "lodash";
 
-import { selectCurrentTheme, setFullWidget } from "@/store/slices/appStatusSlice";
-
-import { THEME_KEYS } from "@/constants/constants";
+import {
+  selectPrimaryColor,
+  setFullWidget,
+} from "@/store/slices/appStatusSlice";
 
 function WidgetDisplay(props) {
   const { widgetType, widgetShape } = props;
 
   const dispatch = useDispatch();
 
-  const gTheme = useSelector(selectCurrentTheme);
+  const gPrimaryColor = useSelector(selectPrimaryColor);
 
-  const widgetTheme = gTheme === THEME_KEYS.SOPHISTICATED ? 'dark' : 'light';
+  let widgetTheme;
+  switch (gPrimaryColor) {
+    case "#04D5B7":
+      widgetTheme = "dark";
+      break;
+    case "#0056FE":
+      widgetTheme = "sophisticated-blue";
+      break;
+    case "#0072DE":
+      widgetTheme = "light";
+      break;
+    case "#FF3366":
+      widgetTheme = "modern-pink";
+      break;
+    default:
+      widgetTheme = "dark";
+      break;
+  }
 
   if (!widgetType) {
     return <div />;
