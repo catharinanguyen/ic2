@@ -9,6 +9,7 @@ import {
   selectCurrentPage,
   selectFullWidget,
   selectCurrentTheme,
+  selectPrimaryColor,
 } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
@@ -22,7 +23,6 @@ import SettingsButton from "@/components/SettingsButton";
 import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
 import { THEME_KEYS } from "@/constants/constants";
 
-import images from "../../public/images";
 import BottomBarButton from "@/components/BottomBarButton";
 import FullWidgetDisplay from "@/components/FullWidgetDisplay";
 
@@ -31,6 +31,7 @@ export default function Home() {
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
   const gFullWidget = useSelector(selectFullWidget);
+  const gPrimaryColor = useSelector(selectPrimaryColor);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -47,6 +48,27 @@ export default function Home() {
     }
     return <PageWidgetsDisplay page={gPageInfo} />;
   };
+
+  let leftImageTheme;
+  switch (gPrimaryColor) {
+    case "#04D5B7":
+      leftImageTheme = "dark";
+      break;
+    case "#0056FE":
+      leftImageTheme = "sophisticated-blue";
+      break;
+    case "#0072DE":
+      leftImageTheme = "light";
+      break;
+    case "#FF3366":
+      leftImageTheme = "modern-pink";
+      break;
+    default:
+      leftImageTheme = "dark";
+      break;
+  }
+
+  const imageSrc = `/images/left-panel-${leftImageTheme}.svg`;
 
   return (
     <>
@@ -65,11 +87,7 @@ export default function Home() {
         <div className="flex flex-1">
           <div className="w-fit h-fit max-h-[820px]">
             <Image
-              src={
-                gTheme == THEME_KEYS.SOPHISTICATED
-                  ? images.LeftPanel
-                  : images.LeftPanelLight
-              }
+              src={imageSrc}
               alt="left-pane"
               width={320}
               height={820}

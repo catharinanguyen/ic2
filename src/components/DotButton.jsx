@@ -1,7 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { selectPrimaryColor, setPage } from "@/store/slices/appStatusSlice";
-import { THEME_KEYS } from "@/constants/constants";
 
 function DotButton(props) {
   const { isActive = false, pageNo } = props;

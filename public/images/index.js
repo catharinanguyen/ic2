@@ -1,6 +1,6 @@
 /* eslint-disable import/no-anonymous-default-export */
 import MapWidget from "./map-widget.svg";
-import LeftPanel from "./left-panel.svg";
+import LeftPanelDark from "./left-panel-dark.svg";
 import LeftPanelLight from "./left-panel-light.svg";
 import MapWidgetVertical from "./map-widget-vertical.jpg";
 import MapWidgetVerticalLight from "./map-widget-vertical-light.jpg";
@@ -39,6 +39,6 @@ export default {
   SophisticatedTheme,
   ModernTheme,
   RetroTheme,
-  LeftPanel,
+  LeftPanelDark,
   LeftPanelLight,
 };
