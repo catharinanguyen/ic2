@@ -1,10 +1,13 @@
-import { COLOR_KEYS, THEME_KEYS } from "@/constants/constants";
-import { setColor, setTheme } from "@/store/slices/appStatusSlice";
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 
+import Image from "next/image";
+
+import { setTheme } from "@/store/slices/appStatusSlice";
+
 import images from "../../../public/images";
+
+import { THEME_KEYS } from "@/constants/constants";
 
 function ThemeSelectionPopup({ isVisible, onClose }) {
   const dispatch = useDispatch();
@@ -35,7 +38,6 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 value={THEME_KEYS.SOPHISTICATED}
                 onClick={() => {
                   dispatch(setTheme(THEME_KEYS.SOPHISTICATED));
-                  // dispatch(setColor(COLOR_KEYS.SOPHISTICATED_GREEN));
                   onClose();
                 }}
               >
@@ -51,7 +53,6 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 value={THEME_KEYS.MODERN}
                 onClick={() => {
                   dispatch(setTheme(THEME_KEYS.MODERN));
-                  // dispatch(setColor(COLOR_KEYS.MODERN_BLUE));
                   onClose();
                 }}
               >
