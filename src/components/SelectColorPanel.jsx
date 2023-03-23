@@ -1,12 +1,10 @@
-import ColorButton from "@/components/ColorButton";
-import { THEMES, THEME_KEYS } from "@/constants/constants";
-import {
-  selectCurrentColorIndex,
-  selectCurrentTheme,
-  selectPrimaryColor,
-} from "@/store/slices/appStatusSlice";
-import React, { useState } from "react";
 import { useSelector } from "react-redux";
+
+import { selectCurrentTheme } from "@/store/slices/appStatusSlice";
+
+import ColorButton from "@/components/ColorButton";
+
+import { THEMES } from "@/constants/constants";
 
 function SelectColorPanel(props) {
   const gTheme = useSelector(selectCurrentTheme);

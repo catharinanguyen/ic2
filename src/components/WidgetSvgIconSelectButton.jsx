@@ -25,7 +25,7 @@ function WidgetSvgIconSelectButton(props) {
         }
       : { backgroundColor: "#EFEFEF", borderRadius: "6px" };
 
-  const svgIcon = getWidgetSvgIconByType(type, fill);
+  const svgIcon = getWidgetSvgIconByType({ widgetType: type, fill });
 
   return (
     <button

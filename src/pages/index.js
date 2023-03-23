@@ -25,6 +25,7 @@ import { THEME_KEYS } from "@/constants/constants";
 
 import BottomBarButton from "@/components/BottomBarButton";
 import FullWidgetDisplay from "@/components/FullWidgetDisplay";
+import AllWidgetsPage from "@/components/AllWidgetsPage";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
@@ -46,6 +47,9 @@ export default function Home() {
     if (gFullWidget) {
       return <FullWidgetDisplay />;
     }
+    // if (gCurrentPage === 0) {
+    //   return <AllWidgetsPage />;
+    // }
     return <PageWidgetsDisplay page={gPageInfo} />;
   };
 

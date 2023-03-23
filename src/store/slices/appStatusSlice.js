@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
-import { COLOR_KEYS, THEMES, THEME_KEYS } from "@/constants/constants";
+import { THEMES, THEME_KEYS } from "@/constants/constants";
 
 const initialState = {
   theme: THEME_KEYS.SOPHISTICATED,

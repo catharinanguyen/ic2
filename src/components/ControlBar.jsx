@@ -3,7 +3,6 @@ import { useSelector } from "react-redux";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 import {
-  selectCurrentColor,
   selectCurrentPage,
   selectCurrentTheme,
   selectPrimaryColor,
@@ -11,7 +10,7 @@ import {
 
 import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 
-import { COLOR_KEYS, LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
+import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 import { useRouter } from "next/router";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
 import RoundBorderButton from "@/components/RoundBorderButton";
@@ -85,7 +84,7 @@ const ControlBar = () => {
               <LayoutSelectButton
                 key={layout}
                 layout={layout}
-                isActive={layout === gPageInfo.layout}
+                isActive={layout === gPageInfo?.layout}
               />
             );
           })}
