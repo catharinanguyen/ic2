@@ -1,6 +1,9 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { resetFullWidget, selectFullWidget } from "@/store/slices/appStatusSlice";
+import {
+  resetFullWidget,
+  selectFullWidget,
+} from "@/store/slices/appStatusSlice";
 
 import WidgetDisplay from "@/components/WidgetDisplay";
 import CloseButton from "@/components/CloseButton";
@@ -13,7 +16,7 @@ function FullWidgetDisplay() {
   const gFullWidget = useSelector(selectFullWidget);
 
   return (
-    <div className="w-[842px] h-[800px] m-auto mb-2 box-border relative overflow-hidden">
+    <div className="w-[842px] h-[800px] m-auto mb-2 box-border relative overflow-hidden ">
       <WidgetDisplay
         widgetType={gFullWidget}
         widgetShape={WIDGET_SHAPES.FULL}
