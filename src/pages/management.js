@@ -11,15 +11,15 @@ import ControlBar from "../components/ControlBar";
 import PageEditActionBar from "@/components/PageEditActionBar";
 import LayoutEdit from "@/components/layouts/LayoutEdit";
 
-import {
-  OneCol2CellsLayoutEdit,
-  TwoCellsOneColLayoutEdit,
-  TwoRowsLayoutEdit,
-  OneRowTwoCellsLayoutEdit,
-  TwoColsLayoutEdit,
-  TwoCellsOneRowLayoutEdit,
-  FourCellsLayoutEdit,
-} from "@/components/layouts";
+// import {
+//   OneCol2CellsLayoutEdit,
+//   TwoCellsOneColLayoutEdit,
+//   TwoRowsLayoutEdit,
+//   OneRowTwoCellsLayoutEdit,
+//   TwoColsLayoutEdit,
+//   TwoCellsOneRowLayoutEdit,
+//   FourCellsLayoutEdit,
+// } from "@/components/layouts";
 
 import { LAYOUT_TYPES, THEME_KEYS } from "@/constants/constants";
 

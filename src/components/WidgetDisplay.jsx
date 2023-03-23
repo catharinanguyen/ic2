@@ -3,9 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { capitalize } from "lodash";
 
 import {
+  selectCurrentTheme,
   selectPrimaryColor,
   setFullWidget,
 } from "@/store/slices/appStatusSlice";
+import { THEME_KEYS } from "@/constants/constants";
 
 function WidgetDisplay(props) {
   const { widgetType, widgetShape } = props;
@@ -13,6 +15,7 @@ function WidgetDisplay(props) {
   const dispatch = useDispatch();
 
   const gPrimaryColor = useSelector(selectPrimaryColor);
+  const gTheme = useSelector(selectCurrentTheme);
 
   let widgetTheme;
   switch (gPrimaryColor) {
@@ -43,6 +46,15 @@ function WidgetDisplay(props) {
     <Image
       src={imageSrc}
       fill
+      style={
+        gTheme === THEME_KEYS.SOPHISTICATED
+          ? {
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: gPrimaryColor,
+            }
+          : { borderRadius: "0.375rem" }
+      }
       onClick={() => dispatch(setFullWidget(widgetType))}
       alt={capitalize(widgetType)}
     />
