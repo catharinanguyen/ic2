@@ -13,7 +13,7 @@ function SelectColorPanel(props) {
 
   return (
     <div>
-      {primaryColors.map((color, i) => {
+      {primaryColors.map((color) => {
         return <ColorButton key={color} color={color} />;
       })}
     </div>
