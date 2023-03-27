@@ -72,7 +72,7 @@ export default function Home() {
       break;
   }
 
-  const imageSrc = `/images/left-panel-${leftImageTheme}.svg`;
+  const imageSrc = `/images/left-panel-${leftImageTheme}.jpg`;
 
   return (
     <>
