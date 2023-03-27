@@ -1,3 +1,4 @@
+import { isEmpty } from "lodash";
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
@@ -8,6 +9,7 @@ const initialState = {
   currentPage: 1,
   fullWidget: null,
   primaryColor: THEMES[THEME_KEYS.SOPHISTICATED].colorPalette.primaryColors[0],
+  backgroundImage: null,
 };
 
 export const appStatusSlice = createSlice({
@@ -22,9 +24,11 @@ export const appStatusSlice = createSlice({
     },
     setTheme: (state, action) => {
       const theme = action.payload;
-      const primaryColor = THEMES[theme].colorPalette.primaryColors[0];
       state.theme = theme;
-      state.primaryColor = primaryColor;
+      if (isEmpty(state.backgroundImage)) {
+        const primaryColor = THEMES[theme].colorPalette.primaryColors[0];
+        state.primaryColor = primaryColor;
+      }
     },
     setFullWidget: (state, action) => {
       state.fullWidget = action.payload;
@@ -34,6 +38,9 @@ export const appStatusSlice = createSlice({
     },
     setPrimaryColor: (state, action) => {
       state.primaryColor = action.payload;
+    },
+    setBackgroundImage: (state, action) => {
+      state.backgroundImage = action.payload;
     },
   },
   extraReducers: {
@@ -49,8 +56,8 @@ export const {
   nextPage,
   setPage,
   setTheme,
-  setColor,
   setPrimaryColor,
+  setBackgroundImage,
   setFullWidget,
   resetFullWidget,
 } = appStatusSlice.actions;
@@ -58,4 +65,5 @@ export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export const selectCurrentTheme = (state) => state.appStatus.theme;
 export const selectFullWidget = (state) => state.appStatus.fullWidget;
 export const selectPrimaryColor = (state) => state.appStatus.primaryColor;
+export const selectBackgroundImage = (state) => state.appStatus.backgroundImage;
 export default appStatusSlice.reducer;
