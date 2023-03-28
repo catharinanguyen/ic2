@@ -32,7 +32,7 @@ function WidgetDisplay(props) {
       widgetTheme = "modern-pink";
       break;
     default:
-      widgetTheme = "dark";
+      widgetTheme = gTheme === THEME_KEYS.SOPHISTICATED ? "dark" : "light";
       break;
   }
 
@@ -49,10 +49,10 @@ function WidgetDisplay(props) {
       style={
         gTheme === THEME_KEYS.SOPHISTICATED
           ? {
-              borderWidth: "1px",
-              borderStyle: "solid",
-              borderColor: gPrimaryColor,
-            }
+            borderWidth: "1px",
+            borderStyle: "solid",
+            borderColor: gPrimaryColor,
+          }
           : { borderRadius: "0.375rem" }
       }
       onClick={() => dispatch(setFullWidget(widgetType))}
