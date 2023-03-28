@@ -10,6 +10,7 @@ import {
   selectFullWidget,
   selectCurrentTheme,
   selectPrimaryColor,
+  selectBackgroundImage,
 } from "@/store/slices/appStatusSlice";
 
 import Button1 from "@/components/Button1";
@@ -25,7 +26,6 @@ import { THEME_KEYS } from "@/constants/constants";
 
 import BottomBarButton from "@/components/BottomBarButton";
 import FullWidgetDisplay from "@/components/FullWidgetDisplay";
-import AllWidgetsPage from "@/components/AllWidgetsPage";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
@@ -33,6 +33,7 @@ export default function Home() {
   const gTheme = useSelector(selectCurrentTheme);
   const gFullWidget = useSelector(selectFullWidget);
   const gPrimaryColor = useSelector(selectPrimaryColor);
+  const gBackgroundImage = useSelector(selectBackgroundImage);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -47,9 +48,6 @@ export default function Home() {
     if (gFullWidget) {
       return <FullWidgetDisplay />;
     }
-    // if (gCurrentPage === 0) {
-    //   return <AllWidgetsPage />;
-    // }
     return <PageWidgetsDisplay page={gPageInfo} />;
   };
 
@@ -68,7 +66,7 @@ export default function Home() {
       leftImageTheme = "modern-pink";
       break;
     default:
-      leftImageTheme = "dark";
+      leftImageTheme = gTheme === THEME_KEYS.SOPHISTICATED ? "dark" : "light";
       break;
   }
 
@@ -84,9 +82,15 @@ export default function Home() {
       </Head>
       <div
         className={
-          "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative " +
-          (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
+          "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative overflow-y-scroll "
         }
+        style={{
+          backgroundImage: `${
+            gBackgroundImage ? `url(${gBackgroundImage})` : ""
+          }`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+        }}
       >
         <div className="flex flex-1">
           <div className="w-fit h-fit max-h-[820px]">

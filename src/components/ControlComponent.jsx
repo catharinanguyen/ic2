@@ -11,7 +11,7 @@ const ControlComponent = ({ children, title }) => {
     gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[20px]" : "text-[24px]";
 
   return (
-    <div className={"mb-[20px] " + styleActiveText}>
+    <div className={"mb-[15px] " + styleActiveText}>
       <h3 className={"font-semibold " + styleActiveTitle}>{title}</h3>
       <div>{children}</div>
     </div>
