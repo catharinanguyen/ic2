@@ -35,7 +35,7 @@ function WidgetIconWithName(props) {
 
   const gTextType = useSelector(selectTextType);
   const styleActiveText =
-    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "" : "text-[28px]";
+    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "" : "text-[24px]";
 
   return (
     <div className="flex-col justify-center items-center">
