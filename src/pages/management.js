@@ -46,7 +46,7 @@ const Management = () => {
         <div className="flex flex-1">
           <div
             className={
-              "min-w-[320px] max-w-[320px] max-h-[820px] items-start px-[30px] py-[15px] " +
+              "min-w-[320px] max-w-[320px] max-h-[820px] items-start px-[30px] py-[20px] " +
               (gTheme == THEME_KEYS.SOPHISTICATED ? "card" : "card-simplicity")
             }
           >

@@ -82,7 +82,8 @@ export default function Home() {
       </Head>
       <div
         className={
-          "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative overflow-y-scroll "
+          "h-full w-full max-w-[1180px] max-h-[820px] m-auto relative " +
+          (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
         }
         style={{
           backgroundImage: `${

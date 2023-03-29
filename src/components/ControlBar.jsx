@@ -74,7 +74,7 @@ const ControlBar = () => {
   };
 
   return (
-    <div className="relative pb-[0px]">
+    <div className="relative h-full pb-[0px]">
       <ControlComponent title="Themes">
         <div>
           <RoundBorderButton
@@ -139,7 +139,7 @@ const ControlBar = () => {
         </div>
       </ControlComponent>
       {/* {gBackgroundImage && <div className="h-[60px]"></div>} */}
-      <div className="absolute top-[98%] left-0 w-full">
+      <div className="absolute bottom-0 left-0 w-full">
         <button
           type="button"
           className={
