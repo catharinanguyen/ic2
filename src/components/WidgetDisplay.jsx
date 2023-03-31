@@ -43,9 +43,10 @@ function WidgetDisplay(props) {
 
   const imageSrc = `/images/${widgetType.toLowerCase()}-widget-${widgetShape.toLowerCase()}-${widgetTheme}.jpg`;
 
-  return widgetType == WIDGET_TYPES.AUDIO ? (
+  return widgetType == WIDGET_TYPES.AUDIO ||
+    widgetType == WIDGET_TYPES.MUSIC ? (
     <div>
-      <Player />
+      <Player widgetType={widgetType} />
       <Image
         src={imageSrc}
         fill
