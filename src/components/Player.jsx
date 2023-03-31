@@ -1,17 +1,14 @@
 import {
-  selectCurrentPage,
   selectCurrentSongId,
   selectPlayerState,
   setPlayerState,
   setSongId,
 } from "@/store/slices/appStatusSlice";
 import Image from "next/image";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgressBar from "./ProgressBar";
 import songs from "../data/songs.json";
-import { WIDGET_TYPES } from "@/constants/constants";
-import { selectPageInfo } from "@/store/slices/pagesSlice";
 
 const Player = (props) => {
   const { playerState = "pause", widgetType } = props;
@@ -23,7 +20,6 @@ const Player = (props) => {
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
   const selectSongId = useSelector(selectCurrentSongId);
-  console.log(widgetType);
 
   if (selectSongId < 0 || selectSongId > songs.length - 1) {
     selectSongId(0);
@@ -107,7 +103,6 @@ const Player = (props) => {
           //     }, 1000);
           // }}
           hidden
-          autoPlay
         ></audio>
       </div>
     </div>
