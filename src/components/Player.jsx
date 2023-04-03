@@ -1,5 +1,6 @@
 import {
   selectCurrentSongId,
+  selectCurrentTheme,
   selectPlayerState,
   setPlayerState,
   setSongId,
@@ -9,13 +10,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ProgressBar from "./ProgressBar";
 import songs from "../data/songs.json";
+import { THEME_KEYS, WIDGET_SHAPES } from "@/constants/constants";
 
 const Player = (props) => {
-  const { playerState = "pause", widgetType } = props;
+  const { playerState = "pause", widgetType, widgetShape } = props;
   const dispatch = useDispatch();
 
   const audioRef = useRef();
   const gPlayerState = useSelector(selectPlayerState);
+  const gTheme = useSelector(selectCurrentTheme);
 
   const [timeProgress, setTimeProgress] = useState(0);
   const [duration, setDuration] = useState(0);
@@ -63,17 +66,28 @@ const Player = (props) => {
     setDuration(seconds);
   };
 
-  const imagePlayer = `/images/${(gPlayerState || "").toLowerCase()}.svg`;
+  const imagePlayer = `/images/${(gPlayerState || "").toLowerCase()}-${(
+    gTheme || ""
+  ).toLowerCase()}.svg`;
   const imageBackWard = `/images/backward-${(
     widgetType || ""
-  ).toLowerCase()}.svg`;
-  const imageForWard = `/images/forward-${(
-    widgetType || ""
+  ).toLowerCase()}-${(gTheme || "").toLowerCase()}.svg`;
+  const imageForWard = `/images/forward-${(widgetType || "").toLowerCase()}-${(
+    gTheme || ""
   ).toLowerCase()}.svg`;
   return (
     <div>
       {/* <ProgressBar {...{ timeProgress, duration }} /> */}
-      <div className="absolute w-[398px] h-[123px] flex justify-around items-center bottom-[12px] right-[50%] translate-x-2/4 z-10 px-[58px]">
+      <div
+        className={
+          "absolute w-[398px] h-[123px] flex justify-around items-center  right-[50%] translate-x-2/4 z-10 px-[58px] " +
+          (gTheme === THEME_KEYS.SOPHISTICATED
+            ? "bottom-[12px]"
+            : widgetShape === WIDGET_SHAPES.FULL || WIDGET_SHAPES.VERTICAL
+            ? "bottom-[12px]"
+            : "top-[50%]")
+        }
+      >
         <div className="cursor-pointer" onClick={onBackwardClick}>
           <Image src={imageBackWard} alt="backward" width={64} height={64} />
         </div>

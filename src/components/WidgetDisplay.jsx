@@ -46,7 +46,7 @@ function WidgetDisplay(props) {
   return widgetType == WIDGET_TYPES.AUDIO ||
     widgetType == WIDGET_TYPES.MUSIC ? (
     <div>
-      <Player widgetType={widgetType} />
+      <Player widgetType={widgetType} widgetShape={widgetShape} />
       <Image
         src={imageSrc}
         fill
