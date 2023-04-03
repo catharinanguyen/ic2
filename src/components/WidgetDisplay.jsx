@@ -7,7 +7,8 @@ import {
   selectPrimaryColor,
   setFullWidget,
 } from "@/store/slices/appStatusSlice";
-import { THEME_KEYS } from "@/constants/constants";
+import { THEME_KEYS, WIDGET_TYPES } from "@/constants/constants";
+import Player from "./Player";
 
 function WidgetDisplay(props) {
   const { widgetType, widgetShape } = props;
@@ -42,17 +43,37 @@ function WidgetDisplay(props) {
 
   const imageSrc = `/images/${widgetType.toLowerCase()}-widget-${widgetShape.toLowerCase()}-${widgetTheme}.jpg`;
 
-  return (
+  return widgetType == WIDGET_TYPES.AUDIO ||
+    widgetType == WIDGET_TYPES.MUSIC ? (
+    <div>
+      <Player widgetType={widgetType} widgetShape={widgetShape} />
+      <Image
+        src={imageSrc}
+        fill
+        style={
+          gTheme === THEME_KEYS.SOPHISTICATED
+            ? {
+                borderWidth: "1px",
+                borderStyle: "solid",
+                borderColor: gPrimaryColor,
+              }
+            : { borderRadius: "0.375rem" }
+        }
+        onClick={() => dispatch(setFullWidget(widgetType))}
+        alt={capitalize(widgetType)}
+      />
+    </div>
+  ) : (
     <Image
       src={imageSrc}
       fill
       style={
         gTheme === THEME_KEYS.SOPHISTICATED
           ? {
-            borderWidth: "1px",
-            borderStyle: "solid",
-            borderColor: gPrimaryColor,
-          }
+              borderWidth: "1px",
+              borderStyle: "solid",
+              borderColor: gPrimaryColor,
+            }
           : { borderRadius: "0.375rem" }
       }
       onClick={() => dispatch(setFullWidget(widgetType))}

@@ -166,3 +166,8 @@ export const TEXT_TYPES = {
   COMPACT: "COMPACT",
   COMFORTABLE: "COMFORTABLE",
 };
+
+export const PLAYER_STATES = {
+  PLAY: "PLAY",
+  PAUSE: "PAUSE",
+};

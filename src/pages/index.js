@@ -115,7 +115,7 @@ export default function Home() {
         {localState.openBottomBar === true && (
           <div
             className={
-              "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center space-x-20 " +
+              "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-20 " +
               (gTheme == THEME_KEYS.SOPHISTICATED
                 ? 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
                 : 'bg-[url("/images/bottom-bar-bg-light.svg")]')
