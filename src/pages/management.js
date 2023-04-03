@@ -35,16 +35,18 @@ const Management = () => {
         (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black " : "bg-gray ")
       }
       style={{
-        backgroundImage: `${gBackgroundImage ? `url(${gBackgroundImage})` : ''}`,
-        backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
+        backgroundImage: `${
+          gBackgroundImage ? `url(${gBackgroundImage})` : ""
+        }`,
+        backgroundSize: "cover",
+        backgroundRepeat: "no-repeat",
       }}
     >
       <div>
         <div className="flex flex-1">
           <div
             className={
-              "min-w-[320px] max-w-[320px] max-h-[820px] items-start p-[30px] " +
+              "min-w-[320px] max-w-[320px] max-h-[820px] items-start px-[30px] py-[20px] " +
               (gTheme == THEME_KEYS.SOPHISTICATED ? "card" : "card-simplicity")
             }
           >

@@ -1,14 +1,16 @@
 import { isEmpty } from "lodash";
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
+import { capitalize } from "lodash";
 
-import { THEMES, THEME_KEYS } from "@/constants/constants";
+import { TEXT_TYPES, THEMES, THEME_KEYS } from "@/constants/constants";
 
 const initialState = {
   theme: THEME_KEYS.SOPHISTICATED,
   currentPage: 1,
   fullWidget: null,
   primaryColor: THEMES[THEME_KEYS.SOPHISTICATED].colorPalette.primaryColors[0],
+  textType: capitalize(TEXT_TYPES.COMPACT),
   backgroundImage: null,
 };
 
@@ -39,6 +41,9 @@ export const appStatusSlice = createSlice({
     setPrimaryColor: (state, action) => {
       state.primaryColor = action.payload;
     },
+    setTextType: (state, action) => {
+      state.textType = action.payload;
+    },
     setBackgroundImage: (state, action) => {
       state.backgroundImage = action.payload;
     },
@@ -56,6 +61,8 @@ export const {
   nextPage,
   setPage,
   setTheme,
+  setColor,
+  setTextType,
   setPrimaryColor,
   setBackgroundImage,
   setFullWidget,
@@ -65,5 +72,6 @@ export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export const selectCurrentTheme = (state) => state.appStatus.theme;
 export const selectFullWidget = (state) => state.appStatus.fullWidget;
 export const selectPrimaryColor = (state) => state.appStatus.primaryColor;
+export const selectTextType = (state) => state.appStatus.textType;
 export const selectBackgroundImage = (state) => state.appStatus.backgroundImage;
 export default appStatusSlice.reducer;

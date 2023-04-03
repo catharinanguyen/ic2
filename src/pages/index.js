@@ -86,9 +86,11 @@ export default function Home() {
           (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
         }
         style={{
-          backgroundImage: `${gBackgroundImage ? `url(${gBackgroundImage})` : ''}`,
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
+          backgroundImage: `${
+            gBackgroundImage ? `url(${gBackgroundImage})` : ""
+          }`,
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
         }}
       >
         <div className="flex flex-1">

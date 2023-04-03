@@ -10,6 +10,8 @@ import {
   selectCurrentPage,
   selectCurrentTheme,
   selectPrimaryColor,
+  selectTextType,
+  setTextType,
   setBackgroundImage,
   setPrimaryColor,
 } from "@/store/slices/appStatusSlice";
@@ -19,8 +21,15 @@ import ThemeSelectionPopup from "./popups/ThemeSelectionPopup";
 import LayoutSelectButton from "@/components/layouts/LayoutSelectButton";
 import RoundBorderButton from "@/components/RoundBorderButton";
 import SelectColorPanel from "@/components/SelectColorPanel";
+import SelectTextTypes from "./SelectTextTypes";
+import ControlComponent from "./ControlComponent";
 
-import { LAYOUT_TYPES, THEMES, THEME_KEYS } from "@/constants/constants";
+import {
+  LAYOUT_TYPES,
+  THEMES,
+  THEME_KEYS,
+  TEXT_TYPES,
+} from "@/constants/constants";
 
 const ControlBar = () => {
   const hiddenFileInput = React.useRef(null);
@@ -32,6 +41,9 @@ const ControlBar = () => {
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
   const gPrimaryColor = useSelector(selectPrimaryColor);
+  const gTextType = useSelector(selectTextType);
+  const styleActiveButtonText =
+    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[24px]" : "text-[28px]";
   const gBackgroundImage = useSelector(selectBackgroundImage);
 
   const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);
@@ -47,7 +59,7 @@ const ControlBar = () => {
     }
     var vibrant = new Vibrant(wallpaperUrl);
     vibrant.getPalette().then((palette) => {
-      dispatch(setPrimaryColor(palette['Vibrant'].hex));
+      dispatch(setPrimaryColor(palette["Vibrant"].hex));
     });
   }, [wallpaperUrl, dispatch]);
 
@@ -61,9 +73,8 @@ const ControlBar = () => {
   };
 
   return (
-    <div className="relative pb-[0px]">
-      <div className="mb-[15px]">
-        <h3 className="font-semibold">Themes</h3>
+    <div className="relative h-full pb-[0px]">
+      <ControlComponent title="Themes">
         <div>
           <RoundBorderButton
             text={capitalize(gTheme)}
@@ -74,36 +85,11 @@ const ControlBar = () => {
             onClose={() => setShowThemesSelectionPopup(false)}
           />
         </div>
-      </div>
-      <div className="mb-[15px]">
-        <h3 className="font-semibold">Text size</h3>
-        <div className="flex">
-          <button
-            className={
-              "text-[16px] px-6 mr-[10px] " +
-              (gTheme == THEME_KEYS.SOPHISTICATED
-                ? "button"
-                : "button-simplicity")
-            }
-            type="button"
-          >
-            Compact
-          </button>
-          <button
-            className={
-              "text-[16px] px-6 mr-[10px] " +
-              (gTheme == THEME_KEYS.SOPHISTICATED
-                ? "button"
-                : "button-simplicity")
-            }
-            type="button"
-          >
-            Comfortable
-          </button>
-        </div>
-      </div>
-      <div className="mb-[15px]">
-        <h3 className="font-semibold">Wallpaper</h3>
+      </ControlComponent>
+      <ControlComponent title="Text sizes">
+        <SelectTextTypes />
+      </ControlComponent>
+      <ControlComponent title="Wallpaper">
         <RoundBorderButton
           text="Upload image"
           highlightBorder={false}
@@ -114,7 +100,7 @@ const ControlBar = () => {
           type="file"
           name="myImage"
           onChange={uploadToClient}
-          style={{ display: 'none' }}
+          style={{ display: "none" }}
         />
         {gBackgroundImage && (
           <div className="mt-2">
@@ -123,22 +109,22 @@ const ControlBar = () => {
               highlightBorder={false}
               onClick={() => {
                 dispatch(setBackgroundImage(undefined));
-                dispatch(setPrimaryColor(THEMES[gTheme].colorPalette.primaryColors[0]));
+                dispatch(
+                  setPrimaryColor(THEMES[gTheme].colorPalette.primaryColors[0])
+                );
               }}
             />
           </div>
         )}
-      </div>
+      </ControlComponent>
       {!gBackgroundImage && (
-        <div className="mb-[15px]">
-          <h3 className="font-semibold">Colors</h3>
+        <ControlComponent title="Colors">
           <div>
             <SelectColorPanel />
           </div>
-        </div>
+        </ControlComponent>
       )}
-      <div className="mb-[15px]">
-        <h3 className="font-semibold">Layouts</h3>
+      <ControlComponent title="Layouts">
         <div className="flex flex-wrap">
           {Object.values(LAYOUT_TYPES).map((layout) => {
             return (
@@ -150,13 +136,14 @@ const ControlBar = () => {
             );
           })}
         </div>
-      </div>
-      {gBackgroundImage && <div className="h-[60px]"></div>}
-      <div className="absolute top-full left-0 w-full">
+      </ControlComponent>
+      {/* {gBackgroundImage && <div className="h-[60px]"></div>} */}
+      <div className="absolute bottom-0 left-0 w-full">
         <button
           type="button"
           className={
-            "rounded-[8px] text-white w-full p-2 flex items-center justify-center "
+            "rounded-[8px] text-white w-full p-2 flex items-center justify-center " +
+            styleActiveButtonText
           }
           style={{ backgroundColor: gPrimaryColor }}
           onClick={() => {

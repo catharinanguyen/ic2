@@ -24,7 +24,7 @@
     background-color: theme("colors.transparent");
     border-radius: 100px;
     border: 2px solid #ffffff;
-    padding: theme("spacing.2");
+    padding: theme("spacing.1");
     display: flex;
     align-items: center;
     justify-content: center;
@@ -35,7 +35,7 @@
     border-radius: 100px;
     border-width: 2px;
     border-style: solid;
-    padding: theme("spacing.2");
+    padding: theme("spacing.1");
     display: flex;
     align-items: center;
     justify-content: center;
