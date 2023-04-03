@@ -46,13 +46,12 @@ const ControlBar = () => {
     gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[24px]" : "text-[28px]";
   const gBackgroundImage = useSelector(selectBackgroundImage);
 
-  const [showThemesSelectionPopup, setShowThemesSelectionPopup] =
-    useState(false);
+  const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);
   const [wallpaperUrl, setWallpaperURL] = useState(null);
 
   const handleUploadImage = () => {
     hiddenFileInput.current.click();
-  };
+  }
 
   useEffect(() => {
     if (!wallpaperUrl) {
