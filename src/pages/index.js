@@ -12,7 +12,9 @@ import {
   selectPrimaryColor,
   selectBackgroundImage,
 } from "@/store/slices/appStatusSlice";
+import { selectUser } from "@/store/slices/userSlice";
 
+import BottomBarButton from "@/components/BottomBarButton";
 import Button1 from "@/components/Button1";
 import Button2 from "@/components/Button2";
 import Button3 from "@/components/Button3";
@@ -20,12 +22,12 @@ import Button4 from "@/components/Button4";
 import Button5 from "@/components/Button5";
 import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
-import SettingsButton from "@/components/SettingsButton";
-import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
-import { THEME_KEYS } from "@/constants/constants";
-
-import BottomBarButton from "@/components/BottomBarButton";
 import FullWidgetDisplay from "@/components/FullWidgetDisplay";
+import LoginPopup from "@/components/popups/LoginPopup";
+import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
+import SettingsButton from "@/components/SettingsButton";
+
+import { THEME_KEYS } from "@/constants/constants";
 
 export default function Home() {
   const gCurrentPage = useSelector(selectCurrentPage);
@@ -34,6 +36,7 @@ export default function Home() {
   const gFullWidget = useSelector(selectFullWidget);
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gBackgroundImage = useSelector(selectBackgroundImage);
+  const gUser = useSelector(selectUser);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -86,9 +89,8 @@ export default function Home() {
           (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
         }
         style={{
-          backgroundImage: `${
-            gBackgroundImage ? `url(${gBackgroundImage})` : ""
-          }`,
+          backgroundImage: `${gBackgroundImage ? `url(${gBackgroundImage})` : ""
+            }`,
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
@@ -134,6 +136,9 @@ export default function Home() {
           </div>
         )}
       </div>
+      <LoginPopup
+        isVisible={!gUser.email}
+      />
     </>
   );
 }
