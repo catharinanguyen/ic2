@@ -3,7 +3,6 @@ import {
   selectCurrentVoiceStatus,
   setVoiceStatus,
 } from "@/store/slices/appStatusSlice";
-import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MapButtons from "./MapButtons";
 
