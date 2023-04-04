@@ -80,7 +80,7 @@ const Player = (props) => {
       {/* <ProgressBar {...{ timeProgress, duration }} /> */}
       <div
         className={
-          "absolute w-[398px] h-[123px] flex justify-around items-center  right-[50%] translate-x-2/4 z-10 px-[58px] " +
+          "absolute w-[398px] h-[123px] flex justify-around items-center right-[50%] translate-x-2/4 z-10 px-[58px] " +
           (gTheme === THEME_KEYS.SOPHISTICATED
             ? "bottom-[12px]"
             : widgetShape === WIDGET_SHAPES.FULL || WIDGET_SHAPES.VERTICAL
@@ -92,7 +92,12 @@ const Player = (props) => {
           <Image src={imageBackWard} alt="backward" width={64} height={64} />
         </div>
         <div className="cursor-pointer" onClick={onMusicPlay}>
-          <Image src={imagePlayer} alt="Play" width={96} height={96} />
+          <Image
+            src={imagePlayer}
+            alt="Play"
+            width={gTheme === THEME_KEYS.SOPHISTICATED ? 96 : 64}
+            height={gTheme === THEME_KEYS.SOPHISTICATED ? 96 : 64}
+          />
         </div>
         <div className="cursor-pointer" onClick={onForwardClick}>
           <Image src={imageForWard} alt="forward" width={64} height={64} />
