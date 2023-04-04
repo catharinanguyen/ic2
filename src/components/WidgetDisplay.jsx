@@ -74,8 +74,11 @@ function WidgetDisplay(props) {
             className={
               "absolute flex z-10 " +
               (widgetShape === WIDGET_SHAPES.CELL
-                ? "bottom-[50%] right-[50%] translate-x-2/4 translate-y-[75%] flex-row"
-                : "right-[12px] bottom-[50%] translate-y-2/4 flex-col")
+                ? gTheme === THEME_KEYS.SOPHISTICATED
+                  ? "bottom-[50%] translate-y-[76%] right-[50%] translate-x-2/4 flex-row"
+                  : "right-[50%] translate-x-2/4 flex-row bottom-[12px]"
+                : // ? "bottom-[50%] right-[50%] translate-x-2/4 translate-y-[75%] flex-row"
+                  "right-[12px] bottom-[50%] translate-y-2/4 flex-col")
             }
           >
             <VoiceMapDirectionButton />

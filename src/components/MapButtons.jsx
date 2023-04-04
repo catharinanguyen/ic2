@@ -21,7 +21,7 @@ const MapButtons = (props) => {
 
   return (
     <button
-      className="flex items-center justify-center rounded-[50%] w-[88px] h-[88px] border-[2px] border-solid cursor-pointer"
+      className="flex items-center justify-center rounded-[50%] w-[84px] h-[84px] border-[2px] border-solid cursor-pointer"
       style={buttonStyle}
       onClick={onClick}
     >
