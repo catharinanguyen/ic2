@@ -7,6 +7,7 @@ import {
   TEXT_TYPES,
   THEMES,
   THEME_KEYS,
+  VOICE_STATUS,
 } from "@/constants/constants";
 
 import songs from "../../data/songs.json";
@@ -20,6 +21,7 @@ const initialState = {
   backgroundImage: null,
   playerState: PLAYER_STATES.PAUSE,
   songId: songs[0].id,
+  voiceStatus: VOICE_STATUS.ON,
 };
 
 export const appStatusSlice = createSlice({
@@ -61,6 +63,9 @@ export const appStatusSlice = createSlice({
     setSongId: (state, action) => {
       state.songId = action.payload;
     },
+    setVoiceStatus: (state, action) => {
+      state.voiceStatus = action.payload;
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
@@ -83,6 +88,7 @@ export const {
   resetFullWidget,
   setPlayerState,
   setSongId,
+  setVoiceStatus,
 } = appStatusSlice.actions;
 export const selectCurrentPage = (state) => state.appStatus.currentPage;
 export const selectCurrentTheme = (state) => state.appStatus.theme;
@@ -92,4 +98,5 @@ export const selectTextType = (state) => state.appStatus.textType;
 export const selectBackgroundImage = (state) => state.appStatus.backgroundImage;
 export const selectPlayerState = (state) => state.appStatus.playerState;
 export const selectCurrentSongId = (state) => state.appStatus.songId;
+export const selectCurrentVoiceStatus = (state) => state.appStatus.voiceStatus;
 export default appStatusSlice.reducer;
