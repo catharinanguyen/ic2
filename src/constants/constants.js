@@ -171,3 +171,8 @@ export const PLAYER_STATES = {
   PLAY: "PLAY",
   PAUSE: "PAUSE",
 };
+
+export const VOICE_STATUS = {
+  ON: "ON",
+  OFF: "OFF",
+};

@@ -7,8 +7,9 @@ import {
   selectPrimaryColor,
   setFullWidget,
 } from "@/store/slices/appStatusSlice";
-import { THEME_KEYS, WIDGET_TYPES } from "@/constants/constants";
+import { THEME_KEYS, WIDGET_SHAPES, WIDGET_TYPES } from "@/constants/constants";
 import Player from "./Player";
+import VoiceMapDirectionButton from "./VoiceMapDirectionButton";
 
 function WidgetDisplay(props) {
   const { widgetType, widgetShape } = props;
@@ -43,10 +44,61 @@ function WidgetDisplay(props) {
 
   const imageSrc = `/images/${widgetType.toLowerCase()}-widget-${widgetShape.toLowerCase()}-${widgetTheme}.jpg`;
 
-  return widgetType == WIDGET_TYPES.AUDIO ||
-    widgetType == WIDGET_TYPES.MUSIC ? (
-    <div>
-      <Player widgetType={widgetType} widgetShape={widgetShape} />
+  const renderContent = () => {
+    if (widgetType == WIDGET_TYPES.AUDIO || widgetType == WIDGET_TYPES.MUSIC) {
+      return (
+        <div>
+          <Player widgetType={widgetType} widgetShape={widgetShape} />
+          <Image
+            src={imageSrc}
+            fill
+            style={
+              gTheme === THEME_KEYS.SOPHISTICATED
+                ? {
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: gPrimaryColor,
+                  }
+                : { borderRadius: "0.375rem" }
+            }
+            onClick={() => dispatch(setFullWidget(widgetType))}
+            alt={capitalize(widgetType)}
+          />
+        </div>
+      );
+    }
+    if (widgetType == WIDGET_TYPES.MAP) {
+      return (
+        <div>
+          <div
+            className={
+              "absolute flex z-10 " +
+              (widgetShape === WIDGET_SHAPES.CELL
+                ? "bottom-[50%] right-[50%] translate-x-2/4 translate-y-[75%] flex-row"
+                : "right-[12px] bottom-[50%] translate-y-2/4 flex-col")
+            }
+          >
+            <VoiceMapDirectionButton />
+          </div>
+          <Image
+            src={imageSrc}
+            fill
+            style={
+              gTheme === THEME_KEYS.SOPHISTICATED
+                ? {
+                    borderWidth: "1px",
+                    borderStyle: "solid",
+                    borderColor: gPrimaryColor,
+                  }
+                : { borderRadius: "0.375rem" }
+            }
+            onClick={() => dispatch(setFullWidget(widgetType))}
+            alt={capitalize(widgetType)}
+          />
+        </div>
+      );
+    }
+    return (
       <Image
         src={imageSrc}
         fill
@@ -62,24 +114,10 @@ function WidgetDisplay(props) {
         onClick={() => dispatch(setFullWidget(widgetType))}
         alt={capitalize(widgetType)}
       />
-    </div>
-  ) : (
-    <Image
-      src={imageSrc}
-      fill
-      style={
-        gTheme === THEME_KEYS.SOPHISTICATED
-          ? {
-              borderWidth: "1px",
-              borderStyle: "solid",
-              borderColor: gPrimaryColor,
-            }
-          : { borderRadius: "0.375rem" }
-      }
-      onClick={() => dispatch(setFullWidget(widgetType))}
-      alt={capitalize(widgetType)}
-    />
-  );
+    );
+  };
+
+  return renderContent();
 }
 
 export default WidgetDisplay;
