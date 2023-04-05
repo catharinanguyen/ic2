@@ -84,28 +84,28 @@ function Home() {
             src={imageSrc}
             alt="left-pane"
             width={320}
-            height={820}
-            className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[820px]"
+            height={770}
+            className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[770px]"
           />
         </div>
-        <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 p-2 pb-0 w-full h-[820px] max-h-[820px] relative">
+        <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 px-1 w-full h-[820px] max-h-[820px] relative">
           <div className="col-span-2 row-span-2 h-fit">{renderContent()}</div>
-          <div className="flex col-span-2 items-center h-4">
-            <BottomBarButton
-              onClick={() => updateLocalState({ openBottomBar: true })}
-            />
-          </div>
+          {/* <div className="flex col-span-2 items-center h-4">
+            <BottomBarButton onClick={() => updateLocalState({ openBottomBar: true })} />
+          </div> */}
         </div>
+      </div>
+      <div className="absolute bottom-0 left-0 right-0 w-full h-[38px]">
+        <BottomBarButton onClick={() => updateLocalState({ openBottomBar: true })} />
       </div>
       {localState.openBottomBar === true && (
         <div
           className={
-            "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-20 " +
+            "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-20 transfrom " +
             (gTheme == THEME_KEYS.SOPHISTICATED
               ? 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
               : 'bg-[url("/images/bottom-bar-bg-light.svg")]')
           }
-          onClick={() => updateLocalState({ openBottomBar: false })}
         >
           <Button1 />
           <Button2 />
@@ -115,12 +115,16 @@ function Home() {
           <Button4 />
           <Button7 />
           <Button8 />
-          <SettingsButton />
+          {/* <SettingsButton /> */}
+          <button
+            className="absolute -top-5 r-[50%] translate-x-2/4 w-[60px] h-[38px] bg-[#1A2433] flex justify-center items-center rounded-t-md "
+            onClick={() => updateLocalState({ openBottomBar: false })}
+          >
+            <Image src={`/images/button-collapse.svg`} width={22} height={13} />
+          </button>
         </div>
       )}
-      <LoginPopup
-        isVisible={!gUser.email}
-      />
+      <LoginPopup isVisible={!gUser.email} />
     </>
   );
 }
