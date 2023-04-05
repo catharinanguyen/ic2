@@ -137,7 +137,6 @@ const ControlBar = () => {
           })}
         </div>
       </ControlComponent>
-      {/* {gBackgroundImage && <div className="h-[60px]"></div>} */}
       <div className="absolute bottom-0 left-0 w-full">
         <button
           type="button"

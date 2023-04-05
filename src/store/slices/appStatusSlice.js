@@ -1,7 +1,6 @@
-import { isEmpty } from "lodash";
+import { isEmpty, capitalize } from "lodash";
 import { createSlice } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
-import { capitalize } from "lodash";
 
 import {
   PLAYER_STATES,
