@@ -1,7 +1,6 @@
 import { useReducer } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
-import Head from "next/head";
 import Image from "next/image";
 
 import { selectPageInfo } from "@/store/slices/pagesSlice";
@@ -10,9 +9,8 @@ import {
   selectFullWidget,
   selectCurrentTheme,
   selectPrimaryColor,
-  selectBackgroundImage,
 } from "@/store/slices/appStatusSlice";
-import { selectUser } from "@/store/slices/userSlice";
+import { logout, selectUser } from "@/store/slices/userSlice";
 
 import BottomBarButton from "@/components/BottomBarButton";
 import Button1 from "@/components/Button1";
@@ -29,14 +27,17 @@ import SettingsButton from "@/components/SettingsButton";
 
 import { THEME_KEYS } from "@/constants/constants";
 import withAppLayout from "@/components/hoc/withAppLayout";
+import UserAvatarButton from "@/components/UserAvatarButton";
+import LogoutPopup from "@/components/popups/LogoutPopup";
 
 function Home() {
+  const dispatch = useDispatch();
+
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
   const gTheme = useSelector(selectCurrentTheme);
   const gFullWidget = useSelector(selectFullWidget);
   const gPrimaryColor = useSelector(selectPrimaryColor);
-  const gBackgroundImage = useSelector(selectBackgroundImage);
   const gUser = useSelector(selectUser);
 
   const [localState, updateLocalState] = useReducer(
@@ -45,6 +46,7 @@ function Home() {
     },
     {
       openBottomBar: false,
+      showLogoutPopup: false,
     }
   );
 
@@ -74,19 +76,31 @@ function Home() {
       break;
   }
 
-  const imageSrc = `/images/left-panel-${leftImageTheme}.jpg`;
+  const leftPanelImageSrc = `/images/left-panel-${leftImageTheme}.jpg`;
+
+  const handleLogout = () => {
+    dispatch(logout());
+    updateLocalState({ showLogoutPopup: false });
+  }
 
   return (
     <>
       <div className="flex flex-1">
-        <div className="w-fit h-fit max-h-[820px]">
+        <div className="w-fit h-fit max-h-[820px] relative">
           <Image
-            src={imageSrc}
+            src={leftPanelImageSrc}
             alt="left-pane"
             width={320}
             height={820}
             className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[820px]"
           />
+          {gUser.email && (
+            <div className="absolute bottom-3 left-3">
+              <UserAvatarButton
+                onClick={() => updateLocalState({ showLogoutPopup: true })}
+              />
+            </div>
+          )}
         </div>
         <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 p-2 pb-0 w-full h-[820px] max-h-[820px] relative">
           <div className="col-span-2 row-span-2 h-fit">{renderContent()}</div>
@@ -120,6 +134,11 @@ function Home() {
       )}
       <LoginPopup
         isVisible={!gUser.email}
+      />
+      <LogoutPopup
+        isVisible={localState.showLogoutPopup}
+        onOk={handleLogout}
+        onCancel={() => updateLocalState({ showLogoutPopup: false })}
       />
     </>
   );

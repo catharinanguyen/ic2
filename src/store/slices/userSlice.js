@@ -11,6 +11,10 @@ export const userSlice = createSlice({
       state = { ...action.payload };
       return state;
     },
+    logout: (state, action) => {
+      state = initialState;
+      return state;
+    },
   },
   extraReducers: {
     [HYDRATE]: (state, action) => {
@@ -23,6 +27,7 @@ export const userSlice = createSlice({
 
 export const {
   loginSuccess,
+  logout,
 } = userSlice.actions;
 export const selectUser = (state) => state.user;
 export default userSlice.reducer;
