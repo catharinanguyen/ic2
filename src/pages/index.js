@@ -90,9 +90,6 @@ function Home() {
         </div>
         <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 px-1 w-full h-[820px] max-h-[820px] relative">
           <div className="col-span-2 row-span-2 h-fit">{renderContent()}</div>
-          {/* <div className="flex col-span-2 items-center h-4">
-            <BottomBarButton onClick={() => updateLocalState({ openBottomBar: true })} />
-          </div> */}
         </div>
       </div>
       <div className="absolute bottom-0 left-0 right-0 w-full h-[38px]">
@@ -117,7 +114,7 @@ function Home() {
           <Button8 />
           {/* <SettingsButton /> */}
           <button
-            className="absolute -top-5 r-[50%] translate-x-2/4 w-[60px] h-[38px] bg-[#1A2433] flex justify-center items-center rounded-t-md "
+            className="absolute -top-5 l-[50%] -translate-x-2/4 w-[60px] h-[38px] bg-[#1A2433] flex justify-center items-center rounded-t-md "
             onClick={() => updateLocalState({ openBottomBar: false })}
           >
             <Image src={`/images/button-collapse.svg`} width={22} height={13} />
