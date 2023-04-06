@@ -24,10 +24,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
       id="wrapper"
     >
       <div className="bg-gradient-to-r from-bg-card to-bg-card1 relative w-[980px] h-[702px] p-[50px] border border-border_green">
-        <button
-          className="absolute top-[10px] left-[10px]"
-          onClick={() => onClose()}
-        >
+        <button className="absolute top-[10px] left-[10px]" onClick={() => onClose()}>
           X
         </button>
         <div className="overflow-hidden">
@@ -41,10 +38,8 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                   onClose();
                 }}
               >
-                <h2 className="text-[24px] font-semibold mb-[30px] text-center">
-                  Sophisticated
-                </h2>
-                <div className="border-4 border-border_green">
+                <h2 className="text-[24px] font-semibold mb-[30px] text-center">Sophisticated</h2>
+                <div className="border-4 border-border_green w-[63.559vw]">
                   <Image src={images.SophisticatedTheme} alt="Sophisticated" />
                 </div>
               </div>
@@ -56,10 +51,8 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                   onClose();
                 }}
               >
-                <h2 className="text-[24px] font-semibold mb-[30px] text-center">
-                  Modern
-                </h2>
-                <div className="border-4 border-border_green">
+                <h2 className="text-[24px] font-semibold mb-[30px] text-center">Modern</h2>
+                <div className="border-4 border-border_green w-[63.559vw]">
                   <Image src={images.ModernTheme} alt="Modern" />
                 </div>
               </div>
