@@ -7,7 +7,7 @@ import { selectBackgroundImage, selectCurrentTheme } from "@/store/slices/appSta
 
 import { THEME_KEYS } from "@/constants/constants";
 
-const withAppLayout = (WrappedComponent) => {
+const withAppLayout = WrappedComponent => {
   function WithAppLayout(props) {
     const gBackgroundImage = useSelector(selectBackgroundImage);
     const gTheme = useSelector(selectCurrentTheme);
@@ -22,7 +22,7 @@ const withAppLayout = (WrappedComponent) => {
         </Head>
         <div
           className={
-            "w-full max-w-[1180px] max-h-[820px] h-[820px] m-auto relative " +
+            "w-full max-w-[100vw] max-h-[69.492vw] h-[69.492vw] m-auto relative " +
             (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
           }
           style={{

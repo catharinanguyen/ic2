@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  selectCurrentPage,
-  selectPrimaryColor,
-} from "@/store/slices/appStatusSlice";
+import { selectCurrentPage, selectPrimaryColor } from "@/store/slices/appStatusSlice";
 import { updatePageLayout } from "@/store/slices/pagesSlice";
 
 import { LAYOUT_TYPES } from "@/constants/constants";
@@ -125,27 +122,9 @@ function LayoutSelectButton(props) {
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
         >
-          <rect
-            width="60"
-            height="21"
-            rx="2"
-            transform="matrix(1 0 0 -1 9 62)"
-            fill={fillColor}
-          />
-          <rect
-            width="28"
-            height="21"
-            rx="2"
-            transform="matrix(1 0 0 -1 9 37)"
-            fill={fillColor}
-          />
-          <rect
-            width="28"
-            height="21"
-            rx="2"
-            transform="matrix(1 0 0 -1 41 37)"
-            fill={fillColor}
-          />
+          <rect width="60" height="21" rx="2" transform="matrix(1 0 0 -1 9 62)" fill={fillColor} />
+          <rect width="28" height="21" rx="2" transform="matrix(1 0 0 -1 9 37)" fill={fillColor} />
+          <rect width="28" height="21" rx="2" transform="matrix(1 0 0 -1 41 37)" fill={fillColor} />
           <path
             d="M8 2H70V-2H8V2ZM76 8V70H80V8H76ZM70 76H8V80H70V76ZM2 70V8H-2V70H2ZM8 76C4.68629 76 2 73.3137 2 70H-2C-2 75.5228 2.47715 80 8 80V76ZM76 70C76 73.3137 73.3137 76 70 76V80C75.5228 80 80 75.5228 80 70H76ZM70 2C73.3137 2 76 4.68629 76 8H80C80 2.47715 75.5228 -2 70 -2V2ZM8 -2C2.47715 -2 -2 2.47715 -2 8H2C2 4.68629 4.68629 2 8 2V-2Z"
             fill={borderColor}
@@ -195,6 +174,7 @@ function LayoutSelectButton(props) {
 
   return (
     <button
+      className="w-[6.610vw] h-[6.610vw]"
       onClick={() => {
         dispatch(
           updatePageLayout({

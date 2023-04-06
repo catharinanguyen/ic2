@@ -29,9 +29,7 @@ function ColorButton(props) {
 
   return (
     <button
-      className={
-        "colors-green radius-[8px] w-[64px] h-[64px] rounded-[8px] mr-[20px]"
-      }
+      className={"colors-green radius-[8px] w-[5.424vw] h-[5.424vw] rounded-[8px] mr-[20px]"}
       style={{ backgroundColor: color, border: "4px solid", ...styleActive }}
       onClick={() => {
         dispatch(setPrimaryColor(color));

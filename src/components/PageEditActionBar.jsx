@@ -1,17 +1,8 @@
 import { useDispatch, useSelector } from "react-redux";
 import Image from "next/image";
 
-import {
-  addPage,
-  removePage,
-  selectAllPages,
-  selectTotalPages,
-} from "@/store/slices/pagesSlice";
-import {
-  selectCurrentPage,
-  selectCurrentTheme,
-  setPage,
-} from "@/store/slices/appStatusSlice";
+import { addPage, removePage, selectAllPages, selectTotalPages } from "@/store/slices/pagesSlice";
+import { selectCurrentPage, selectCurrentTheme, setPage } from "@/store/slices/appStatusSlice";
 
 import image from "../../public/icons";
 
@@ -42,11 +33,7 @@ function PageEditActionBar() {
     <div className="flex justify-between items-center h-fit mt-3">
       {gAllPages.length > MIN_PAGES ? (
         <button
-          className={
-            gTheme == THEME_KEYS.SOPHISTICATED
-              ? "w-[64px]"
-              : "w-[56px] mb-[10px]"
-          }
+          className={gTheme == THEME_KEYS.SOPHISTICATED ? "w-[64px]" : "w-[56px] mb-[10px]"}
           type="button"
           onClick={() => {
             dispatch(
@@ -60,11 +47,7 @@ function PageEditActionBar() {
           }}
         >
           <Image
-            src={
-              gTheme == THEME_KEYS.SOPHISTICATED
-                ? image.Delete
-                : image.DeleteSimplicity
-            }
+            src={gTheme == THEME_KEYS.SOPHISTICATED ? image.Delete : image.DeleteSimplicity}
             alt="Delete"
           />
         </button>
@@ -74,11 +57,7 @@ function PageEditActionBar() {
       <div>{renderPageButtonList()}</div>
       {gAllPages.length < MAX_PAGES ? (
         <button
-          className={
-            gTheme == THEME_KEYS.SOPHISTICATED
-              ? "w-[64px]"
-              : "w-[56px] mb-[10px]"
-          }
+          className={gTheme == THEME_KEYS.SOPHISTICATED ? "w-[5.424vw]" : "w-[4.746vw] mb-[10px]"}
           type="button"
           onClick={() => {
             dispatch(addPage());
@@ -86,16 +65,12 @@ function PageEditActionBar() {
           }}
         >
           <Image
-            src={
-              gTheme == THEME_KEYS.SOPHISTICATED
-                ? image.Add
-                : image.AddSimplicity
-            }
+            src={gTheme == THEME_KEYS.SOPHISTICATED ? image.Add : image.AddSimplicity}
             alt="Add"
           />
         </button>
       ) : (
-        <div className="w-[100px]]"></div>
+        <div className="w-[8.475vw]]"></div>
       )}
     </div>
   );

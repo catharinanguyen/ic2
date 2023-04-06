@@ -24,12 +24,7 @@ import SelectColorPanel from "@/components/SelectColorPanel";
 import SelectTextTypes from "./SelectTextTypes";
 import ControlComponent from "./ControlComponent";
 
-import {
-  LAYOUT_TYPES,
-  THEMES,
-  THEME_KEYS,
-  TEXT_TYPES,
-} from "@/constants/constants";
+import { LAYOUT_TYPES, THEMES, THEME_KEYS, TEXT_TYPES } from "@/constants/constants";
 
 const ControlBar = () => {
   const hiddenFileInput = React.useRef(null);
@@ -43,7 +38,7 @@ const ControlBar = () => {
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gTextType = useSelector(selectTextType);
   const styleActiveButtonText =
-    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[24px]" : "text-[28px]";
+    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[2.034vw]" : "text-[2.373vw]";
   const gBackgroundImage = useSelector(selectBackgroundImage);
 
   const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);
@@ -51,19 +46,19 @@ const ControlBar = () => {
 
   const handleUploadImage = () => {
     hiddenFileInput.current.click();
-  }
+  };
 
   useEffect(() => {
     if (!wallpaperUrl) {
       return;
     }
     var vibrant = new Vibrant(wallpaperUrl);
-    vibrant.getPalette().then((palette) => {
+    vibrant.getPalette().then(palette => {
       dispatch(setPrimaryColor(palette["Vibrant"].hex));
     });
   }, [wallpaperUrl, dispatch]);
 
-  const uploadToClient = (event) => {
+  const uploadToClient = event => {
     if (event.target.files && event.target.files[0]) {
       const image = event.target.files[0];
       const imageUrl = URL.createObjectURL(image);
@@ -73,7 +68,7 @@ const ControlBar = () => {
   };
 
   return (
-    <div className="relative h-full pb-[0px]">
+    <div className="relative w-full h-full pb-[0px]">
       <ControlComponent title="Themes">
         <div>
           <RoundBorderButton
@@ -109,9 +104,7 @@ const ControlBar = () => {
               highlightBorder={false}
               onClick={() => {
                 dispatch(setBackgroundImage(undefined));
-                dispatch(
-                  setPrimaryColor(THEMES[gTheme].colorPalette.primaryColors[0])
-                );
+                dispatch(setPrimaryColor(THEMES[gTheme].colorPalette.primaryColors[0]));
               }}
             />
           </div>
@@ -126,7 +119,7 @@ const ControlBar = () => {
       )}
       <ControlComponent title="Layouts">
         <div className="flex flex-wrap">
-          {Object.values(LAYOUT_TYPES).map((layout) => {
+          {Object.values(LAYOUT_TYPES).map(layout => {
             return (
               <LayoutSelectButton
                 key={layout}

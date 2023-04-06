@@ -10,7 +10,7 @@ function PageWidgetsDisplay(props) {
 
   return (
     <div className="grid grid-cols-2 grid-rows-2">
-      <div className="row-span-2 col-span-2 h-[820px] gap-3 px-1">
+      <div className="row-span-2 col-span-2 h-[69.492vw] gap-3 px-1">
         {gCurrentPage === 0 ? <AllWidgetsPage /> : <LayoutDisplay />}
       </div>
       <div className="col-span-2 flex justify-center absolute bottom-[30px] m-auto left-0 right-0 box-border z-10">

@@ -5,16 +5,13 @@ import { useSelector } from "react-redux";
 
 const ControlComponent = ({ children, title }) => {
   const gTextType = useSelector(selectTextType);
-  const styleActiveText =
-    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "" : "text-[20px]";
+  const styleActiveText = gTextType == capitalize(TEXT_TYPES.COMPACT) ? "" : "text-[1.595vw]";
   const styleActiveTitle =
-    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[20px]" : "text-[24px]";
+    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[1.595vw]" : "text-[1.795vw]";
 
   return (
-    <div className={"mb-[15px] " + styleActiveText}>
-      <h3 className={"font-semibold leading-[30px] " + styleActiveTitle}>
-        {title}
-      </h3>
+    <div className={"mb-[1.271vw] " + styleActiveText}>
+      <h3 className={"font-semibold leading-[2.542vw] " + styleActiveTitle}>{title}</h3>
       <div>{children}</div>
     </div>
   );
