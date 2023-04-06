@@ -1,9 +1,19 @@
-import { selectPrimaryColor } from "@/store/slices/appStatusSlice";
-import { useSelector } from "react-redux";
+import { selectCurrentPage, selectPrimaryColor, setPage } from "@/store/slices/appStatusSlice";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
 
 function Button8() {
-  const handleButtonClick = (e) => {
+  const router = useRouter();
+  const dispatch = useDispatch();
+
+  const gCurrentPage = useSelector(selectCurrentPage);
+
+  const handleButtonClick = e => {
     e.stopPropagation();
+    router.push("/management");
+    if (gCurrentPage === 0) {
+      dispatch(setPage(1));
+    }
   };
 
   const gPrimaryColor = useSelector(selectPrimaryColor);

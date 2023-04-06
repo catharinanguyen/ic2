@@ -1,6 +1,6 @@
-import { useReducer } from 'react';
+import { useReducer } from "react";
 
-import LayoutEditView from '@/components/layouts/LayoutEditView';
+import LayoutEditView from "@/components/layouts/LayoutEditView";
 
 import { LAYOUT_EDIT_CONFIG } from "@/constants/constants";
 
@@ -16,13 +16,13 @@ function LayoutEdit(props) {
     }
   );
 
-  const handleToggleWidgetActive = (widgetPosition) => {
+  const handleToggleWidgetActive = widgetPosition => {
     if (widgetPosition === localState.selectedWidgetPosition) {
       updateLocalState({ selectedWidgetPosition: null });
     } else {
       updateLocalState({ selectedWidgetPosition: widgetPosition });
     }
-  }
+  };
 
   const layoutConfig = LAYOUT_EDIT_CONFIG[layoutType];
 
