@@ -114,7 +114,12 @@ function Home() {
           <Button8 />
           {/* <SettingsButton /> */}
           <button
-            className="absolute -top-5 l-[50%] -translate-x-2/4 w-[60px] h-[38px] bg-[#1A2433] flex justify-center items-center rounded-t-md "
+            className={
+              "absolute -top-5 l-[50%] -translate-x-2/4 w-[60px] h-[38px] flex justify-center items-center " +
+              (gTheme === THEME_KEYS.SOPHISTICATED
+                ? "bg-[#15202c] rounded-t-[10px]"
+                : "bg-black rounded-t-[4px]")
+            }
             onClick={() => updateLocalState({ openBottomBar: false })}
           >
             <Image src={`/images/button-collapse.svg`} width={22} height={13} />
