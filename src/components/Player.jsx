@@ -12,7 +12,7 @@ import ProgressBar from "./ProgressBar";
 import songs from "../data/songs.json";
 import { THEME_KEYS, WIDGET_SHAPES } from "@/constants/constants";
 
-const Player = (props) => {
+const Player = props => {
   const { playerState = "pause", widgetType, widgetShape } = props;
   const dispatch = useDispatch();
 
@@ -27,7 +27,7 @@ const Player = (props) => {
   if (selectSongId < 0 || selectSongId > songs.length - 1) {
     selectSongId(0);
   }
-  const onMusicPlay = (e) => {
+  const onMusicPlay = e => {
     e.preventDefault();
 
     if (playerState === gPlayerState.toLowerCase()) {
@@ -69,9 +69,9 @@ const Player = (props) => {
   const imagePlayer = `/images/${(gPlayerState || "").toLowerCase()}-${(
     gTheme || ""
   ).toLowerCase()}.svg`;
-  const imageBackWard = `/images/backward-${(
-    widgetType || ""
-  ).toLowerCase()}-${(gTheme || "").toLowerCase()}.svg`;
+  const imageBackWard = `/images/backward-${(widgetType || "").toLowerCase()}-${(
+    gTheme || ""
+  ).toLowerCase()}.svg`;
   const imageForWard = `/images/forward-${(widgetType || "").toLowerCase()}-${(
     gTheme || ""
   ).toLowerCase()}.svg`;
@@ -80,11 +80,11 @@ const Player = (props) => {
       {/* <ProgressBar {...{ timeProgress, duration }} /> */}
       <div
         className={
-          "absolute w-[398px] h-[123px] flex justify-around items-center right-[50%] translate-x-2/4 z-10 px-[58px] " +
+          "absolute w-[398px] h-[123px] portrait:w-[33.729vw] portrait:h-[10.424vw] flex justify-around items-center right-[50%] translate-x-2/4 z-10 px-[58px] " +
           (gTheme === THEME_KEYS.SOPHISTICATED
-            ? "bottom-[12px]"
+            ? "bottom-[12px] portrait:bottom-[1.017vw]"
             : widgetShape === WIDGET_SHAPES.FULL || WIDGET_SHAPES.VERTICAL
-            ? "bottom-[12px]"
+            ? "bottom-[12px] portrait:bottom-[1.017vw]"
             : "top-[50%]")
         }
       >

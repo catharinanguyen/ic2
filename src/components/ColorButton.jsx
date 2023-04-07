@@ -30,7 +30,7 @@ function ColorButton(props) {
   return (
     <button
       className={
-        "colors-green radius-[8px] w-[64px] h-[64px] rounded-[8px] mr-[20px]"
+        "colors-green radius-[8px] w-[64px] h-[64px] portrait:w-[5.424vw] portrait:h-[5.424vw] rounded-[8px] mr-[20px]"
       }
       style={{ backgroundColor: color, border: "4px solid", ...styleActive }}
       onClick={() => {

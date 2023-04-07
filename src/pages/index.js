@@ -86,13 +86,13 @@ function Home() {
   return (
     <>
       <div className="flex flex-1">
-        <div className="w-fit h-fit max-h-[820px] relative">
+        <div className="w-fit h-fit max-h-[820px] portrait:max-h-[63.254vw] relative">
           <Image
             src={leftPanelImageSrc}
             alt="left-pane"
             width={320}
             height={770}
-            className=" object-contain w-[320px] max-w-[320px] min-w-[320px] h-fit max-h-[770px]"
+            className=" object-contain w-[320px] max-w-[320px] min-w-[320px] portrait:w-[27.119vw] portrait:max-w-[27.119vw] portrait:min-w-[27.119vw] h-fit max-h-[770px] portrait:max-h-[64.254vw]"
           />
           {gUser.email && (
             <div className="absolute bottom-3 left-3">
@@ -100,7 +100,7 @@ function Home() {
             </div>
           )}
         </div>
-        <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 px-1 w-full h-[820px] max-h-[820px] relative">
+        <div className="mx-auto box-border flex-auto items-center justify-center grid grid-cols-2 grid-rows-2 px-1 w-full h-[820px] max-h-[820px] portrait:h-[69.492vw] portrait:max-h-[69.492vw] relative">
           <div className="col-span-2 row-span-2 h-fit">{renderContent()}</div>
         </div>
       </div>
