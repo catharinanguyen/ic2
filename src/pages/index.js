@@ -29,6 +29,8 @@ import { THEME_KEYS } from "@/constants/constants";
 import withAppLayout from "@/components/hoc/withAppLayout";
 import UserAvatarButton from "@/components/UserAvatarButton";
 import LogoutPopup from "@/components/popups/LogoutPopup";
+import Button9 from "@/components/Carhavc";
+import Carhavc from "@/components/Carhavc";
 
 function Home() {
   const dispatch = useDispatch();
@@ -110,7 +112,7 @@ function Home() {
       {localState.openBottomBar === true && (
         <div
           className={
-            "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-20 transfrom " +
+            "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-16 transfrom " +
             (gTheme == THEME_KEYS.SOPHISTICATED
               ? 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
               : 'bg-[url("/images/bottom-bar-bg-light.svg")]')
@@ -124,6 +126,7 @@ function Home() {
           <Button4 />
           <Button7 />
           <Button8 />
+          <Carhavc />
           {/* <SettingsButton /> */}
           <button
             className={
@@ -134,7 +137,12 @@ function Home() {
             }
             onClick={() => updateLocalState({ openBottomBar: false })}
           >
-            <Image src={`/images/button-collapse.svg`} width={22} height={13} />
+            <Image
+              className="w-[initial]"
+              src={`/images/button-collapse.svg`}
+              width={22}
+              height={13}
+            />
           </button>
         </div>
       )}
