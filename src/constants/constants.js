@@ -4,7 +4,6 @@ export const MIN_PAGES = 1;
 export const THEME_KEYS = {
   SOPHISTICATED: "SOPHISTICATED",
   MODERN: "MODERN",
-  RETRO: "RETRO",
 };
 
 export const THEMES = {

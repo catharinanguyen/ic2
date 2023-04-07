@@ -16,7 +16,7 @@ import MessagesWidget from "./messages-widget.jpg";
 import MessagesWidgetLight from "./messages-widget-light.jpg";
 import ListWidget from "./list-widget.jpg";
 import ListWidgetLight from "./list-widget-light.jpg";
-import SophisticatedTheme from "./sophi.png";
+import SophisticatedTheme from "./sophisticated.png";
 import ModernTheme from "./modern.png";
 import RetroTheme from "./retro.png";
 

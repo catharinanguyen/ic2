@@ -11,7 +11,6 @@ function ColorButton(props) {
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const dispatch = useDispatch();
   const gTheme = useSelector(selectCurrentTheme);
-  console.log(color);
 
   const styleActive =
     gPrimaryColor == color
