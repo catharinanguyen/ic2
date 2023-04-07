@@ -22,7 +22,7 @@ const withAppLayout = WrappedComponent => {
         </Head>
         <div
           className={
-            "w-full max-w-[100vw] max-h-[69.492vw] h-[69.492vw] m-auto relative " +
+            "w-full max-w-[1180px] max-h-[820px] h-[820px] portrait:max-w-[100vw] portrait:max-h-[69.492vw] portrait:h-[69.492vw] m-auto relative " +
             (gTheme == THEME_KEYS.SOPHISTICATED ? "bg-black" : "bg-gray")
           }
           style={{

@@ -174,7 +174,7 @@ function LayoutSelectButton(props) {
 
   return (
     <button
-      className="w-[6.610vw] h-[6.610vw]"
+      className="portrait:w-[6.610vw] portrait:h-[6.610vw]"
       onClick={() => {
         dispatch(
           updatePageLayout({

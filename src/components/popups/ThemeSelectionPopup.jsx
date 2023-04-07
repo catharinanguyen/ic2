@@ -39,7 +39,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">Sophisticated</h2>
-                <div className="border-4 border-border_green w-[63.559vw]">
+                <div className="border-4 border-border_green w-[770px] portrait:w-[63.559vw]">
                   <Image src={images.SophisticatedTheme} alt="Sophisticated" />
                 </div>
               </div>
@@ -52,7 +52,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
                 }}
               >
                 <h2 className="text-[24px] font-semibold mb-[30px] text-center">Modern</h2>
-                <div className="border-4 border-border_green w-[63.559vw]">
+                <div className="border-4 border-border_green w-[770px] portrait:w-[63.559vw]">
                   <Image src={images.ModernTheme} alt="Modern" />
                 </div>
               </div>

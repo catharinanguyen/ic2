@@ -80,11 +80,11 @@ const Player = props => {
       {/* <ProgressBar {...{ timeProgress, duration }} /> */}
       <div
         className={
-          "absolute w-[33.729vw] h-[10.424vw] flex justify-around items-center right-[50%] translate-x-2/4 z-10 px-[58px] " +
+          "absolute w-[398px] h-[123px] portrait:w-[33.729vw] portrait:h-[10.424vw] flex justify-around items-center right-[50%] translate-x-2/4 z-10 px-[58px] " +
           (gTheme === THEME_KEYS.SOPHISTICATED
-            ? "bottom-[1.017vw]"
+            ? "bottom-[12px] portrait:bottom-[1.017vw]"
             : widgetShape === WIDGET_SHAPES.FULL || WIDGET_SHAPES.VERTICAL
-            ? "bottom-[1.017vw]"
+            ? "bottom-[12px] portrait:bottom-[1.017vw]"
             : "top-[50%]")
         }
       >

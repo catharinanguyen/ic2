@@ -38,7 +38,9 @@ const ControlBar = () => {
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gTextType = useSelector(selectTextType);
   const styleActiveButtonText =
-    gTextType == capitalize(TEXT_TYPES.COMPACT) ? "text-[2.034vw]" : "text-[2.373vw]";
+    gTextType == capitalize(TEXT_TYPES.COMPACT)
+      ? "text-[24px] portrait:text-[2.034vw]"
+      : "text-[28px] portrait:text-[2.373vw]";
   const gBackgroundImage = useSelector(selectBackgroundImage);
 
   const [showThemesSelectionPopup, setShowThemesSelectionPopup] = useState(false);

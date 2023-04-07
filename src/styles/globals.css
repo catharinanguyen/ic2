@@ -133,7 +133,7 @@ body {
   overflow-x: hidden;
   font-family: theme("fontFamily.sans");
   color: theme("colors.black");
-  font-size: 1.525vw;
+  font-size: 18px;
 }
 
 body {
@@ -182,7 +182,6 @@ embed,
 object {
   display: block;
   vertical-align: middle;
-  width: 100%;
 }
 
 img,
@@ -205,5 +204,23 @@ button:focus {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media (orientation: portrait) {
+  html,
+  body {
+    font-size: 1.525vw;
+  }
+
+  img,
+  svg,
+  video,
+  canvas,
+  audio,
+  iframe,
+  embed,
+  object {
+    width: 100%;
   }
 }

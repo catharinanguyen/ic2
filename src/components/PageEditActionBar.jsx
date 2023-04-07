@@ -57,7 +57,11 @@ function PageEditActionBar() {
       <div>{renderPageButtonList()}</div>
       {gAllPages.length < MAX_PAGES ? (
         <button
-          className={gTheme == THEME_KEYS.SOPHISTICATED ? "w-[5.424vw]" : "w-[4.746vw] mb-[10px]"}
+          className={
+            gTheme == THEME_KEYS.SOPHISTICATED
+              ? "w-[64px] portrait:w-[5.424vw]"
+              : "w-[56px] portrait:w-[4.746vw] mb-[10px]"
+          }
           type="button"
           onClick={() => {
             dispatch(addPage());
@@ -70,7 +74,7 @@ function PageEditActionBar() {
           />
         </button>
       ) : (
-        <div className="w-[8.475vw]]"></div>
+        <div className="w-[100px] portrait:w-[8.475vw]"></div>
       )}
     </div>
   );
