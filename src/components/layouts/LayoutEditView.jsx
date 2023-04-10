@@ -31,7 +31,7 @@ function LayoutEditView(props) {
       ? gTheme == THEME_KEYS.SOPHISTICATED
         ? { background: `linear-gradient( rgba(26, 36, 51, 0.8), rgba(32, 71, 94, 0.8))` }
         : { backgroundColor: "#ffffff" }
-      : { backgroundColor: hexToRgba(gPrimaryColor, 0.8) };
+      : { backgroundColor: hexToRgba(gPrimaryColor, 0.2) };
 
   return (
     <div

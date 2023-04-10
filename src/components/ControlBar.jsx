@@ -68,6 +68,7 @@ const ControlBar = () => {
       dispatch(setBackgroundImage(imageUrl));
     }
   };
+  console.log(gPrimaryColor);
 
   return (
     <div className="relative w-full h-full pb-[0px]">

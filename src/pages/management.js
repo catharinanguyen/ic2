@@ -31,6 +31,11 @@ const Management = () => {
         : { backgroundColor: "#ffffff" }
       : { backgroundColor: hexToRgba(gPrimaryColor, 0.2) };
 
+  const backgroundOverlay =
+    gBackgroundImage === undefined || gBackgroundImage === null
+      ? { backgroundColor: "transparent" }
+      : { backgroundColor: "rgba(0,0,0,0.8)" };
+
   const renderLayout = () => {
     if (!gPageInfo) {
       return <div />;
@@ -41,7 +46,7 @@ const Management = () => {
   };
 
   return (
-    <div className="flex flex-1">
+    <div className="flex flex-1" style={backgroundOverlay}>
       <div
         className={
           "min-w-[320px] max-w-[320px] max-h-[820px] h-[820px] items-start px-[30px] py-[20px] portrait:min-w-[27.119vw] portrait:max-w-[27.119vw] portrait:max-h-[69.492vw] portrait:h-[69.492vw] portrait:items-start portrait:px-[2.542vw] portrait:py-[1.695vw] " +
