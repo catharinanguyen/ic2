@@ -22,7 +22,13 @@ const MapButtons = props => {
       style={buttonStyle}
       onClick={onClick}
     >
-      <Image className="w-auto" src={buttonImg} alt="Voice Map" width={50} height={50} />
+      <Image
+        className="w-auto hover:opacity-60"
+        src={buttonImg}
+        alt="Voice Map"
+        width={50}
+        height={50}
+      />
     </button>
   );
 };
