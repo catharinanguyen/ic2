@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import { useSelector } from "react-redux";
+import hexToRgba from "hex-to-rgba";
 
 import {
   selectBackgroundImage,
@@ -13,7 +14,6 @@ import WidgetIconWithName from "@/components/WidgetIconWithName";
 import WidgetSelectionGrid from "@/components/WidgetSelectionGrid";
 
 import { THEME_KEYS } from "@/constants/constants";
-import hexToRgba from "hex-to-rgba";
 
 function LayoutEditView(props) {
   const gTheme = useSelector(selectCurrentTheme);
