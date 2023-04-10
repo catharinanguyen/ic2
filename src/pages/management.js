@@ -8,13 +8,14 @@ import {
 } from "@/store/slices/appStatusSlice";
 import { selectPageInfo } from "@/store/slices/pagesSlice";
 
+import withLoginLogout from "@/components/hoc/withLoginLogout";
+
 import ControlBar from "../components/ControlBar";
 import PageEditActionBar from "@/components/PageEditActionBar";
 import LayoutEdit from "@/components/layouts/LayoutEdit";
 
 import { THEME_KEYS } from "@/constants/constants";
 import withAppLayout from "@/components/hoc/withAppLayout";
-import { hexToRgb } from "node-vibrant/lib/util";
 import hexToRgba from "hex-to-rgba";
 
 const Management = () => {
@@ -70,4 +71,4 @@ const Management = () => {
   );
 };
 
-export default withAppLayout(Management);
+export default withLoginLogout(withAppLayout(Management));

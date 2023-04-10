@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 
 import Image from "next/image";
 
@@ -10,7 +10,10 @@ import {
   selectCurrentTheme,
   selectPrimaryColor,
 } from "@/store/slices/appStatusSlice";
-import { logout, selectUser } from "@/store/slices/userSlice";
+import { selectUser } from "@/store/slices/userSlice";
+
+import withLoginLogout from "@/components/hoc/withLoginLogout";
+import withAppLayout from "@/components/hoc/withAppLayout";
 
 import BottomBarButton from "@/components/BottomBarButton";
 import Button1 from "@/components/Button1";
@@ -20,20 +23,15 @@ import Button4 from "@/components/Button4";
 import Button5 from "@/components/Button5";
 import Button7 from "@/components/Button7";
 import Button8 from "@/components/Button8";
+import Carhavc from "@/components/Carhavc";
 import FullWidgetDisplay from "@/components/FullWidgetDisplay";
-import LoginPopup from "@/components/popups/LoginPopup";
 import PageWidgetsDisplay from "@/components/PageWidgetsDisplay";
-import SettingsButton from "@/components/SettingsButton";
+import UserAvatarButton from "@/components/UserAvatarButton";
 
 import { THEME_KEYS } from "@/constants/constants";
-import withAppLayout from "@/components/hoc/withAppLayout";
-import UserAvatarButton from "@/components/UserAvatarButton";
-import LogoutPopup from "@/components/popups/LogoutPopup";
-import Button9 from "@/components/Carhavc";
-import Carhavc from "@/components/Carhavc";
 
-function Home() {
-  const dispatch = useDispatch();
+function Home(props) {
+  const { showLogoutPopup } = props;
 
   const gCurrentPage = useSelector(selectCurrentPage);
   const gPageInfo = useSelector(selectPageInfo(gCurrentPage));
@@ -80,11 +78,6 @@ function Home() {
 
   const leftPanelImageSrc = `/images/left-panel-${leftImageTheme}.jpg`;
 
-  const handleLogout = () => {
-    dispatch(logout());
-    updateLocalState({ showLogoutPopup: false });
-  };
-
   return (
     <>
       <div className="flex flex-1">
@@ -98,7 +91,7 @@ function Home() {
           />
           {gUser.email && (
             <div className="absolute bottom-3 left-3">
-              <UserAvatarButton onClick={() => updateLocalState({ showLogoutPopup: true })} />
+              <UserAvatarButton onClick={() => showLogoutPopup(true)} />
             </div>
           )}
         </div>
@@ -142,18 +135,13 @@ function Home() {
               src={`/images/button-collapse.svg`}
               width={22}
               height={13}
+              alt="collapse-button"
             />
           </button>
         </div>
       )}
-      <LoginPopup isVisible={!gUser.email} />
-      <LogoutPopup
-        isVisible={localState.showLogoutPopup}
-        onOk={handleLogout}
-        onCancel={() => updateLocalState({ showLogoutPopup: false })}
-      />
     </>
   );
 }
 
-export default withAppLayout(Home);
+export default withLoginLogout(withAppLayout(Home));
