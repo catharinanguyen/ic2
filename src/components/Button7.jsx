@@ -18,6 +18,7 @@ function Button7() {
   return (
     <button type="button" onClick={handleButtonClick}>
       <svg
+        className="hover:opacity-80"
         width="40"
         height="40"
         viewBox="0 0 40 40"

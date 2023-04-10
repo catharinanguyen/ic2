@@ -89,10 +89,17 @@ const Player = props => {
         }
       >
         <div className="cursor-pointer" onClick={onBackwardClick}>
-          <Image src={imageBackWard} alt="backward" width={64} height={64} />
+          <Image
+            className="hover:opacity-60"
+            src={imageBackWard}
+            alt="backward"
+            width={64}
+            height={64}
+          />
         </div>
         <div className="cursor-pointer" onClick={onMusicPlay}>
           <Image
+            className="hover:opacity-60"
             src={imagePlayer}
             alt="Play"
             width={gTheme === THEME_KEYS.SOPHISTICATED ? 96 : 64}
@@ -100,7 +107,13 @@ const Player = props => {
           />
         </div>
         <div className="cursor-pointer" onClick={onForwardClick}>
-          <Image src={imageForWard} alt="forward" width={64} height={64} />
+          <Image
+            className="hover:opacity-60"
+            src={imageForWard}
+            alt="forward"
+            width={64}
+            height={64}
+          />
         </div>
         <audio
           ref={audioRef}
