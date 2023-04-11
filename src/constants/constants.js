@@ -1,4 +1,4 @@
-export const MAX_PAGES = 10;
+export const MAX_PAGES = 9;
 export const MIN_PAGES = 1;
 
 export const THEME_KEYS = {

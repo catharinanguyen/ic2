@@ -14,7 +14,12 @@ const ControlComponent = ({ children, title }) => {
 
   return (
     <div className={"mb-[15px] portrait:mb-[1.271vw] " + styleActiveText}>
-      <h3 className={"font-semibold leading-[30px] portrait:leading-[2.542vw] " + styleActiveTitle}>
+      <h3
+        className={
+          "font-semibold leading-[30px] text-gray_title portrait:leading-[2.542vw] " +
+          styleActiveTitle
+        }
+      >
         {title}
       </h3>
       <div>{children}</div>

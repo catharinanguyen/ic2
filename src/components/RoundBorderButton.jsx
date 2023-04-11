@@ -5,11 +5,7 @@ import { selectCurrentTheme, selectPrimaryColor } from "@/store/slices/appStatus
 import { THEME_KEYS } from "@/constants/constants";
 
 function RoundBorderButton(props) {
-  const {
-    text,
-    highlightBorder = true,
-    onClick,
-  } = props;
+  const { text, highlightBorder = true, onClick } = props;
 
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gTheme = useSelector(selectCurrentTheme);
@@ -17,18 +13,19 @@ function RoundBorderButton(props) {
   return (
     <button
       className={
-        "w-full button " +
-        (gTheme == THEME_KEYS.SOPHISTICATED
-          ? "button"
-          : "button-simplicity")
+        "w-full button " + (gTheme == THEME_KEYS.SOPHISTICATED ? "button" : "button-simplicity")
       }
       style={{
         borderColor: highlightBorder
           ? gPrimaryColor
-          : gTheme == THEME_KEYS.SOPHISTICATED ? 'white' : '#8c8c8c',
+          : gTheme == THEME_KEYS.SOPHISTICATED
+          ? "#ffffff"
+          : "#8c8c8c",
         color: highlightBorder
           ? gPrimaryColor
-          : gTheme == THEME_KEYS.SOPHISTICATED ? 'white' : '#8c8c8c',
+          : gTheme == THEME_KEYS.SOPHISTICATED
+          ? "#ffffff"
+          : "#8c8c8c",
       }}
       type="button"
       onClick={onClick}
