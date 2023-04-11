@@ -10,6 +10,8 @@ import {
 import { THEME_KEYS, WIDGET_SHAPES, WIDGET_TYPES } from "@/constants/constants";
 import Player from "./Player";
 import VoiceMapDirectionButton from "./VoiceMapDirectionButton";
+import SearchMapButton from "./SearchMapButton";
+import CompassMapButton from "./CompassMapButton";
 
 function WidgetDisplay(props) {
   const { widgetType, widgetShape } = props;
@@ -75,12 +77,14 @@ function WidgetDisplay(props) {
               "absolute flex z-10 " +
               (widgetShape === WIDGET_SHAPES.CELL
                 ? gTheme === THEME_KEYS.SOPHISTICATED
-                  ? "bottom-[50%] translate-y-[76%] right-[50%] translate-x-2/4 flex-row"
-                  : "right-[50%] translate-x-2/4 flex-row bottom-[12px]"
-                : "right-[12px] bottom-[50%] translate-y-2/4 flex-col")
+                  ? "bottom-[50%] translate-y-[76%] right-[50%] translate-x-2/4 flex-row space-x-3"
+                  : "right-[50%] translate-x-2/4 flex-row bottom-[12px] space-x-3"
+                : "right-[12px] bottom-[50%] translate-y-2/4 flex-col space-y-3 ")
             }
           >
+            <SearchMapButton />
             <VoiceMapDirectionButton />
+            <CompassMapButton />
           </div>
           <Image
             src={imageSrc}
