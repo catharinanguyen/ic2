@@ -59,10 +59,6 @@ function PageEditActionBar() {
             }
           }}
         >
-          {/* <Image
-            src={gTheme == THEME_KEYS.SOPHISTICATED ? image.Delete : image.DeleteSimplicity}
-            alt="Delete"
-          /> */}
           {gTheme === THEME_KEYS.SOPHISTICATED ? (
             <svg
               width="64"
@@ -271,10 +267,6 @@ function PageEditActionBar() {
             dispatch(setPage(gTotalPages + 1));
           }}
         >
-          {/* <Image
-            src={gTheme == THEME_KEYS.SOPHISTICATED ? image.Add : image.AddSimplicity}
-            alt="Add"
-          /> */}
           {gTheme === THEME_KEYS.SOPHISTICATED ? (
             <svg
               width="64"

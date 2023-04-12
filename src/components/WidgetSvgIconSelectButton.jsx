@@ -11,27 +11,41 @@ function WidgetSvgIconSelectButton(props) {
   const gTheme = useSelector(selectCurrentTheme);
   const gPrimaryColor = useSelector(selectPrimaryColor);
 
-  const { type, fill, onClick } = props;
+  const { type, fill, onClick, disabled = false } = props;
 
   const activeBorderClass =
     gTheme == THEME_KEYS.SOPHISTICATED
       ? {
-          borderWidth: "2px",
-          borderColor: gPrimaryColor,
-          borderRadius: "6px",
-        }
+        borderWidth: "2px",
+        borderColor: gPrimaryColor,
+        borderRadius: "6px",
+      }
       : { backgroundColor: "#EFEFEF", borderRadius: "6px" };
 
-  const svgIcon = getWidgetSvgIconByType({ widgetType: type, fill });
+  const svgIcon = getWidgetSvgIconByType({
+    widgetType: type,
+    fill: disabled ? `${fill || '#CABFB9'}22` : fill,
+  });
 
   return (
-    <button
-      className={clsx("bg-transparent w-fit h-fit")}
-      style={fill ? { ...activeBorderClass } : {}}
-      onClick={onClick}
+    <div
+      onClick={(e) => {
+        if (disabled) {
+          e.stopPropagation();
+        }
+      }}
     >
-      {svgIcon}
-    </button>
+      <button
+        className={clsx(
+          "bg-transparent w-fit h-fit",
+        )}
+        style={fill ? { ...activeBorderClass } : {}}
+        onClick={onClick}
+        disabled={disabled}
+      >
+        {svgIcon}
+      </button>
+    </div>
   );
 }
 

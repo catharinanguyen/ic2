@@ -38,9 +38,14 @@ export const pagesSlice = createSlice({
     },
     updatePageLayout: (state, action) => {
       const { pageNo, layout } = action.payload;
-      const page = state.allPages[pageNo - 1];
-      page.layout = layout;
-      state.allPages = [...state.allPages];
+      const subPagesFront = state.allPages.slice(0, pageNo - 1);
+      const subPagesBehind = state.allPages.slice(pageNo);
+      const updatedCurrentPage = {
+        layout,
+        widgets: {},
+      }
+      state.allPages = [...subPagesFront, { ...updatedCurrentPage }, ...subPagesBehind];
+      return state;
     },
     switchWidget: (state, action) => {
       const { pageNo, position, widgetType } = action.payload;

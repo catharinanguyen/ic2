@@ -13,7 +13,7 @@ function LayoutEdit(props) {
     },
     {
       selectedWidgetPosition: null,
-    }
+    },
   );
 
   const handleToggleWidgetActive = widgetPosition => {
