@@ -1,9 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  selectCurrentPage,
-  selectPrimaryColor,
-} from "@/store/slices/appStatusSlice";
+import { selectCurrentPage, selectPrimaryColor } from "@/store/slices/appStatusSlice";
 import { selectPageInfo, switchWidget } from "@/store/slices/pagesSlice";
 
 import WidgetSvgIconSelectButton from "@/components/WidgetSvgIconSelectButton";
@@ -23,7 +20,7 @@ function WidgetSelectionGrid(props) {
     .filter(([key, value]) => key !== position)
     .map(([key, value]) => value);
 
-  const handleSelectWidget = (widgetType) => {
+  const handleSelectWidget = widgetType => {
     dispatch(
       switchWidget({
         pageNo: gCurrentPage,
@@ -36,14 +33,14 @@ function WidgetSelectionGrid(props) {
   return (
     <div
       className="grid grid-cols-3 grid-rows-3 gap-2 bg-transparent w-fit h-fit m-auto"
-    // onClick={(e) => e.stopPropagation()}
+      // onClick={(e) => e.stopPropagation()}
     >
-      {Object.values(WIDGET_TYPES).map((widgetType) => {
+      {Object.values(WIDGET_TYPES).map(widgetType => {
         return (
           <WidgetSvgIconSelectButton
             key={widgetType}
             type={widgetType}
-            onClick={(e) => {
+            onClick={e => {
               handleSelectWidget(widgetType);
             }}
             fill={currentWidget === widgetType ? gPrimaryColor : undefined}

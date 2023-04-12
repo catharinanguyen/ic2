@@ -1,10 +1,7 @@
 import clsx from "clsx";
 import { useSelector } from "react-redux";
 
-import {
-  selectCurrentTheme,
-  selectPrimaryColor,
-} from "@/store/slices/appStatusSlice";
+import { selectCurrentTheme, selectPrimaryColor } from "@/store/slices/appStatusSlice";
 
 import { getWidgetSvgIconByType } from "@/utils/widgetUtils";
 

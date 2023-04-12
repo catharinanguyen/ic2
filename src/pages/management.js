@@ -59,7 +59,7 @@ const Management = () => {
       </div>
       <div className="w-full max-h-[820px] h-[820px] portrait:max-h-[69.492vw] portrait:h-[69.492vw] items-center justify-center">
         <div className="h-[820px] portrait:h-[69.492vw]">
-          <div className="grid grid-cols-2 grid-rows-2 mx-auto p-2 box-border h-full">
+          <div className="grid grid-cols-2 grid-rows-2 mx-auto py-2 px-1 box-border h-full">
             <div className="row-span-2 col-span-2">{renderLayout()}</div>
             <div className="col-span-2 h-[73px]">
               <PageEditActionBar />

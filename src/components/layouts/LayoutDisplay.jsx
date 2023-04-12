@@ -22,7 +22,7 @@ function LayoutDisplay(props) {
   }
 
   return (
-    <div className="grid grid-cols-2 grid-rows-4 gap-3 px-2 pt-3 pb-[50px] mx-auto box-border h-full">
+    <div className="grid grid-cols-2 grid-rows-4 gap-3 px-1 pt-3 pb-[50px] mx-auto box-border h-full">
       {layoutConfig.map(item => {
         const { position } = item;
         const className = `${item.className} relative`;
