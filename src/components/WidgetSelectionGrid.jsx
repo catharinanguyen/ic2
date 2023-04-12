@@ -17,7 +17,11 @@ function WidgetSelectionGrid(props) {
   const gPrimaryColor = useSelector(selectPrimaryColor);
 
   const { position } = props;
+  const pageWidgets = gPageInfo.widgets;
   const currentWidget = gPageInfo.widgets[position];
+  const unavailableWidgets = Object.entries(pageWidgets)
+    .filter(([key, value]) => key !== position)
+    .map(([key, value]) => value);
 
   const handleSelectWidget = (widgetType) => {
     dispatch(
@@ -30,14 +34,20 @@ function WidgetSelectionGrid(props) {
   };
 
   return (
-    <div className="grid grid-cols-3 grid-rows-3 gap-2 bg-transparent w-fit h-fit m-auto ">
+    <div
+      className="grid grid-cols-3 grid-rows-3 gap-2 bg-transparent w-fit h-fit m-auto"
+    // onClick={(e) => e.stopPropagation()}
+    >
       {Object.values(WIDGET_TYPES).map((widgetType) => {
         return (
           <WidgetSvgIconSelectButton
             key={widgetType}
             type={widgetType}
-            onClick={() => handleSelectWidget(widgetType)}
+            onClick={(e) => {
+              handleSelectWidget(widgetType);
+            }}
             fill={currentWidget === widgetType ? gPrimaryColor : undefined}
+            disabled={unavailableWidgets.includes(widgetType)}
           />
         );
       })}
