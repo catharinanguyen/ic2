@@ -13,8 +13,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
 
   const themeKey = Object.values(THEME_KEYS);
 
-  const backgroundStyle =
-    gTheme === THEME_KEYS.SOPHISTICATED ? "bg-gradient-to-r from-bg-card to-bg-card1" : "bg-white";
+  const backgroundStyle = gTheme === THEME_KEYS.SOPHISTICATED ? "bg-[#16212d]" : "bg-white";
 
   const fillColor = gTheme === THEME_KEYS.SOPHISTICATED ? "#ffffff" : "#141524";
 
@@ -25,7 +24,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
   if (!isVisible) return null;
   return (
     <div
-      className="fixed top-0 left-0 right-0 bottom-0 w-full flex justify-center items-center bg-black bg-opacity-20 backdrop-blur-sm z-10"
+      className="fixed top-0 left-0 right-0 bottom-0 w-full flex justify-center items-center bg-black bg-opacity-40 backdrop-blur-sm z-10"
       id="wrapper"
     >
       <div
@@ -48,7 +47,7 @@ function ThemeSelectionPopup({ isVisible, onClose }) {
           </svg>
         </button>
         <div className="overflow-hidden">
-          <div className="overflow-scroll overflow-y-hidden">
+          <div className="overflow-scroll overflow-y-hidden pb-4" id="custom-scrollbar">
             <div className="flex w-[1500px]">
               {themeKey.map(theme => {
                 return <ThemeButton key={theme} theme={theme} onClose={onClose} />;
