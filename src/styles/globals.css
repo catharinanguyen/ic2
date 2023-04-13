@@ -14,7 +14,7 @@
 
   .card-simplicity {
     color: theme("colors.gray_text_simplicity");
-    padding: 25px;
+    padding: 5px;
     display: flex;
     justify-content: center;
     align-items: center;
