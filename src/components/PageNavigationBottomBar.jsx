@@ -25,10 +25,10 @@ function PageNavigationBottomBar() {
     <div
       className={
         "box-border p-1 px-3 rounded-full flex items-center " +
-        (gTheme == THEME_KEYS.SOPHISTICATED
-          ? gBackgroundImage !== undefined || gBackgroundImage !== null
-            ? "bg-[#343332] shadow-lg"
-            : "bg-gradient-to-b from-[#1a2433] to-[#20475e]"
+        (gTheme === THEME_KEYS.SOPHISTICATED
+          ? gBackgroundImage === undefined || gBackgroundImage === null
+            ? "bg-gradient-to-b from-[#1a2433] to-[#20475e]"
+            : "bg-[#343332] shadow-lg"
           : "bg-white shadow")
       }
     >

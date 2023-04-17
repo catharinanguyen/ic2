@@ -14,9 +14,9 @@ function BottomBarButton(props) {
       className={
         "mx-auto h-[38px]  w-full flex justify-center items-center " +
         (gTheme === THEME_KEYS.SOPHISTICATED
-          ? gBackgroundImage !== undefined || gBackgroundImage !== null
-            ? "rounded-t-[30px] bg-[#343332]"
-            : "rounded-t-[30px] bg-gradient-to-r from-[#1A2433] to-[#20475E]"
+          ? gBackgroundImage === undefined || gBackgroundImage === null
+            ? "rounded-t-[30px] bg-gradient-to-r from-[#1A2433] to-[#20475E]"
+            : "rounded-t-[30px] bg-[#343332]"
           : "bg-black")
       }
       onClick={onClick}
