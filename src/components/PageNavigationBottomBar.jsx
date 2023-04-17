@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { selectTotalPages } from "@/store/slices/pagesSlice";
 import {
+  selectBackgroundImage,
   selectCurrentPage,
   selectCurrentTheme,
   selectPrimaryColor,
@@ -18,13 +19,16 @@ function PageNavigationBottomBar() {
   const gTotalPages = useSelector(selectTotalPages);
   const gTheme = useSelector(selectCurrentTheme);
   const gPrimaryColor = useSelector(selectPrimaryColor);
+  const gBackgroundImage = useSelector(selectBackgroundImage);
 
   return (
     <div
       className={
         "box-border p-1 px-3 rounded-full flex items-center " +
         (gTheme == THEME_KEYS.SOPHISTICATED
-          ? "bg-gradient-to-b from-[#1a2433] to-[#20475e]"
+          ? gBackgroundImage !== undefined || gBackgroundImage !== null
+            ? "bg-[#343332] shadow-lg"
+            : "bg-gradient-to-b from-[#1a2433] to-[#20475e]"
           : "bg-white shadow")
       }
     >
@@ -47,11 +51,7 @@ function PageNavigationBottomBar() {
         </svg>
       </button>
       {Array.from({ length: gTotalPages }, (v, index) => (
-        <DotButton
-          key={index}
-          pageNo={index + 1}
-          isActive={index === gCurrentPage - 1}
-        />
+        <DotButton key={index} pageNo={index + 1} isActive={index === gCurrentPage - 1} />
       ))}
     </div>
   );

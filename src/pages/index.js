@@ -114,7 +114,9 @@ function Home(props) {
           className={
             "w-full h-[104px] absolute bottom-0 left-0 right-0 bg-black flex items-center justify-center z-20 space-x-16 transfrom " +
             (gTheme == THEME_KEYS.SOPHISTICATED
-              ? 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
+              ? gBackgroundImage !== undefined || gBackgroundImage !== null
+                ? "rounded-t-[2rem] bg-[#343332]"
+                : 'rounded-t-[2rem] bg-[url("/images/bottom-bar-bg.svg")]'
               : 'bg-[url("/images/bottom-bar-bg-light.svg")]')
           }
         >
@@ -132,7 +134,9 @@ function Home(props) {
             className={
               "absolute -top-5 l-[50%] -translate-x-2/4 w-[60px] h-[38px] flex justify-center items-center " +
               (gTheme === THEME_KEYS.SOPHISTICATED
-                ? "bg-[#15202c] rounded-t-[10px]"
+                ? gBackgroundImage !== undefined || gBackgroundImage !== null
+                  ? "bg-[#343332] shadow rounded-t-[10px]"
+                  : "bg-[#15202c] rounded-t-[10px]"
                 : "bg-black rounded-t-[4px]")
             }
             onClick={() => updateLocalState({ openBottomBar: false })}
