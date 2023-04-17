@@ -1,11 +1,12 @@
 import { THEME_KEYS } from "@/constants/constants";
-import { selectCurrentTheme } from "@/store/slices/appStatusSlice";
+import { selectBackgroundImage, selectCurrentTheme } from "@/store/slices/appStatusSlice";
 import { useSelector } from "react-redux";
 
 function BottomBarButton(props) {
   const { onClick } = props;
 
   const gTheme = useSelector(selectCurrentTheme);
+  const gBackgroundImage = useSelector(selectBackgroundImage);
 
   return (
     <button
@@ -13,7 +14,9 @@ function BottomBarButton(props) {
       className={
         "mx-auto h-[38px]  w-full flex justify-center items-center " +
         (gTheme === THEME_KEYS.SOPHISTICATED
-          ? "rounded-t-[30px] bg-gradient-to-r from-[#1A2433] to-[#20475E]"
+          ? gBackgroundImage !== undefined || gBackgroundImage !== null
+            ? "rounded-t-[30px] bg-[#343332]"
+            : "rounded-t-[30px] bg-gradient-to-r from-[#1A2433] to-[#20475E]"
           : "bg-black")
       }
       onClick={onClick}
