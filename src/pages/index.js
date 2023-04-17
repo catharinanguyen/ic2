@@ -9,6 +9,7 @@ import {
   selectFullWidget,
   selectCurrentTheme,
   selectPrimaryColor,
+  selectBackgroundImage,
 } from "@/store/slices/appStatusSlice";
 import { selectUser } from "@/store/slices/userSlice";
 
@@ -39,6 +40,7 @@ function Home(props) {
   const gFullWidget = useSelector(selectFullWidget);
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gUser = useSelector(selectUser);
+  const gBackgroundImage = useSelector(selectBackgroundImage);
 
   const [localState, updateLocalState] = useReducer(
     (prev, next) => {
@@ -58,22 +60,27 @@ function Home(props) {
   };
 
   let leftImageTheme;
-  switch (gPrimaryColor) {
-    case "#04D5B7":
-      leftImageTheme = "dark";
-      break;
-    case "#0056FE":
-      leftImageTheme = "sophisticated-blue";
-      break;
-    case "#0072DE":
-      leftImageTheme = "light";
-      break;
-    case "#FF3366":
-      leftImageTheme = "modern-pink";
-      break;
-    default:
-      leftImageTheme = gTheme === THEME_KEYS.SOPHISTICATED ? "dark" : "light";
-      break;
+  if (gBackgroundImage === undefined || gBackgroundImage === null) {
+    switch (gPrimaryColor) {
+      case "#04D5B7":
+        leftImageTheme = "dark";
+        break;
+      case "#0056FE":
+        leftImageTheme = "sophisticated-blue";
+        break;
+      case "#0072DE":
+        leftImageTheme = "light";
+        break;
+      case "#FF3366":
+        leftImageTheme = "modern-pink";
+        break;
+      default:
+        leftImageTheme = gTheme === THEME_KEYS.SOPHISTICATED ? "dark" : "light";
+        break;
+    }
+  } else {
+    leftImageTheme =
+      gTheme === THEME_KEYS.SOPHISTICATED ? "sophisticated-wallpaper" : "modern-wallpaper";
   }
 
   const leftPanelImageSrc = `/images/left-panel-${leftImageTheme}.jpg`;
