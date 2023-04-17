@@ -1,5 +1,9 @@
 import { THEME_KEYS } from "@/constants/constants";
-import { selectCurrentTheme, selectPrimaryColor } from "@/store/slices/appStatusSlice";
+import {
+  selectBackgroundImage,
+  selectCurrentTheme,
+  selectPrimaryColor,
+} from "@/store/slices/appStatusSlice";
 import Image from "next/image";
 import React from "react";
 import { useSelector } from "react-redux";
@@ -8,13 +12,14 @@ const MapButtons = props => {
   const { buttonImg, onClick } = props;
   const gPrimaryColor = useSelector(selectPrimaryColor);
   const gTheme = useSelector(selectCurrentTheme);
+  const gBackgroundImage = useSelector(selectBackgroundImage);
 
   // let buttonStyle;
 
   const buttonStyle =
-    gTheme === THEME_KEYS.SOPHISTICATED
-      ? { borderColor: gPrimaryColor, backgroundColor: "#000" }
-      : { borderColor: "#8C8C8C", backgroundColor: "#fff" };
+    gTheme === THEME_KEYS.MODERN
+      ? { borderColor: "#8C8C8C", backgroundColor: "#fff" }
+      : { borderColor: gPrimaryColor, backgroundColor: "#000" };
 
   return (
     <button
