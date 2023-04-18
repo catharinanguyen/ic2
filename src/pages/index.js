@@ -66,7 +66,7 @@ function Home(props) {
       case "#04D5B7":
         leftImageTheme = "dark";
         break;
-      case "#0056FE":
+      case "#057CE9":
         leftImageTheme = "sophisticated-blue";
         break;
       case "#0072DE":

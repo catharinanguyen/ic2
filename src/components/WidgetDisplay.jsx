@@ -29,7 +29,7 @@ function WidgetDisplay(props) {
       case "#04D5B7":
         widgetTheme = "dark";
         break;
-      case "#0056FE":
+      case "#057CE9":
         widgetTheme = "sophisticated-blue";
         break;
       case "#0072DE":

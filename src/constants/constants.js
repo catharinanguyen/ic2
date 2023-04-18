@@ -10,13 +10,13 @@ export const THEMES = {
   [THEME_KEYS.SOPHISTICATED]: {
     name: "Sophisticated",
     colorPalette: {
-      primaryColors: ["#04D5B7", "#0056FE"],
+      primaryColors: ["#04D5B7", "#057CE9"],
     },
   },
   [THEME_KEYS.MODERN]: {
     name: "Modern",
     colorPalette: {
-      primaryColors: ["#0072DE", "#008561", "#FF3366"],
+      primaryColors: ["#0072DE", "#FF3366"],
     },
   },
   [THEME_KEYS.RETRO]: {
